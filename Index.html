@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NovaTech Solutions (Pty) Ltd - IT Support Portal</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root{--blue:#0f4c81;--blue2:#1976d2;--grey:#f4f6f9;--dark:#1e293b;--white:#fff}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif}
+body{background:var(--grey);color:var(--dark)}
+header{background:var(--blue);color:white;padding:15px 5%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:1000}
+.logo{font-weight:800;font-size:22px;letter-spacing:1px}
+.logo span{color:#90caf9}
+nav a{color:white;text-decoration:none;margin-left:18px;font-size:14px;padding:8px 12px;border-radius:20px;cursor:pointer}
+nav a.active,nav a:hover{background:rgba(255,255,255,0.2)}
+.hero{background:linear-gradient(120deg,var(--blue),var(--blue2));color:white;padding:60px 5%;text-align:center}
+.hero h1{font-size:38px;margin-bottom:10px}
+.hero p{max-width:800px;margin:10px auto;line-height:1.6;opacity:0.9}
+.btn{background:var(--blue2);color:white;border:none;padding:12px 22px;border-radius:6px;cursor:pointer;font-weight:600}
+.btn:hover{background:var(--blue)}
+.section{display:none;padding:30px 5%;animation:fade.3s}
+.section.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.card{background:white;border-radius:12px;padding:20px;box-shadow:0 4px 15px rgba(0,0,0,0.06);margin-bottom:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+h2{color:var(--blue);margin-bottom:15px;border-left:4px solid var(--blue2);padding-left:10px}
+h3{color:var(--blue);margin:15px 0 10px}
+input,select,textarea{width:100%;padding:11px;border:1px solid #d1d5db;border-radius:6px;margin:6px 0 12px}
+label{font-weight:600;font-size:13px}
+table{width:100%;border-collapse:collapse;margin-top:10px}
+th,td{border:1px solid #e5e7eb;padding:10px;text-align:left;font-size:14px}
+th{background:var(--blue);color:white}
+.badge{padding:4px 8px;border-radius:12px;font-size:11px;font-weight:700}
+.open{background:#ffebee;color:#c62828}.progress{background:#fff8e1;color:#f57f17}.resolved{background:#e8f5e9;color:#2e7d32}
+.kb-item{border-left:4px solid var(--blue2);padding:12px;background:#f8fafc;margin-bottom:12px;border-radius:6px}
+.team-member{text-align:center}
+.team-member img{width:80px;height:80px;border-radius:50%;background:#e3f2fd;margin-bottom:10px}
+.escalation{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;margin:20px 0}
+.step{flex:1;min-width:140px;background:white;border:2px solid var(--blue2);border-radius:10px;padding:15px;text-align:center;position:relative}
+.step:after{content:'→';position:absolute;right:-15px;top:45%;color:var(--blue2);font-weight:bold}
+.step:last-child:after{content:''}
+footer{background:var(--dark);color:white;padding:25px 5%;text-align:center;margin-top:30px}
+/* Chatbot */
+#chatBtn{position:fixed;bottom:20px;right:20px;background:var(--blue2);color:white;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;cursor:pointer;box-shadow:0 5px 20px rgba(0,0,0,.3);z-index:2000}
+#chatBox{position:fixed;bottom:90px;right:20px;width:350px;max-width:90%;background:white;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.2);display:none;flex-direction:column;z-index:2000;overflow:hidden}
+#chatHeader{background:var(--blue);color:white;padding:12px;font-weight:700}
+#chatMessages{height:300px;overflow-y:auto;padding:12px;font-size:14px}
+#chatInput{display:flex;border-top:1px solid #eee}
+#chatInput input{border:none;margin:0}
+.msg{margin-bottom:10px;padding:8px 10px;border-radius:8px;max-width:90%}
+.user{background:#e3f2fd;margin-left:auto}
+.bot{background:#f1f5f9}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">NovaTech <span>Solutions</span></div>
+<nav>
+<a class="active" onclick="show('home')">Home</a>
+<a onclick="show('ticket')">Submit Ticket</a>
+<a onclick="show('kb')">Knowledge Base</a>
+<a onclick="show('dashboard')">Dashboard</a>
+<a onclick="show('assets')">Assets</a>
+<a onclick="show('team')">Team</a>
+<a onclick="show('change')">Change Request</a>
+<a onclick="show('contact')">Contact</a>
+</nav>
+</header>
+
+<div id="home" class="section active">
+<div class="hero">
+<h1>Welcome to NovaTech Solutions</h1>
+<p>NovaTech Solutions (Pty) Ltd is a South African firm in the technology industry offering technology-related services in IT infrastructure management, system integration and digital transformation to small to medium sized businesses.</p>
+<p>The IT Support Department within our organization is crucial to ensure continuity of operations and smooth communication within the organization and with our customers.</p>
+<button class="btn" onclick="show('ticket')">Log a Support Ticket</button>
+</div>
+
+<div class="grid" style="margin-top:20px">
+<div class="card">
+<h3>Our Mission</h3>
+<ul style="margin-left:18px;line-height:1.8">
+<li>Provide innovations in IT support services.</li>
+<li>Maintain reliability and efficiency in support operations.</li>
+<li>Align support processes with the strategic direction of NovaTech.</li>
+<li>Improve performance through modernization of tools and processes.</li>
+</ul>
+</div>
+<div class="card">
+<h3>Our Vision</h3>
+<p style="font-size:18px;font-weight:600;color:var(--blue2)">Create a centralized and data-based IT support center.</p>
+<p style="margin-top:10px">Continuous improvement in our business processes is our primary objective, including automation and data analysis.</p>
+</div>
+<div class="card">
+<h3>Why Choose Us?</h3>
+<p>Innovation, Reliability and Customer-Focused services offering comprehensive technology services enabling efficient and safe running of business operations.</p>
+<div style="margin-top:12px">
+<span class="badge resolved">24/7 Support</span> <span class="badge progress">ISO Aligned</span> <span class="badge open">Secure</span>
+</div>
+</div>
+</div>
+
+<h2 style="margin-top:30px">Ticket Escalation Procedure</h2>
+<div class="escalation">
+<div class="step"><b>1. Log Ticket</b><br>User submits via portal</div>
+<div class="step"><b>2. Categorize</b><br>Service Desk - Priority</div>
+<div class="step"><b>3. Assign</b><br>Team Lead Review</div>
+<div class="step"><b>4. Specialist</b><br>Network/System Admin</div>
+<div class="step"><b>5. Resolve</b><br>Close & Feedback</div>
+</div>
+</div>
+
+<div id="ticket" class="section">
+<h2>Submit IT Support Ticket</h2>
+<div class="card">
+<form onsubmit="submitTicket(event)">
+<div class="grid">
+<div><label>Full Name *</label><input required id="tName" placeholder="e.g. Tsireledzo Madzena"></div>
+<div><label>Department *</label><select required id="tDept"><option>IT Support</option><option>Finance</option><option>Operations</option><option>HR</option><option>Sales</option></select></div>
+<div><label>Email *</label><input required type="email" id="tEmail"></div>
+<div><label>Phone</label><input id="tPhone" value="+27 79 250 6100"></div>
+<div><label>Category *</label><select required id="tCat"><option>Software</option><option>Network/Wi-Fi</option><option>Hardware</option><option>Access/Password</option><option>Email</option><option>Other</option></select></div>
+<div><label>Urgency *</label><select required id="tUrg"><option>Low</option><option>Medium</option><option>High</option><option>Critical</option></select></div>
+</div>
+<label>Subject *</label><input required id="tSub" placeholder="Brief issue title">
+<label>Description *</label><textarea required rows="4" id="tDesc" placeholder="Describe the issue in detail..."></textarea>
+<label>Attachment (Screenshot)</label><input type="file">
+<button class="btn" type="submit">Submit Ticket</button> <span id="ticketMsg" style="color:green;font-weight:700;margin-left:10px"></span>
+</form>
+</div>
+</div>
+
+<div id="kb" class="section">
+<h2>Knowledge Base</h2>
+<div class="grid">
+<div class="card">
+<h3>💻 SOFTWARE</h3>
+<div class="kb-item"><b>An application keeps crashing</b><br>Record the application name and any error messages. Restart the application and install approved updates. Avoid installing unapproved or unauthorized software.</div>
+<div class="kb-item"><b>How do I install software?</b><br>Download installer from official site, double-click, follow Next → Accept → Install, launch from Start menu.</div>
+<div class="kb-item"><b>How do I update my software?</b><br>Open software > Help or Settings > Check for Updates > Download and Install > Restart.</div>
+</div>
+<div class="card">
+<h3>🌐 NETWORK</h3>
+<div class="kb-item"><b>Why is my Wi-Fi not working?</b><br>Ensure Wi-Fi is enabled, reconnect to correct network (e.g., NovaTech-Staff), restart device, test another service. If multiple users affected, log a Network/Wi-Fi ticket.</div>
+<div class="kb-item"><b>How do I connect to WiFi?</b><br>Open WiFi settings > Select SSID > Enter password > Connect > Test browser.</div>
+<div class="kb-item"><b>How do I restart my router?</b><br>Unplug power, wait 30 seconds, plug back, wait lights stabilize, test connection.</div>
+</div>
+<div class="card">
+<h3>🔒 ACCESS</h3>
+<div class="kb-item"><b>I cannot access a shared folder</b><br>Check network, sign out/in, confirm department still requires access. If persists, submit Access ticket.</div>
+<div class="kb-item"><b>How can I reset my password?</b><br>Go to login > Forgot Password > Enter email/username > Check email reset link > Create strong password.</div>
+<div class="kb-item"><b>How do I submit a ticket to IT support?</b><br>Login to helpdesk > Submit New Ticket > Fill issue type, description, urgency > Attach screenshot > Submit and note ticket number.</div>
+</div>
+</div>
+
+<div class="card">
+<h2>IT Support Policy</h2>
+<h3>Escalation Policy</h3>
+<p>Issues are escalated when they exceed the target response time, impact multiple users, cause significant business disruption, or require specialist network or system administration.</p>
+<ol style="margin:10px 0 10px 20px;line-height:1.8">
+<li>The Service Desk investigates and categorizes the issue.</li>
+<li>The Team Lead reviews overdue or high-impact incidents.</li>
+<li>Network/System Specialists handle infrastructure-level faults.</li>
+<li>Management is notified in cases of major service disruption.</li>
+</ol>
+<h3>Acceptable Use & Security Policy</h3>
+<ul style="margin-left:20px;line-height:1.8">
+<li>All IT assets remain property of NovaTech Solutions (Pty) Ltd.</li>
+<li>Users must not install unauthorized software or bypass security controls.</li>
+<li>Passwords must be minimum 12 characters and not shared.</li>
+<li>All incidents must be logged via the official ticketing portal.</li>
+<li>Data must be backed up to approved cloud storage; no local-only storage of critical business data.</li>
+<li>Violation may result in access revocation and disciplinary action.</li>
+</ul>
+<h3>SLA Response Times</h3>
+<table><tr><th>Priority</th><th>Response</th><th>Resolution Target</th></tr><tr><td>Critical</td><td>15 mins</td><td>4 Hours</td></tr><tr><td>High</td><td>1 Hour</td><td>8 Hours</td></tr><tr><td>Medium</td><td>4 Hours</td><td>24 Hours</td></tr><tr><td>Low</td><td>8 Hours</td><td>72 Hours</td></tr></table>
+</div>
+</div>
+
+<div id="dashboard" class="section">
+<h2>Live IT Dashboard</h2>
+<div class="grid">
+<div class="card"><h3>Total Tickets</h3><h1 id="statTotal">0</h1><small>Live count</small></div>
+<div class="card"><h3>Open</h3><h1 id="statOpen" style="color:#c62828">0</h1></div>
+<div class="card"><h3>In Progress</h3><h1 id="statProg" style="color:#f57f17">0</h1></div>
+<div class="card"><h3>Resolved</h3><h1 id="statRes" style="color:#2e7d32">0</h1></div>
+</div>
+<div class="grid">
+<div class="card"><canvas id="barChart"></canvas></div>
+<div class="card"><canvas id="pieChart"></canvas></div>
+</div>
+<div class="card">
+<h3>Recent Tickets (Live Log)</h3>
+<table id="liveTable"><tr><th>ID</th><th>Subject</th><th>Category</th><th>Urgency</th><th>Status</th><th>Action</th></tr></table>
+</div>
+</div>
+
+<div id="assets" class="section">
+<h2>IT Asset Register</h2>
+<div class="card">
+<table id="assetTable"><tr><th>Asset ID</th><th>Asset Name</th><th>Category</th><th>Assigned To</th><th>Purchase Date</th><th>Value (R)</th><th>Status</th></tr>
+<tr><td>NT-LT-001</td><td>Dell Latitude 5540</td><td>Laptop</td><td>Tsireledzo M.</td><td>2024-02-10</td><td>18500</td><td>Active</td></tr>
+<tr><td>NT-SV-002</td><td>HP ProLiant Server</td><td>Server</td><td>Data Center</td><td>2023-11-05</td><td>75000</td><td>Active</td></tr>
+<tr><td>NT-RT-003</td><td>Cisco Router 2901</td><td>Network</td><td>IT Room</td><td>2023-08-20</td><td>12000</td><td>Active</td></tr>
+<tr><td>NT-PR-004</td><td>HP LaserJet MFP</td><td>Printer</td><td>Finance</td><td>2024-01-15</td><td>6500</td><td>Maintenance</td></tr>
+</table>
+<div class="grid" style="margin-top:15px">
+<div class="card" style="background:#e3f2fd"><h3>Total Asset Value</h3><h2 id="assetTotal">R 112,000</h2></div>
+<div class="card" style="background:#f3e5f5"><h3>Total Assets</h3><h2 id="assetCount">4</h2></div>
+<div class="card" style="background:#e8f5e9"><h3>Active Assets</h3><h2 id="assetActive">3</h2></div>
+</div>
+<h3 style="margin-top:20px">Add New Asset</h3>
+<div class="grid"><input id="aId" placeholder="Asset ID"><input id="aName" placeholder="Asset Name"><input id="aCat" placeholder="Category"><input id="aUser" placeholder="Assigned To"><input id="aVal" type="number" placeholder="Value R"><select id="aStat"><option>Active</option><option>Maintenance</option><option>Retired</option></select></div>
+<button class="btn" onclick="addAsset()">Add Asset</button>
+</div>
+</div>
+
+<div id="team" class="section">
+<h2>Our Team</h2>
+<div class="grid">
+<div class="card team-member">< src="https://i.pravatar.cc/150?img=5"><h3>Madzena Tsireledzo</h3><p>Project Manager</p><p><a href="mailto:tsireledzomadzena@gmail.com">tsireledzomadzena@gmail.com</a></p></div>
+<div class="card team-member">< src="https://i.pravatar.cc/150?img=32"><h3>Sibuda Ntakadzeni</h3><p>Business Analyst</p><p><a href="mailto:NovaTech@gmail.co.za">NovaTech@gmail.co.za</a></p></div>
+<div class="card team-member">< src="https://i.pravatar.cc/150?img=12"><h3>Manga Khethani</h3><p>System Developer</p><p><a href="mailto:NovaTech@gmail.co.za">NovaTech@gmail.co.za</a></p></div>
+<div class="card team-member">< src="https://i.pravatar.cc/150?img=26"><h3>Dighale Mahlatse</h3><p>Data Analyst</p><p><a href="mailto:NovaTech@gmail.co.za">NovaTech@gmail.co.za</a></p></div>
+</div>
+</div>
+
+<div id="change" class="section">
+<h2>Change Request Form</h2>
+<div class="card">
+<form onsubmit="submitChange(event)">
+<label>Requestor Name *</label><input required>
+<label>Change Title *</label><input required placeholder="e.g. Upgrade Firewall Firmware">
+<div class="grid"><div><label>Change Type *</label><select><option>Standard</option><option>Normal</option><option>Emergency</option></select></div><div><label>Risk Level *</label><select><option>Low</option><option>Medium</option><option>High</option></select></div></div>
+<label>Reason for Change *</label><textarea required rows="3"></textarea>
+<label>Implementation Plan *</label><textarea required rows="3"></textarea>
+<label>Rollback Plan *</label><textarea required rows="2" placeholder="How to revert if fails"></textarea>
+<label>Requested Date *</label><input type="date" required>
+<button class="btn" type="submit">Submit Change Request</button> <span id="changeMsg" style="color:green;font-weight:700"></span>
+</form>
+</div>
+</div>
+
+<div id="contact" class="section">
+<h2>Contact IT Support</h2>
+<div class="grid">
+<div class="card">
+<h3>Support Contacts</h3>
+<p>📞 <b>Phone:</b> <a href="tel:+27792506100">+27 79 250 6100</a> (Click to call)</p>
+<p>📧 <b>Email 1:</b> <a href="mailto:tsireledzomadzena@gmail.com">tsireledzomadzena@gmail.com</a></p>
+<p>📧 <b>Email 2:</b> <a href="mailto:NovaTech@gmail.co.za">NovaTech@gmail.co.za</a></p>
+<p>📍 <b>Address:</b> NovaTech Solutions (Pty) Ltd, South Africa</p>
+<p>⏰ <b>Hours:</b> Mon-Fri 08:00-17:00 | Emergency: 24/7</p>
+</div>
+<div class="card">
+<h3>Send Quick Message</h3>
+<input placeholder="Your Name"><input placeholder="Your Email"><textarea rows="4" placeholder="Message"></textarea><button class="btn" onclick="alert('Message sent to NovaTech Team!')">Send Message</button>
+</div>
+</div>
+</div>
+
+<footer>© 2026 NovaTech Solutions (Pty) Ltd | Innovation | Reliability | Customer-Focused | IT Infrastructure Management & Digital Transformation</footer>
+
+<div id="chatBtn" onclick="toggleChat()">💬</div>
+<div id="chatBox">
+<div id="chatHeader">NovaTech AI Assistant <span style="float:right;cursor:pointer" onclick="toggleChat()">✕</span></div>
+<div id="chatMessages"><div class="msg bot">Hi! I am NovaBot. Ask me: password reset, WiFi, router, software install, ticket submission?</div></div>
+<div id="chatInput"><input id="chatText" placeholder="Type your question..." onkeypress="if(event.key==='Enter')sendChat()"><button class="btn" onclick="sendChat()">Send</button></div>
+</div>
+
+<script>
+let tickets = JSON.parse(localStorage.getItem('novaTickets')||'[]');
+function show(id){
+document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));
+event?.target?.classList?.add('active');
+window.scrollTo(0,0);
+if(id==='dashboard')updateDashboard();
+}
+function submitTicket(e){
+e.preventDefault();
+let t={id:'NT-'+(1000+tickets.length+1), name:document.getElementById('tName').value, email:document.getElementById('tEmail').value, cat:document.getElementById('tCat').value, urg:document.getElementById('tUrg').value, sub:document.getElementById('tSub').value, status:'Open'};
+tickets.push(t);
+localStorage.setItem('novaTickets',JSON.stringify(tickets));
+document.getElementById('ticketMsg').innerText='Ticket '+t.id+' Logged Successfully!';
+e.target.reset();
+updateDashboard();
+}
+function updateDashboard(){
+document.getElementById('statTotal').innerText=tickets.length;
+document.getElementById('statOpen').innerText=tickets.filter(x=>x.status==='Open').length;
+document.getElementById('statProg').innerText=tickets.filter(x=>x.status==='In Progress').length;
+document.getElementById('statRes').innerText=tickets.filter(x=>x.status==='Resolved').length;
+let table=document.getElementById('liveTable');
+table.innerHTML='<tr><th>ID</th><th>Subject</th><th>Category</th><th>Urgency</th><th>Status</th><th>Action</th></tr>';
+tickets.slice().reverse().forEach((t,i)=>{
+let realIdx=tickets.length-1-i;
+table.innerHTML+=`<tr><td>${t.id}</td><td>${t.sub}</td><td>${t.cat}</td><td>${t.urg}</td><td><span class="badge ${t.status==='Open'?'open':t.status==='In Progress'?'progress':'resolved'}">${t.status}</span></td><td><select onchange="changeStatus(${realIdx},this.value)"><option>Open</option><option>In Progress</option><option>Resolved</option></select></td></tr>`;
+});
+drawCharts();
+}
+function changeStatus(idx,val){tickets[idx].status=val;localStorage.setItem('novaTickets',JSON.stringify(tickets));updateDashboard();}
+let barC,pieC;
+function drawCharts(){
+let cats={};tickets.forEach(t=>cats[t.cat]=(cats[t.cat]||0)+1);
+let ctx1=document.getElementById('barChart'); if(barC)barC.destroy();
+barC=new Chart(ctx1,{type:'bar',data:{labels:Object.keys(cats).length?Object.keys(cats):['No Data'],datasets:[{label:'Tickets by Category',data:Object.values(cats).length?Object.values(cats):[0],backgroundColor:'#1976d2'}]},options:{responsive:true,plugins:{title:{display:true,text:'Live Ticket Logging - Bar Graph'}}}});
+let urg={Low:0,Medium:0,High:0,Critical:0};tickets.forEach(t=>{if(urg[t.urg]!==undefined)urg[t.urg]++});
+let ctx2=document.getElementById('pieChart'); if(pieC)pieC.destroy();
+pieC=new Chart(ctx2,{type:'doughnut',data:{labels:Object.keys(urg),datasets:[{data:Object.values(urg),backgroundColor:['#90caf9','#42a5f5','#ef5350','#b71c1c']}]},options:{plugins:{title:{display:true,text:'Tickets by Urgency'}}}});
+}
+function addAsset(){
+let id=document.getElementById('aId').value, name=document.getElementById('aName').value, cat=document.getElementById('aCat').value, user=document.getElementById('aUser').value, val=parseFloat(document.getElementById('aVal').value)||0, stat=document.getElementById('aStat').value;
+if(!id||!name)return alert('Fill Asset ID and Name');
+let row=document.getElementById('assetTable').insertRow();
+row.innerHTML=`<td>${id}</td><td>${name}</td><td>${cat}</td><td>${user}</td><td>${new Date().toISOString().split('T')[0]}</td><td>${val}</td><td>${stat}</td>`;
+calcAssets();
+}
+function calcAssets(){
+let rows=document.getElementById('assetTable').rows, total=0, active=0;
+for(let i=1;i<rows.length;i++){total+=parseFloat(rows[i].cells[5].innerText)||0; if(rows[i].cells[6].innerText==='Active')active++;}
+document.getElementById('assetTotal').innerText='R '+total.toLocaleString();
+document.getElementById('assetCount').innerText=rows.length-1;
+document.getElementById('assetActive').innerText=active;
+}
+calcAssets(); updateDashboard();
+function toggleChat(){let b=document.getElementById('chatBox');b.style.display=b.style.display==='flex'?'none':'flex';}
+const qa={
+"reset my password":"To reset your password:\n1. Go to login screen\n2. Click Forgot Password\n3. Enter email/username\n4. Check email for reset link\n5. Create new strong password",
+"restart my router":"To restart router:\n1. Unplug power cable\n2. Wait 30 seconds\n3. Plug back\n4. Wait lights stabilize\n5. Test internet",
+"install software":"To install software:\n1. Download installer from official site\n2. Double-click installer\n3. Follow Next → Accept → Install\n4. Wait finish\n5. Launch from Start menu",
+"connect to wifi":"To connect WiFi:\n1. Open WiFi settings\n2. Select network SSID\n3. Enter password\n4. Tap Connect\n5. Open browser to confirm",
+"submit a ticket":"To submit ticket:\n1. Login helpdesk portal\n2. Click Submit New Ticket\n3. Fill issue type, description, urgency\n4. Attach screenshots\n5. Submit and note ticket number",
+"update my software":"To update software:\n1. Open software\n2. Go Help/Settings\n3. Check for Updates\n4. Download and Install\n5. Restart software"
+};
+function sendChat(){
+let input=document.getElementById('chatText');let q=input.value.toLowerCase(); if(!q)return;
+let box=document.getElementById('chatMessages');
+box.innerHTML+=`<div class="msg user">${input.value}</div>`;
+let answer="Sorry, I didn't understand. Try asking: How can I reset my password? How do I restart my router? How do I install software? How do I connect to WiFi? How do I submit a ticket? How do I update my software?";
+for(let k in qa){if(q.includes(k.split(' ')[0]) && q.includes(k.split(' ').pop()) || q.includes(k)){answer=qa[k];break;}}
+// fuzzy match
+if(q.includes('password'))answer=qa['reset my password'];
+else if(q.includes('router'))answer=qa['restart my router'];
+else if(q.includes('install'))answer=qa['install software'];
+else if(q.includes('wifi')||q.includes('wi-fi'))answer=qa['connect to wifi'];
+else if(q.includes('ticket'))answer=qa['submit a ticket'];
+else if(q.includes('update'))answer=qa['update my software'];
+box.innerHTML+=`<div class="msg bot">${answer.replace(/\n/g,'<br>')}</div>`;
+input.value=''; box.scrollTop=box.scrollHeight;
+}
+function submitChange(e){e.preventDefault();document.getElementById('changeMsg').innerText='Change Request Submitted for Approval!';e.target.reset();}
+</script>
+</body>
+</html>
