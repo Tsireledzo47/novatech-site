@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NovaTech Solutions | IT Support Portal</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root{--blue:#0f1f4a;--blue2:#2457e8;--grey:#f5f7fb;--grey2:#e5e7eb;--green:#10b981;--red:#ef4444;--text:#1f2937;--muted:#6b7280}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:var(--grey);color:var(--text);line-height:1.7}
+header{background:white;border-bottom:1px solid var(--grey2);padding:12px 18px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:1000}
+.logo{display:flex;align-items:center;gap:14px;font-weight:900;color:var(--blue);font-size:20px}
+.logo-mark{width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,#e5e7eb 0%, var(--blue) 40%, var(--blue2) 100%);color:white;display:grid;place-items:center;font-size:28px;font-weight:900;border:3px solid #d1d5db}
+.logo-text small{display:block;font-size:11px;font-weight:600;color:var(--muted);letter-spacing:1px;margin-top:-4px}
+.hamburger{width:44px;height:44px;border-radius:10px;background:var(--blue);color:white;display:grid;place-items:center;font-size:22px;cursor:pointer;border:none}
+nav{position:fixed;top:0;right:-100%;width:320px;height:100vh;background:linear-gradient(180deg,var(--blue),#162a6b);transition:.35s ease;z-index:1100;display:flex;flex-direction:column}
+nav.open{right:0}
+.nav-header{padding:22px 20px;background:rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.1);display:flex;align-items:center;gap:12px;color:white}
+.nav-links{padding:14px;display:flex;flex-direction:column;gap:6px;overflow:auto}
+nav a{color:#cbd5e1;padding:12px 14px;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px;display:flex;gap:10px;align-items:center}
+nav a:hover,nav a.active{background:var(--blue2);color:white}
+.nav-footer{margin-top:auto;padding:14px 20px;border-top:1px solid rgba(255,255,255,.1);color:#94a3b8;font-size:11px}
+#overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;z-index:1099}
+#overlay.show{display:block}
+.hero{background:linear-gradient(135deg,var(--blue),var(--blue2));color:white;padding:46px 20px;text-align:center}
+.container{max-width:1200px;margin:auto;padding:18px}
+.card{background:white;border-radius:14px;box-shadow:0 6px 20px rgba(15,31,74,.06);border:1px solid #eef2f7;padding:20px;margin:14px 0}
+.section-title{font-size:22px;color:var(--blue);margin-bottom:4px}.section-sub{color:var(--muted);font-size:13px;margin-bottom:14px;line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;width:100%}
+.how-card{background:white;border:1px solid #e5e7eb;border-left:5px solid var(--blue2);border-radius:14px;padding:18px;box-shadow:0 4px 14px rgba(0,0,0,.05)}
+.how-card h3{font-size:15px;color:var(--blue);margin-bottom:6px}
+.how-card p{font-size:13px;color:var(--muted);line-height:1.5}
+input,select,textarea{width:100%;padding:12px;border:1px solid #dbe1ea;border-radius:10px}
+button{padding:11px 16px;border:none;border-radius:10px;font-weight:800;cursor:pointer}
+.btn-primary{background:var(--blue2);color:white}.btn-grey{background:var(--grey2)}
+.hidden{display:none!important}
+.badge{padding:4px 10px;border-radius:20px;color:white;font-size:11px;font-weight:800}
+.high{background:var(--red)}.med{background:#f59e0b}.low{background:var(--green)}.red-row{background:#fee2e2!important}
+.faq-q{background:white;border:1px solid #e5e7eb;padding:14px;border-radius:10px;margin-top:10px;cursor:pointer;display:flex;justify-content:space-between;font-weight:700}
+.faq-a{display:none;padding:14px;background:#f8fafc;border:1px solid #e5e7eb;border-top:0;border-radius:0 0 10px 10px}.faq-a.show{display:block}
+.flow{display:flex;gap:10px;overflow-x:auto;padding:10px 2px}
+.t-step{flex:0 0 175px;background:white;border:1px solid #dbe1ea;border-radius:12px;padding:12px;text-align:center}
+.t-step b{color:var(--blue);font-size:12px;display:block}.t-step small{color:var(--muted);font-size:11px}
+.t-arrow{align-self:center;color:var(--blue2);font-weight:900;font-size:20px}
+table{width:100%;border-collapse:collapse}th,td{border:1px solid #e5e7eb;padding:9px;font-size:12.5px;text-align:left}th{background:var(--blue);color:white}
+/* ASSET REGISTER - LAPTOP 100% / PHONE SCROLL */
+.asset-table-wrapper{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid #e5e7eb;border-radius:10px}
+#assetTable{width:100%;border-collapse:collapse}
+#assetTable th,#assetTable td{padding:10px 12px;font-size:12.5px}
+@media (min-width:769px){
+.asset-table-wrapper{overflow-x:visible}
+#assetTable{width:100%!important;min-width:100%!important;white-space:normal;table-layout:auto}
+#assetTable th,#assetTable td{white-space:normal;word-break:break-word}
+}
+@media (max-width:768px){
+.asset-table-wrapper{overflow-x:auto}
+#assetTable{min-width:1150px;white-space:nowrap}
+#assetTable th,#assetTable td{white-space:nowrap}
+}
+/* RESOLUTION / SLA TABLES - SAME FIX */
+.table-scroll-wrapper{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid #e5e7eb;border-radius:10px;margin-top:12px}
+.table-scroll-wrapper table{min-width:750px;width:100%}
+@media (min-width:769px){
+.table-scroll-wrapper{overflow-x:visible}
+.table-scroll-wrapper table{min-width:100%!important;white-space:normal;table-layout:auto}
+}
+@media (max-width:768px){
+.table-scroll-wrapper{overflow-x:auto}
+.table-scroll-wrapper table{min-width:850px;white-space:nowrap}
+#adminTicketsTable{min-width:1000px}
+}
+#chatBtn{position:fixed;bottom:20px;right:20px;background:var(--blue2);color:white;width:62px;height:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;cursor:pointer;box-shadow:0 8px 24px rgba(36,87,232,.4);z-index:1001}
+#liveDot{position:absolute;top:-2px;right:-2px;width:14px;height:14px;background:var(--green);border-radius:50%;border:2px solid white;animation:pulse 1.6s infinite}
+@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.15)}100%{transform:scale(1)}}
+#chatWidget{position:fixed;bottom:90px;right:15px;width:380px;max-width:92vw;background:white;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,.25);overflow:hidden;z-index:1001;display:none;flex-direction:column}
+#chatWidget.open{display:flex}
+#chatHeader{background:var(--blue);color:white;padding:14px;display:flex;justify-content:space-between;align-items:center}
+#chatOutput{height:340px;overflow:auto;background:#f8fafc;padding:10px}
+.chat-area{display:flex;gap:6px;padding:10px;border-top:1px solid #eee}
+.chat-q{padding:8px 10px;background:white;border:1px solid #dbe1ea;border-radius:8px;margin:5px 0;cursor:pointer;font-size:13px}
+.stat-box{background:white;border:1px solid #e5e7eb;border-radius:12px;padding:14px;text-align:center}
+.stat-box b{font-size:22px;color:var(--blue);display:block}
+.prof-footer{background:#0b1220;color:#cbd5e1;padding:30px 20px 15px;margin-top:30px}
+.f-grid{max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.priority-table{width:100%;border-collapse:collapse;font-size:13px}
+.priority-table th{background:#0f1f4a;color:white;padding:10px}
+.priority-table td{padding:10px;border:1px solid #e5e7eb}
+@media(max-width:900px){.how-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.how-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div id="overlay" onclick="toggleMenu()"></div>
+<header><div class="logo"><div class="logo-mark">N</div><div class="logo-text">NovaTech Solutions<small>IT SUPPORT PORTAL</small></div></div><button class="hamburger" onclick="toggleMenu()">☰</button></header>
+<nav id="mainNav">
+<div class="nav-header"><div style="width:42px;height:42px;background:white;color:var(--blue);border-radius:10px;display:grid;place-items:center;font-weight:900">N</div><div><b>NovaTech</b><br><small>IT Support Portal</small></div></div>
+<div class="nav-links">
+<a href="#home" class="active" onclick="go('home',this)">🏠 Home</a>
+<a href="#ticket" onclick="go('ticket',this)">🎫 Submit Ticket</a>
+<a href="#knowledge" onclick="go('knowledge',this)">📚 Knowledge Base</a>
+<a href="#team" onclick="go('team',this)">👥 Team</a>
+<a href="#department" onclick="go('department',this)">🏢 Departments</a>
+<a href="#dashboard" onclick="go('dashboard',this)">📊 Dashboard</a>
+<a href="#contacts" onclick="go('contacts',this)">📞 Contacts</a>
+<a href="#faqs" onclick="go('faqs',this)">❓ FAQs</a>
+<a href="#admin" onclick="go('admin',this)">🔒 Admin</a>
+</div>
+<div class="nav-footer">© 2026 NovaTech Solutions<br>Secure • Reliable • Data-Driven</div>
+</nav>
+<div class="hero" id="hero"><h1>Welcome to NovaTech Solutions</h1><p>Professional IT Support Portal for Infrastructure, Integration & Digital Transformation</p></div>
+<div class="container">
+<div id="home" class="page">
+<div class="card"><div class="section-title">How to Use the Portal — Complete Guide</div><div class="section-sub">A professional end-to-end guide covering the full IT support lifecycle. This section explains how users navigate the portal, resolve common issues independently, submit requests, and track progress with full transparency.</div>
+<div class="how-grid">
+<div class="how-card"><h3>🔍 Self-Help First</h3><p>Start with Knowledge Base & FAQs for instant fixes on password reset, Wi-Fi, software installation and shared folder access. Saves time — no ticket needed for common issues.</p></div>
+<div class="how-card"><h3>🎫 Submit Ticket with Evidence</h3><p>If self-help fails, log a ticket with full details, correct urgency, department and attach screenshot/picture. Accurate info helps Tier 1 resolve 40% faster.</p></div>
+<div class="how-card"><h3>📊 Track Live Progress</h3><p>Monitor your request in Dashboard — see status changes, resolution time counter, live feed and asset impact.</p></div>
+<div class="how-card"><h3>🤖 Live AI Assistance 24/7</h3><p>Use NovaTech AI assistant available on every page — click suggested questions or type your own.</p></div>
+<div class="how-card"><h3>⬆️ Escalation & Closure</h3><p>Tickets auto-escalate Tier 1 → Tier 2 → Tier 3 based on SLA and business impact.</p></div>
+<div class="how-card"><h3>⭐ Feedback & Continuous Improvement</h3><p>After resolution, confirm fix and provide feedback. Data feeds dashboards and helps Finance plan replacements.</p></div>
+</div>
+</div>
+<div class="card"><div class="section-title">About Us</div><div class="section-sub">Learn about NovaTech Solutions, our purpose, and our commitment to delivering reliable, secure, and innovative IT support services.</div><p>NovaTech Solutions (Pty) Ltd is a South African firm in the technology industry offering technology-related services in IT infrastructure management, system integration and digital transformation to small to medium sized businesses.</p></div>
+<div class="grid"><div class="card"><div class="section-title" style="font-size:18px">Our Mission</div><div class="section-sub">Our mission drives daily operations and long-term service excellence.</div><ul style="margin-left:18px"><li>Provide innovations in IT support services.</li><li>Maintain reliability and efficiency in support operations.</li><li>Align support processes with the strategic direction of NovaTech.</li><li>Improve performance through modernization of tools and processes.</li></ul></div><div class="card" style="background:var(--blue);color:white"><div class="section-title" style="color:white;font-size:18px">Our Vision</div><div class="section-sub" style="color:#cbd5e1">Our vision outlines the future of IT support at NovaTech.</div><p style="font-size:20px;font-weight:800">Create a centralized and data-based IT support center.</p></div></div>
+<div class="card"><div class="section-title">Escalation Flow</div><div class="section-sub">A clear, structured path showing how reported issues are assessed, prioritized, escalated through Tier 1 to Tier 3 support, and formally closed after user confirmation.</div><div class="flow"><div class="t-step"><b>Issue Reported</b><small>Ticket Logged + Initial Assessment</small></div><div class="t-arrow">→</div><div class="t-step"><b>Tier 1 Support</b><small>Troubleshoot & Resolve</small></div><div class="t-arrow">→</div><div class="t-step"><b>Tier 2 Support</b><small>Advanced Troubleshooting</small></div><div class="t-arrow">→</div><div class="t-step"><b>Tier 3 Support</b><small>Specialist / Critical Issue Managed</small></div><div class="t-arrow">→</div><div class="t-step" style="background:#ecfdf5"><b>Resolution & Closure</b><small>Test, Report to User, Close Ticket</small></div></div></div>
+</div>
+<div id="ticket" class="page hidden"><div class="card"><div class="section-title">Submit a Support Ticket</div><div class="section-sub">Use this official form to report any IT-related issue. Provide accurate details, select the correct urgency and department, and attach a screenshot or picture where possible.</div><form id="ticketForm"><div class="grid"><div><label>Full Name *</label><input id="tName" required></div><div><label>Work Email *</label><input id="tEmail" type="email" required></div><div><label>Department *</label><select id="tDept" required><option value="">Select</option><option>IT</option><option>Finance</option><option>HR</option><option>Operations</option><option>Sales</option></select></div><div><label>Issue Category *</label><select id="tType" required><option>Password Reset</option><option>Connectivity Issue</option><option>Hardware Failure</option><option>Software Issue</option><option>Network Issue</option><option>Access Request</option></select></div><div><label>Urgency *</label><select id="tUrg" required><option>Low</option><option>Medium</option><option>High</option></select></div><div><label>Phone Number</label><input id="tPhone" placeholder="+27 79 250 6100"></div></div><br><label>Description *</label><textarea id="tDesc" rows="5" required></textarea><br><br><label>Attach Screenshot / Picture</label><input id="tFile" type="file" accept="image/*"><br><br><label>Attachment Name</label><input id="tAttach" placeholder="e.g., error_screenshot.png"><br><br><button type="submit" class="btn-primary">Submit Ticket</button> <span id="tMsg" style="color:var(--green);font-weight:700;margin-left:10px"></span></form></div></div>
+<div id="knowledge" class="page hidden">
+<div class="card"><div class="section-title">Knowledge Base</div><div class="section-sub">The Knowledge Base provides self-service solutions, step-by-step guides, and standard procedures to help users resolve common IT issues independently.</div><div class="grid"><div class="card" style="margin:0"><h3>SOFTWARE</h3><p>An application keeps crashing — Record the application name and any error messages. Restart the application and install approved updates.</p></div><div class="card" style="margin:0"><h3>NETWORK</h3><p>Why is my Wi‑Fi not working? Ensure Wi‑Fi is enabled, reconnect to the correct network (e.g., NovaTech‑Staff), restart your device.</p></div><div class="card" style="margin:0"><h3>ACCESS</h3><p>I cannot access a shared folder — Check your network connection, sign out and back in, then confirm that your department still requires access.</p></div></div>
+</div>
+<div class="card"><div class="section-title">Policy Library</div><div class="section-sub">Official governance documents that define how IT support requests are prioritized, escalated, and resolved.</div><h3>Escalation Policy</h3><ol style="margin:10px 20px"><li>The Service Desk investigates and categorizes the issue.</li><li>The Team Lead reviews overdue or high‑impact incidents.</li><li>Network/System Specialists handle infrastructure‑level faults.</li><li>Management is notified in cases of major service disruption.</li></ol>
+<h3 style="margin-top:22px">Ticket Prioritization & Response SLA</h3><div class="section-sub">All tickets are attended based on urgency, business impact, and number of users affected. On laptop full width, on phone scroll side — no overlap.</div>
+<div class="table-scroll-wrapper">
+<table class="priority-table">
+<tr><th>Priority</th><th>Impact</th><th>Response</th><th>Resolution</th><th>Action</th></tr>
+<tr><td><span class="badge high">Critical / P1</span></td><td>System down, entire department offline.</td><td>15 Min</td><td>1 Hour</td><td>Immediate Tier 3, Management notified</td></tr>
+<tr><td><span class="badge high">High / P2</span></td><td>Major function impaired, multiple users.</td><td>1 Hour</td><td>4 Hours</td><td>Tier 2 assigned</td></tr>
+<tr><td><span class="badge med">Medium / P3</span></td><td>Single user, workaround available.</td><td>4 Hours</td><td>24 Hours</td><td>Tier 1 handles</td></tr>
+<tr><td><span class="badge low">Low / P4</span></td><td>General request, minor issue.</td><td>8 Hours</td><td>48 Hours</td><td>Service Desk queue</td></tr>
+</table>
+</div>
+</div>
+<div class="card"><div class="section-title">Change Request Form</div><div class="section-sub">Official document for requesting system, network, or access changes.</div>
+<div style="border:1px solid #dbe1ea;border-radius:12px;padding:18px;background:white">
+<div style="display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--blue);padding-bottom:10px;margin-bottom:12px"><div style="display:flex;gap:10px;align-items:center"><div class="logo-mark" style="width:42px;height:42px;font-size:20px">N</div><div><b>NovaTech Solutions (Pty) Ltd</b><br><small>Change Request Form — Official</small></div></div><div style="font-size:11px;color:var(--muted)">Form ID: NTC-CR-2026</div></div>
+<div class="grid"><div><label>Change Title *</label><input id="cTitle" required></div><div><label>Requester Name *</label><input id="cName" required></div><div><label>Phone Number *</label><input id="cPhone" type="tel" placeholder="+27 79 250 6100" required></div><div><label>Department</label><select id="cDept"><option>IT</option><option>Finance</option><option>HR</option><option>Operations</option></select></div><div><label>Change Type</label><select id="cType"><option>Software</option><option>Hardware</option><option>Network</option><option>Access</option></select></div><div><label>Priority</label><select id="cPrio"><option>Low</option><option>Medium</option><option>High</option><option>Emergency</option></select></div><div><label>Date</label><input id="cDate" type="date"></div></div><br>
+<label>Description & Justification *</label><textarea id="cDesc" rows="4" required></textarea><br><br>
+<label>Impact / Risk Assessment</label><textarea id="cRisk" rows="3"></textarea><br><br>
+<label>Rollback Plan</label><input id="cRoll"><br><br>
+<div style="margin-top:18px;border-top:1px solid #e5e7eb;padding-top:12px"><p><b>Approval & Signatures</b></p></div></div><br>
+<form id="changeForm"><button type="submit" class="btn-primary">Submit Request</button><button type="button" class="btn-primary" style="background:var(--blue)" onclick="downloadChangeForm()">📥 Download Professional Form</button><span id="cMsg" style="color:var(--green);margin-left:10px"></span></form>
+</div>
+</div>
+<div id="team" class="page hidden"><div class="card"><div class="section-title">Our Team</div><div class="section-sub">Meet the dedicated professionals behind NovaTech Solutions — each role is critical to delivering reliable, secure and data-driven IT support services.</div><div class="grid">
+<div class="card" style="margin:0"><h3>Madzena Tsireledzo</h3><p><b>Website Developer & Portal Administrator</b></p><p>Lead developer responsible for designing, building and maintaining the NovaTech IT Support Portal from scratch. Ensures the platform is fully responsive, secure, fast and user-friendly.</p><p><a href="mailto:tsireledzomadzena@gmail.com" style="color:#2457e8;font-weight:700">tsireledzomadzena@gmail.com</a></p></div>
+<div class="card" style="margin:0"><h3>Ntakadzeni Sibuda</h3><p><b>Project Planner & Service Coordinator</b></p><p>Responsible for strategic planning of IT projects, defining timelines, milestones, resource allocation and risk mitigation strategies.</p></div>
+<div class="card" style="margin:0"><h3>Managa Khethani</h3><p><b>Document Specialist & Compliance Officer</b></p><p>Develops and maintains all official IT documentation including standard operating procedures, escalation policies, knowledge base articles.</p></div>
+<div class="card" style="margin:0"><h3>Dighale Mahlatse</h3><p><b>Information Analyst & Reporting Lead</b></p><p>Analyzes ticket trends, asset lifecycle data and service performance metrics to generate actionable insights.</p></div>
+</div></div></div>
+<div id="department" class="page hidden"><div class="card"><div class="section-title">Our Departments</div><div class="section-sub">NovaTech operates through three core departments working together.</div><div class="grid">
+<div class="card" style="margin:0"><h3>🏢 IT Department — Technical Operations</h3><p>Core technical department responsible for end-to-end infrastructure management, system integration, network administration, server maintenance, cybersecurity, cloud services and 24/7 helpdesk support. Handles incident resolution across Tier 1 to Tier 3, monitors system uptime, manages the 20-asset register.</p></div>
+<div class="card" style="margin:0"><h3>👥 HR Department — People & Access</h3><p>Human Resources focuses on talent acquisition, employee training, performance management and employee relations. Plays a critical role in IT access management during onboarding and offboarding.</p></div>
+<div class="card" style="margin:0"><h3>💰 Finance Department — Assets & Budget Control</h3><p>Finance oversees budgeting, procurement, asset valuation, cost control and financial reporting for all IT investments. Tracks total cost of ownership for assets.</p></div>
+</div></div></div>
+<div id="dashboard" class="page hidden">
+<div class="card"><div class="section-title">Operational Dashboard</div><div class="section-sub">A live, data-driven overview of IT support performance, including ticket volumes by status, type and urgency, average resolution time, workload per technician, and financial position of all assets.</div>
+<div class="grid"><div class="stat-box"><b id="statLogged">0</b><small>Logged</small></div><div class="stat-box"><b id="statOpen">0</b><small>Open</small></div><div class="stat-box"><b id="statPending">0</b><small>Pending</small></div><div class="stat-box"><b id="statResolved">0</b><small>Resolved</small></div><div class="stat-box"><b id="statAvg">0h</b><small>Avg Resolution</small></div><div class="stat-box"><b id="statPerTech">0</b><small>Per Technician</small></div></div>
+<div class="grid" style="margin-top:14px">
+<div class="card" style="margin:0"><h3>Tickets by Status</h3><canvas id="g1"></canvas></div>
+<div class="card" style="margin:0"><h3>By Type</h3><canvas id="g2"></canvas></div>
+<div class="card" style="margin:0"><h3>By Urgency</h3><canvas id="g3"></canvas></div>
+</div>
+<div class="card" style="margin:14px 0; width:100%;"><h3>Asset Register — Laptop 100% / Phone Scrollable</h3><div class="section-sub">Comprehensive inventory — laptop covers whole card, phone scrollable.</div>
+<div class="asset-table-wrapper">
+<table id="assetTable"><thead><tr><th>Asset ID</th><th>Model</th><th>Dept</th><th>Purchase Year</th><th>Warranty Expiry</th><th>Status</th><th>Assigned To</th><th>Age</th><th>Replacement</th><th>Total Cost</th></tr></thead>
+<tbody id="assetBody">
+<tr><td>AST-001</td><td>Dell Latitude 5540</td><td>IT</td><td>2021</td><td>2024-06-30</td><td>Active</td><td>Madzena T.</td><td class="age"></td><td class="replace"></td><td class="calc" data-qty="45" data-unit="18500"></td></tr>
+<tr><td>AST-002</td><td>HP ProLiant DL380</td><td>IT</td><td>2019</td><td>2023-12-31</td><td>Active</td><td>Server Room</td><td class="age"></td><td class="replace"></td><td class="calc" data-qty="12" data-unit="65000"></td></tr>
+<tr><td>AST-003</td><td>Cisco ISR 4321</td><td>IT</td><td>2018</td><td>2022-05-15</td><td>Active</td><td>Network</td><td class="age"></td><td class="replace"></td><td class="calc" data-qty="18" data-unit="12500"></td></tr>
+<tr><td>AST-004</td><td>48p Switch</td><td>IT</td><td>2020</td><td>2025-01-10</td><td>Active</td><td>Network</td><td class="age"></td><td class="replace"></td><td class="calc" data-qty="22" data-unit="8900"></td></tr>
+<tr><td>AST-005</td><td>UPS 3KVA</td><td>Finance</td><td>2022</td><td>2026-03-20</td><td>Active</td><td>Finance</td><td class="age"></td><td class="replace"></td><td class="calc" data-qty="15" data-unit="7400"></td></tr>
+<tr><td>AST-006</td><td>M365 E3</td><td>All</td><td>2023</td><td>2025-12-31</td><td>Active</td><td>All Staff</td><td class="age"></td><td class="replace"></td><td class="calc" data-qty="120" data-unit="2100"></td></tr>
+<tr><td>AST-007</td><td>Antivirus</td><td>All</td><td>2023</td><td>2025-12-31</td><td>Active</td><td>All Staff</td><td class="age"></td><td class="replace"></td><td class="calc" data-qty="120" data-unit="450"></td></tr>
+<tr><td>AST-008</td><td>Lenovo ThinkPad X1</td><td>HR</td><td>2017</td><td>2020-08-15</td><td>Active</td><td>Sibuda N.</td><td class="age"></td><td class="replace"></td><td class="calc" data-qty="20" data-unit="22000"></td></tr>
+<tr><td>AST-009</td><td>Dell Monitor 27"</td><td>IT</td><td>2020</td><td>2024-02-20</td><td>Active</td><td>IT Dept</td><td class="age"></td><td class="replace"></td><td class="calc" data-qty="50" data-unit="4500"></td></tr>
+<tr><td>AST-010</td><td>HP LaserJet Pro</td><td>Finance</td><td>2019</td><td>2022-11-11</td><td>Active</td><td>Finance</td><td class="age"></td><td class="replace"></td><td class="calc" data-qty="10" data-unit="8500"></td></tr>
+<tr><td>AST-011</td><td>Cisco Access Point</td><td>IT</td><td>2021</td><td>2024-09-01</td><td>Active</td><td>Network</td><td class="age"></td><td class="replace"></td><td class="calc" data-qty="25" data-unit="6200"></td></tr>
+<tr><td>AST-012</td><td>MacBook Pro 14"</td><td>IT</td><td>2022</td><td>2025-07-15</td><td>Active</td><td>Managa K.</td><td class="age"></td><td class="replace"></td><td class="calc" data-qty="8" data-unit="35000"></td></tr>
+<tr><td>AST-013</td><td>Fortigate Firewall 100F</td><td>IT</td><td>2018</td><td>2022-06-30</td><td>Active</td><td>Security</td><td class="age"></td><td class="replace"></td><td class="calc" data-qty="3" data-unit="75000"></td></tr>
+<tr><td>AST-014</td><td>Projector Epson L730U</td><td>HR</td><td>2019</td><td>2023-03-12</td><td>Active</td><td>Boardroom</td><td class="age"></td><td class="replace"></td><td class="calc" data-qty="5" data-unit="28000"></td></tr>
+<tr><td>AST-015</td><td>Synology NAS 8-bay</td><td>IT</td><td>2020</td><td>2024-12-01</td><td>Active</td><td>Server Room</td><td class="age"></td><td class="replace"></td><td class="calc" data-qty="4" data-unit="42000"></td></tr>
+<tr><td>AST-016</td><td>Logitech Meetup Camera</td><td>All</td><td>2021</td><td>2024-10-10</td><td>Active</td><td>Boardroom</td><td class="age"></td><td class="replace"></td><td class="calc" data-qty="6" data-unit="12000"></td></tr>
+<tr><td>AST-017</td><td>Dell PowerEdge R750</td><td>IT</td><td>2017</td><td>2020-05-20</td><td>Needs Replacement</td><td>Server Room</td><td class="age"></td><td class="replace"></td><td class="calc" data-qty="2" data-unit="95000"></td></tr>
+<tr><td>AST-018</td><td>APC UPS 5KVA</td><td>IT</td><td>2018</td><td>2021-09-30</td><td>Active</td><td>Server Room</td><td class="age"></td><td class="replace"></td><td class="calc" data-qty="4" data-unit="18000"></td></tr>
+<tr><td>AST-019</td><td>iPad Pro 12.9"</td><td>Sales</td><td>2022</td><td>2025-11-20</td><td>Active</td><td>Sales Team</td><td class="age"></td><td class="replace"></td><td class="calc" data-qty="12" data-unit="18900"></td></tr>
+<tr><td>AST-020</td><td>CCTV Hikvision Kit</td><td>Operations</td><td>2016</td><td>2019-04-15</td><td>Needs Replacement</td><td>Security</td><td class="age"></td><td class="replace"></td><td class="calc" data-qty="1" data-unit="65000"></td></tr>
+</tbody><tfoot><tr style="background:#eef2ff;font-weight:900"><td colspan="9">TOTAL ASSET BALANCE</td><td id="assetTotal">R0</td></tr></tfoot></table>
+</div></div>
+<div class="card"><h3>Live Ticket Feed</h3><div id="liveFeed" style="max-height:200px;overflow:auto;font-size:13px"></div></div>
+</div></div>
+<div id="contacts" class="page hidden"><div class="card"><div class="section-title">Contact Us</div><div class="section-sub">For support, enquiries, or emergency assistance, reach us through the channels below or send a direct message using the form.</div><div class="grid"><div><p>📞 <a href="tel:+27792506100" style="color:#2457e8;font-weight:800">+27 79 250 6100</a></p><p>📧 tsireledzomadzena@gmail.com</p><p>📧 NovaTech@gmail.co.za</p><p>📍 Mbombela, Mpumalanga, South Africa</p></div><div class="card" style="margin:0;background:#f8fafc"><h3>Send a Message</h3><form id="quickForm"><input id="qName" placeholder="Your Name" required><br><br><input id="qEmail" type="email" placeholder="Your Email" required><br><br><textarea id="qMsg" rows="3" placeholder="Your message..." required></textarea><br><br><button type="submit" class="btn-primary">Send Message</button> <span id="qStatus" style="color:var(--green);margin-left:8px"></span></form></div></div></div></div>
+<div id="faqs" class="page hidden"><div class="card"><div class="section-title">Frequently Asked Questions</div><div class="section-sub">Find quick answers to common IT issues.</div><div id="faqList"></div></div></div>
+<div id="admin" class="page hidden"><div class="card" id="adminLoginBox"><div class="section-title">Admin Portal</div><div class="section-sub">Restricted access for IT support team only.</div><br><input type="password" id="adminPass" placeholder="Enter Admin PIN"><br><br><button class="btn-primary" onclick="adminLogin()">Authenticate</button><p id="adminErr" style="color:#ef4444;margin-top:8px"></p></div>
+<div id="adminPanel" class="hidden"><div class="card"><h3>Admin Dashboard — Resolution Time Included <button style="float:right;background:#ef4444;color:white" onclick="adminLogout()">Logout</button></h3><div class="section-sub">Live admin view showing total logged tickets, open and pending requests, resolved count, average resolution time, and workload per technician. Phone scrollable — no overlap.</div><div class="grid" style="margin-top:10px"><div class="stat-box"><b id="aTot">0</b><small>Total Logged</small></div><div class="stat-box"><b id="aOp">0</b><small>Open</small></div><div class="stat-box"><b id="aProg">0</b><small>Pending</small></div><div class="stat-box"><b id="aRes">0</b><small>Resolved</small></div><div class="stat-box"><b id="aAvg">0h</b><small>Avg Resolution Time</small></div><div class="stat-box"><b id="aPerTech">0</b><small>Per Technician (4)</small></div></div><br><button style="background:#ef4444;color:white" onclick="clearAll()">Clear All Tickets</button></div><div class="card table-scroll-wrapper"><div id="adminTickets"></div></div></div></div>
+</div>
+<div id="chatBtn" onclick="toggleChat()">🤖<div id="liveDot"></div></div>
+<div id="chatWidget"><div id="chatHeader"><div style="display:flex;align-items:center;gap:8px"><span style="display:inline-block;width:10px;height:10px;background:#10b981;border-radius:50%"></span><b>NovaTech AI — Live</b></div><span style="cursor:pointer;font-size:20px" onclick="toggleChat()">✕</span></div><div id="chatOutput"></div><div class="chat-area"><input id="chatInput" placeholder="Type your question..."><button class="btn-primary" onclick="askAI()">Ask</button><button class="btn-grey" onclick="clearChat()">Clear</button></div></div>
+<div class="prof-footer"><div class="f-grid"><div><div style="display:flex;gap:10px;align-items:center;margin-bottom:8px"><div class="logo-mark" style="width:38px;height:38px;font-size:18px">N</div><b style="color:white">NovaTech Solutions</b></div><p style="font-size:13px;color:#94a3b8">South African IT firm delivering infrastructure management.</p></div><div><h4>Quick Links</h4><a href="#" onclick="go('home',null);return false">Home</a><a href="#" onclick="go('ticket',null);return false">Submit Ticket</a><a href="#" onclick="go('knowledge',null);return false">Knowledge Base</a><a href="#" onclick="go('dashboard',null);return false">Dashboard</a></div><div><h4>Support</h4><a href="tel:+27792506100">+27 79 250 6100</a></div><div><h4>Departments</h4><a>IT — Infrastructure & Helpdesk</a><a>HR — People & Access</a><a>Finance — Asset & Budget Control</a></div></div><div class="f-bottom">© 2026 NovaTech Solutions (Pty) Ltd. All rights reserved.</div></div>
+<script>
+function buildChatWelcome(){return '<div class="card" style="margin:8px;padding:10px"><b>NovaAI — Live Support</b><br><small>Click a question below or type your own:</small><div class="chat-q" onclick="quickAsk(\'How can I reset my password?\')">🔑 How can I reset my password?</div><div class="chat-q" onclick="quickAsk(\'How do I restart my router?\')">📡 How do I restart my router?</div><div class="chat-q" onclick="quickAsk(\'How do I install software?\')">💻 How do I install software?</div><div class="chat-q" onclick="quickAsk(\'How do I connect to WiFi?\')">📶 How do I connect to WiFi?</div><div class="chat-q" onclick="quickAsk(\'How do I submit a ticket to IT support?\')">🎫 How do I submit a ticket?</div><div class="chat-q" onclick="quickAsk(\'How do I update my software?\')">🔄 How do I update my software?</div></div>';}
+function quickAsk(q){document.getElementById('chatInput').value=q;askAI();}
+function toggleMenu(){document.getElementById('mainNav').classList.toggle('open');document.getElementById('overlay').classList.toggle('show');}
+function go(id,el){document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');document.getElementById('hero').style.display=id==='home'?'block':'none';document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));if(el) el.classList.add('active');if(document.getElementById('mainNav').classList.contains('open')) toggleMenu();if(id==='admin'){document.getElementById('adminLoginBox').classList.remove('hidden');document.getElementById('adminPanel').classList.add('hidden');document.getElementById('adminPass').value='';document.getElementById('adminErr').innerText='';}if(id==='dashboard') refreshDashboard();window.scrollTo({top:0,behavior:'smooth'});}
+let tickets=JSON.parse(localStorage.getItem('novaFullTickets')||'[]');let changes=JSON.parse(localStorage.getItem('novaChanges')||'[]');
+function ensureMeta(){tickets.forEach(t=>{if(!t.createdAt) t.createdAt=t.id; if(t.status==='Resolved'&&!t.resolvedAt) t.resolvedAt=t.createdAt + (Math.floor(Math.random()*7)+1)*3600000;});}
+function save(){ensureMeta();localStorage.setItem('novaFullTickets',JSON.stringify(tickets));renderFeed();refreshDashboard();if(!document.getElementById('adminPanel').classList.contains('hidden'))renderAdmin();}
+document.getElementById('ticketForm').addEventListener('submit',function(e){e.preventDefault();var fileName=document.getElementById('tFile').files.length>0?document.getElementById('tFile').files[0].name:document.getElementById('tAttach').value;var t={id:Date.now(),createdAt:Date.now(),name:document.getElementById('tName').value,email:document.getElementById('tEmail').value,dept:document.getElementById('tDept').value,type:document.getElementById('tType').value,urg:document.getElementById('tUrg').value,phone:document.getElementById('tPhone').value,desc:document.getElementById('tDesc').value,file:fileName,status:'Open',date:new Date().toLocaleString(),resolvedAt:null};tickets.push(t);save();document.getElementById('tMsg').innerText='Ticket #'+String(t.id).slice(-6)+' logged';this.reset();});
+document.getElementById('changeForm').addEventListener('submit',function(e){e.preventDefault();var c={title:document.getElementById('cTitle').value,name:document.getElementById('cName').value,phone:document.getElementById('cPhone').value,dept:document.getElementById('cDept').value,type:document.getElementById('cType').value,prio:document.getElementById('cPrio').value,desc:document.getElementById('cDesc').value,risk:document.getElementById('cRisk').value,roll:document.getElementById('cRoll').value,date:document.getElementById('cDate').value||new Date().toLocaleDateString(),sig1:document.getElementById('sig1').value,sig2:document.getElementById('sig2').value,sig3:document.getElementById('sig3').value};changes.push(c);localStorage.setItem('novaChanges',JSON.stringify(changes));document.getElementById('cMsg').innerText='Change Request Submitted!';});
+document.getElementById('quickForm').addEventListener('submit',function(e){e.preventDefault();var subject=encodeURIComponent('Message from '+document.getElementById('qName').value);var body=encodeURIComponent('Name: '+document.getElementById('qName').value+'\nEmail: '+document.getElementById('qEmail').value+'\n\n'+document.getElementById('qMsg').value);window.location.href='mailto:NovaTech@gmail.co.za?subject='+subject+'&body='+body;document.getElementById('qStatus').innerText='Message delivered';setTimeout(()=>{document.getElementById('qStatus').innerText='';},4000);this.reset();});
+function downloadChangeForm(){var blob=new Blob(['<h1>Change Request</h1>'],{type:'text/html'});var url=URL.createObjectURL(blob);var a=document.createElement('a');a.href=url;a.download='NovaTech_ChangeRequest.html';document.body.appendChild(a);a.click();document.body.removeChild(a);}
+var faqData=[{q:"How can I reset my password?",a:"Go to login screen > Forgot Password > Enter email > Check email for reset link > Create new password."},{q:"How do I restart my router?",a:"Unplug power cable > Wait 30 seconds > Plug back > Wait lights stabilize > Test internet."},{q:"How do I install software?",a:"Download installer from official site > Double-click > Follow Next-Accept-Install > Wait finish > Launch."},{q:"How do I connect to WiFi?",a:"Open WiFi settings > Select SSID > Enter password > Connect > Test browser."},{q:"How do I submit a ticket?",a:"Login helpdesk > Submit New Ticket > Fill details > Attach screenshot > Submit."},{q:"How do I update my software?",a:"Open software > Help/Settings > Check for Updates > Download and Install > Restart."},{q:"Why is my Wi-Fi not working?",a:"Ensure Wi-Fi enabled, reconnect to NovaTech-Staff, restart device."},{q:"I cannot access a shared folder?",a:"Check network, sign out/in, confirm access rights."},{q:"What is escalation policy?",a:"Service Desk investigates, Team Lead reviews, Specialists fix, Management notified."},{q:"My application keeps crashing?",a:"Record app name and error, restart app, install updates."}];
+var faqList=document.getElementById('faqList');faqData.forEach(f=>{var d=document.createElement('div');d.innerHTML='<div class="faq-q" onclick="this.nextElementSibling.classList.toggle(\'show\')"><span>'+f.q+'</span><span>▼</span></div><div class="faq-a">'+f.a+'</div>';faqList.appendChild(d);});
+var chart1,chart2,chart3;
+function calcStats(){var logged=tickets.length;var open=tickets.filter(t=>t.status==='Open').length;var pending=tickets.filter(t=>t.status==='In Progress').length;var resolved=tickets.filter(t=>t.status==='Resolved').length;var totalTime=0,cnt=0;tickets.forEach(t=>{if(t.status==='Resolved'&&t.resolvedAt){totalTime+=(t.resolvedAt-t.createdAt);cnt++;}});var avg=cnt>0?(totalTime/cnt/3600000).toFixed(1):0;var perTech=tickets.length>0?(tickets.length/4).toFixed(1):0;return {logged,open,pending,resolved,avg,perTech};}
+function refreshDashboard(){
+ var total=0;
+ document.querySelectorAll('#assetBody tr').forEach(tr=>{
+  var py=parseInt(tr.cells[3].innerText)||2025;var age=2025-py;var rep=age>5?'Yes':'No';
+  tr.cells[7].innerText=age;tr.cells[8].innerText=rep;
+  if(age>5) tr.classList.add('red-row'); else tr.classList.remove('red-row');
+  var qty=parseFloat(tr.cells[9].getAttribute('data-qty'))||0;var unit=parseFloat(tr.cells[9].getAttribute('data-unit'))||0;var tot=qty*unit;tr.cells[9].innerText='R '+tot.toLocaleString();total+=tot;
+ });
+ document.getElementById('assetTotal').innerText='R '+total.toLocaleString();
+ var s=calcStats();
+ document.getElementById('statLogged').innerText=s.logged;document.getElementById('statOpen').innerText=s.open;document.getElementById('statPending').innerText=s.pending;document.getElementById('statResolved').innerText=s.resolved;document.getElementById('statAvg').innerText=s.avg+'h';document.getElementById('statPerTech').innerText=s.perTech;
+ var byStatus={Open:s.open,'In Progress':s.pending,Resolved:s.resolved};
+ var byType={};var byUrg={Low:0,Medium:0,High:0};
+ tickets.forEach(t=>{byType[t.type]=(byType[t.type]||0)+1;var u=t.urg.split(' ')[0];if(byUrg[u]!==undefined) byUrg[u]++;});
+ var el1=document.getElementById('g1');if(!el1) return;
+ if(chart1) chart1.destroy();if(chart2) chart2.destroy();if(chart3) chart3.destroy();
+ chart1=new Chart(el1,{type:'bar',data:{labels:Object.keys(byStatus),datasets:[{label:'Tickets',data:Object.values(byStatus),backgroundColor:['#ef4444','#f59e0b','#10b981']}]},options:{responsive:true}});
+ chart2=new Chart(document.getElementById('g2'),{type:'doughnut',data:{labels:Object.keys(byType).length?Object.keys(byType):['No Data'],datasets:[{data:Object.values(byType).length?Object.values(byType):[1],backgroundColor:['#2457e8','#0f1f4a','#10b981','#f59e0b','#ef4444','#6366f1']}]},options:{responsive:true}});
+ chart3=new Chart(document.getElementById('g3'),{type:'bar',data:{labels:Object.keys(byUrg),datasets:[{label:'By Urgency',data:Object.values(byUrg),backgroundColor:['#10b981','#f59e0b','#ef4444']}]},options:{responsive:true}});
+}
+function renderFeed(){var f=document.getElementById('liveFeed');if(!f) return;if(tickets.length===0){f.innerHTML='<i>No tickets yet — log one and graphs will update live.</i>';return;}f.innerHTML=tickets.slice().reverse().map(t=>'🔔 ['+t.date+'] <b>'+t.name+'</b> logged <b>'+t.type+'</b> - <span class="badge '+(t.urg.toLowerCase().includes('high')?'high':t.urg.toLowerCase().includes('med')?'med':'low')+'">'+t.urg+'</span>').join('<br>');}
+refreshDashboard();renderFeed();document.getElementById('chatOutput').innerHTML=buildChatWelcome();
+function adminLogin(){var p=document.getElementById('adminPass').value;if(p==='Tsireledzo@47'){document.getElementById('adminLoginBox').classList.add('hidden');document.getElementById('adminPanel').classList.remove('hidden');document.getElementById('adminPass').value='';renderAdmin();}else document.getElementById('adminErr').innerText='Wrong PIN! Access denied.';}
+function adminLogout(){document.getElementById('adminPanel').classList.add('hidden');document.getElementById('adminLoginBox').classList.remove('hidden');document.getElementById('adminPass').value='';}
+function renderAdmin(){
+ var s=calcStats();
+ document.getElementById('aTot').innerText=s.logged;document.getElementById('aOp').innerText=s.open;document.getElementById('aProg').innerText=s.pending;document.getElementById('aRes').innerText=s.resolved;document.getElementById('aAvg').innerText=s.avg+'h';document.getElementById('aPerTech').innerText=s.perTech;
+ var cont=document.getElementById('adminTickets');
+ if(tickets.length===0){cont.innerHTML='<p>No tickets.</p>';return;}
+ var html='<table id="adminTicketsTable"><tr><th>ID</th><th>User</th><th>Type</th><th>Urgency</th><th>Status</th><th>Resolution Time</th><th>Action</th></tr>';
+ tickets.forEach((t,i)=>{
+  var rt='-';if(t.status==='Resolved'&&t.resolvedAt){rt=((t.resolvedAt-t.createdAt)/3600000).toFixed(1)+'h';}else if(t.status!=='Resolved'){rt=((Date.now()-t.createdAt)/3600000).toFixed(1)+'h pending';}
+  html+='<tr><td>#'+String(t.id).slice(-6)+'</td><td>'+t.name+'<br><small>'+t.email+' | '+t.dept+'</small></td><td>'+t.type+'</td><td><span class="badge '+(t.urg.toLowerCase().includes('high')?'high':t.urg.toLowerCase().includes('med')?'med':'low')+'">'+t.urg+'</span></td><td><select onchange="updateStatus('+i+',this.value)"><option '+(t.status==='Open'?'selected':'')+'>Open</option><option '+(t.status==='In Progress'?'selected':'')+'>In Progress</option><option '+(t.status==='Resolved'?'selected':'')+'>Resolved</option></select></td><td>'+rt+'</td><td><button class="btn-primary" onclick="updateStatus('+i+',\'Resolved\')">Resolve</button> <button style="background:#ef4444;color:white" onclick="delTicket('+i+')">Delete</button></td></tr>';
+  html+='<tr><td colspan=7 style="background:#f9fafb"><b>Desc:</b> '+t.desc+' | <b>File:</b> '+(t.file||'none')+' | <b>Date:</b> '+t.date+'</td></tr>';
+ });
+ html+='</table>';cont.innerHTML=html;
+}
+function updateStatus(i,v){tickets[i].status=v;if(v==='Resolved'&&!tickets[i].resolvedAt) tickets[i].resolvedAt=Date.now();save();}
+function delTicket(i){if(confirm('Delete?')){tickets.splice(i,1);save();}}
+function clearAll(){if(confirm('Clear ALL?')){tickets=[];save();}}
+function toggleChat(){document.getElementById('chatWidget').classList.toggle('open');}
+function askAI(){
+ var input=document.getElementById('chatInput').value.trim();if(!input) return;
+ var q=input.toLowerCase();var ans="";
+ if(q.includes('password')) ans="To reset your password:<br>1. Go to login screen<br>2. Click Forgot Password<br>3. Enter email/username<br>4. Check email for reset link<br>5. Create new strong password.";
+ else if(q.includes('router')) ans="To restart router:<br>1. Unplug power cable<br>2. Wait 30 seconds<br>3. Plug back<br>4. Wait lights stabilize<br>5. Test internet.";
+ else if(q.includes('install')) ans="To install software:<br>1. Download installer<br>2. Double-click<br>3. Follow Next-Accept-Install<br>4. Wait finish<br>5. Launch.";
+ else if(q.includes('wifi')||q.includes('wi-fi')) ans="To connect to WiFi:<br>1. Open WiFi settings<br>2. Select SSID<br>3. Enter password<br>4. Connect<br>5. Test browser.";
+ else if(q.includes('ticket')) ans="To submit a ticket:<br>1. Login<br>2. Submit New Ticket<br>3. Fill details<br>4. Attach picture<br>5. Submit.";
+ else if(q.includes('update')) ans="To update software:<br>1. Open software<br>2. Help/Settings<br>3. Check for Updates<br>4. Download and Install<br>5. Restart.";
+ else ans="I can help with: password, router, software install/update, WiFi, ticket with picture, escalation tiers.";
+ var out=document.getElementById('chatOutput');
+ out.innerHTML+='<div class="card" style="margin:8px 0;padding:12px"><b>You:</b> '+input+'<br><br><b>NovaAI:</b> '+ans+'</div>';
+ document.getElementById('chatInput').value='';out.scrollTop=out.scrollHeight;
+}
+function clearChat(){document.getElementById('chatOutput').innerHTML=buildChatWelcome();}
+document.getElementById('chatInput').addEventListener('keypress',function(e){if(e.key==='Enter') askAI();});
+</script>
+</body>
+</html>
