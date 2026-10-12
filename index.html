@@ -193,7 +193,32 @@ header{padding:10px 12px}
 <tr><td>AST-019</td><td>iPad Pro 12.9"</td><td>Sales</td><td>2022</td><td>2025-11-20</td><td>Active</td><td>Sales Team</td><td class="age"></td><td class="replace"></td><td class="calc" data-qty="1" data-unit="6000"></td></tr>
 <tr><td>AST-020</td><td>CCTV Hikvision Kit</td><td>Operations</td><td>2016</td><td>2019-04-15</td><td>Needs Replacement</td><td>Security</td><td class="age"></td><td class="replace"></td><td class="calc" data-qty="1" data-unit="4900"></td></tr>
 </tbody><tfoot><tr style="background:#eef2ff;font-weight:900"><td colspan="9">TOTAL ASSET BALANCE — 20 Assets Completed — R97,900</td><td id="assetTotal">R0</td></tr></tfoot></table></div></div><div class="card"><h3>Live Ticket Feed</h3><div class="section-sub">This feed shows recent ticket activity as users log new issues, helping IT staff see what is happening in real time and respond quickly.</div><div id="liveFeed"></div></div></div></div>
-
+<div class="card" style="margin:14px 8%; border-left:5px solid #0a1f6a; background:#f8faff;">
+<h3 style="color:#0a1f6a;">📦 Asset Register - Motivation, Tracker & Replacement Plan</h3>
+<div style="line-height:1.8; font-size:14px;">
+<b>1. WHAT IS ASSET REGISTER?</b><br>
+Centralized inventory of all 20 IT assets owned by NovaTech Solutions (Polokwane). Tracks Asset ID, Model, Department, Purchase Year, Warranty, Status, Assigned To, Age, Replacement. Total Value <b>R97,900</b> - ONLY place where total appears in system.<br><br>
+<b>2. MOTIVATION (Why we need it):</b><br>
+- Budget Control: Know total R97,900 for insurance & audit<br>
+- Prevent Failure: Auto Age = 2026 - Purchase Year. Flags old assets<br>
+- Security Risk: Firewall, UPS, Server Room assets are critical - cannot fail<br>
+- Accountability: Every asset has owner (e.g., Madi... T., Network, Finance)<br>
+- Warranty Tracking: Shows expired warranties for replacement planning<br><br>
+<b>3. ASSET REGISTER TRACKER - LIVE STATUS:</b><br>
+Total Assets: 20 | Total Value: R97,900 | Good: 11 assets | Needs Replacement: 9 assets (45%) | Oldest: AST-020 CCTV Kit 2016 (10 years)<br><br>
+<b>4. 9 ASSETS THAT NEED REPLACEMENT = R50,300 (51% of total value):</b><br>
+1. AST-002 - Dell Latitude 5540 - 2021 - Expired 2024 - R7,500<br>
+2. AST-003 - HP ProLiant DL380 - 2019 - Expired 2022 - R5,200<br>
+3. AST-008 - Lenovo ThinkPad X1 - 2017 - Expired 2020 - R5,500<br>
+4. AST-010 - HP LaserJet Pro - 2019 - Expired 2022 - R4,200<br>
+5. AST-013 - Fortigate Firewall 100F - 2018 - Expired 2022 - R6,500<br>
+6. AST-014 - Projector Epson L730U - 2019 - Expired 2023 - R4,000<br>
+7. AST-017 - Dell PowerEdge R730 - 2017 - Expired 2020 - R9,000 (Most Expensive)<br>
+8. AST-018 - APC UPS 5KVA - 2018 - Expired 2021 - R3,500<br>
+9. AST-020 - CCTV Hikvision Kit - 2016 - Expired 2019 - R4,900 (Oldest)<br><br>
+<b>Tracker Action:</b> RED rows in table above = Needs Replacement. Filtered automatically by age >5 years & warranty expired.
+</div>
+</div>
 <div id="contacts" class="page hidden"><div class="card"><div class="section-title">Contacts</div><div class="section-sub">This section provides contact details for IT support including phone, email and physical location plus a quick message form to reach support team directly for urgent matters.</div><div class="grid"><div><p>📞 <a href="tel:+27796678769" style="color:#2457e8;font-weight:800">+27 79 667 8769</a></p><p>📧 NovaIT@gmail.com</p><p>📧 NovaTech@gmail.co.za</p><p>📍 Mbombela, Mpumalanga, South Africa</p><p style="margin-top:10px"><b>Support Hours:</b> Mon-Fri 08:00-17:00 SAST<br><b>Emergency:</b> 24/7 On-Call for P1 Critical incidents only</p></div><div class="card" style="margin:0;background:#f8fafc"><h3>Send a Message</h3><div class="section-sub">Use this form to send quick message to IT support. It opens your email client with pre-filled details for faster response.</div><form id="quickForm"><input id="qName" placeholder="Your Name" required><br><br><input id="qEmail" type="email" placeholder="Your Email" required><br><br><textarea id="qMsg" rows="3" placeholder="Your message..." required></textarea><br><br><button type="submit" class="btn-primary">Send Message</button> <span id="qStatus" style="color:var(--green);margin-left:8px"></span></form></div></div></div></div>
 
 <div id="faqs" class="page hidden"><div class="card"><div class="section-title">Frequently Asked Questions (FAQs)</div><div class="section-sub">Frequently Asked Questions are common questions that users ask repeatedly about IT issues and how to solve them. This section provides quick, step-by-step answers to help you fix problems by yourself without waiting for IT support. Click on any question below to expand and see detailed solution for 15 most common issues.</div><div id="faqList"></div></div></div>
