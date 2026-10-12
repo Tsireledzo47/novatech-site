@@ -114,9 +114,36 @@ header{padding:10px 12px}
 </div></nav>
 <div class="hero" id="hero"><h1>Welcome to NovaTech Solutions</h1><p>Professional IT Support Portal — Reliable & Secure IT Services</p></div>
 <div class="container">
-<div style="text-align:center; padding: 40px 0;">
-  <div class="logo-mark" style="width:250px; height:250px; font-size:140px; display:inline-flex; justify-content:center; align-items:center; border-radius:40px;">N</div>
+<!-- BIG N LOGO - HOMEPAGE -->
+<div id="bigNLogo" style="display:flex; justify-content:center; align-items:center; padding: 60px 20px; background: #f8f9ff;">
+  <div style="
+    width: 280px; 
+    height: 280px; 
+    background: linear-gradient(135deg, #0a1f6a 0%, #1e3ad1 50%, #3b5bff 100%);
+    border-radius: 45px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size: 160px;
+    font-weight: 900;
+    color: white;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 20px 60px rgba(30,58,209,0.4);
+    animation: nPulse 3s ease-in-out infinite;
+  ">N</div>
 </div>
+
+<style>
+@keyframes nPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 20px 60px rgba(30,58,209,0.4); }
+  50% { transform: scale(1.05); box-shadow: 0 30px 80px rgba(30,58,209,0.6); }
+}
+
+@media (max-width: 600px) {
+  #bigNLogo div { width: 180px !important; height: 180px !important; font-size: 100px !important; border-radius: 30px !important; }
+}
+</style>
+<!-- END BIG N LOGO -->
 <div id="home" class="page">
 <div class="card"><div class="section-title">User guide</div><div class="section-sub">This guide explains how to navigate the portal and get IT support quickly. It covers self-help options, ticket logging process, tracking progress in dashboard, and using live AI assistance for instant fixes.</div><div class="how-grid">
 <div class="how-card"><h3>🔍 Self-Help First</h3><p>Check Knowledge Base and FAQs for instant fixes on password, Wi-Fi and software before logging a ticket. This saves time and reduces IT workload.</p></div>
