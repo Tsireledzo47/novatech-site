@@ -194,7 +194,41 @@ header{padding:10px 12px}
 <tr><td>AST-020</td><td>CCTV Hikvision Kit</td><td>Operations</td><td>2016</td><td>2019-04-15</td><td>Needs Replacement</td><td>Security</td><td class="age"></td><td class="replace"></td><td class="calc" data-qty="1" data-unit="4900"></td></tr>
 </tbody><tfoot><tr style="background:#eef2ff;font-weight:900"><td colspan="9">TOTAL ASSET BALANCE — 20 Assets Completed — R97,900</td><td id="assetTotal">R0</td></tr></tfoot></table></div></div><div class="card"><h3>Live Ticket Feed</h3><div class="section-sub">This feed shows recent ticket activity as users log new issues, helping IT staff see what is happening in real time and respond quickly.</div><div id="liveFeed"></div></div></div></div>
 </tfoot></table></div>
-
+<!-- Asset Register Motivation - FINAL 90% - Dashboard Only -->
+<div id="assetMotivationCard" style="width:90%; max-width:800px; margin:20px auto; background:#fff; border:1px solid #e5e7eb; border-radius:16px; padding:16px; box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+  <div style="font-weight:800; font-size:15px; color:#0f172a;">📌 What is Asset Register Motivation?</div>
+  <div style="font-size:13px; color:#334155; margin:6px 0 12px; line-height:1.6;">
+    An <b>Asset Register Motivation</b> explains WHY we keep an asset register. It ensures <b>accountability</b> (who owns what), <b>compliance</b> (audit & PFMA requirements), <b>efficiency</b> (know what to replace, when), and <b>financial control</b> (track value, prevent loss/theft, reduce downtime).
+    <br><br><b>Main Motivations:</b> 1) Centralized tracking 2) Budget planning for replacements 3) Prevent loss 4) Maintenance scheduling 5) Audit proof 6) Lifecycle management.
+  </div>
+  <div style="display:flex; gap:18px; justify-content:center; align-items:flex-start; flex-wrap:wrap;">
+    <div style="text-align:center;">
+      <canvas id="assetPie" width="150" height="150" style="cursor:pointer;"></canvas>
+      <div style="font-size:11px; color:#64748b; margin-top:4px;">Click orange / green slice</div>
+    </div>
+    <table style="flex:1; min-width:300px; border-collapse:collapse; font-size:13px; width:100%; border:1px solid #e2e8f0; border-radius:10px; overflow:hidden;">
+      <tr style="background:#1e293b; color:#fff;"><th style="padding:10px; text-align:left;">Category</th><th style="padding:10px;">Qty</th><th style="padding:10px; text-align:left;">Reason / Explanation</th><th style="padding:10px;">Tracker</th></tr>
+      <tr id="row-rep" style="cursor:pointer;"><td style="padding:10px; border-top:1px solid #eee;"><span style="display:inline-block; width:10px; height:10px; background:#f59e0b; border-radius:2px;"></span> <b>Needing Replacement</b></td><td style="padding:10px; border-top:1px solid #eee; text-align:center;"><span style="background:#fef3c7; color:#92400e; padding:4px 10px; border-radius:12px; font-weight:700;">9</span></td><td style="padding:10px; border-top:1px solid #eee; font-size:12px; color:#334155;">Aged 5-9 years, out of warranty, slow, security risk, EOL. E.g AST-008 Lenovo 2017, AST-012 Fortigate 2018, AST-017 Dell 2020 needing frequent repair.</td><td style="padding:10px; border-top:1px solid #eee;"><span style="background:#e0f2fe; padding:4px 8px; border-radius:6px; font-size:11px; font-family:monospace;">AR-REP-2026</span></td></tr>
+      <tr id="row-good" style="cursor:pointer;"><td style="padding:10px; border-top:1px solid #eee;"><span style="display:inline-block; width:10px; height:10px; background:#10b981; border-radius:2px;"></span> <b>In Good Condition</b></td><td style="padding:10px; border-top:1px solid #eee; text-align:center;"><span style="background:#dcfce7; color:#065f46; padding:4px 10px; border-radius:12px; font-weight:700;">11</span></td><td style="padding:10px; border-top:1px solid #eee; font-size:12px; color:#334155;">New 2021-2024, under warranty, meets performance, no action needed. Preventive maintenance only.</td><td style="padding:10px; border-top:1px solid #eee;"><span style="background:#e0f2fe; padding:4px 8px; border-radius:6px; font-size:11px; font-family:monospace;">AR-GOOD-2026</span></td></tr>
+      <tr style="background:#f8fafc;"><td colspan="4" style="padding:8px 10px; border-top:1px solid #e2e8f0;"><b>TOTAL: 20 Assets | Compliance 100%</b></td></tr>
+    </table>
+  </div>
+</div>
+<script>
+(function(){
+  const c=document.getElementById('assetPie'); const x=c.getContext('2d'); const CX=75, CY=75, R=60, IR=32;
+  const data=[{qty:9, color:'#f59e0b', id:'row-rep'}, {qty:11, color:'#10b981', id:'row-good'}];
+  let arcs=[]; let start=-1.5708;
+  function draw(){ x.clearRect(0,0,150,150); start=-1.5708; arcs=[];
+    data.forEach(d=>{ let sweep=d.qty/20*6.28318; let end=start+sweep; x.beginPath(); x.moveTo(CX,CY); x.arc(CX,CY,R,start,end); x.fillStyle=d.color; x.fill(); arcs.push({s:start,e:end,id:d.id}); start=end; });
+    x.beginPath(); x.arc(CX,CY,IR,0,6.28318); x.fillStyle='#fff'; x.fill(); x.fillStyle='#0f172a'; x.font='bold 13px sans-serif'; x.textAlign='center'; x.fillText('20 Total',CX,CY+4);
+  }
+  function hl(id){ document.getElementById('row-rep').style.background=id==='row-rep'?'#fffbeb':''; document.getElementById('row-good').style.background=id==='row-good'?'#ecfdf5':''; document.getElementById('row-rep').style.outline=id==='row-rep'?'2px solid #f59e0b':'none'; document.getElementById('row-good').style.outline=id==='row-good'?'2px solid #10b981':'none'; }
+  c.addEventListener('click', e=>{ const r=c.getBoundingClientRect(); const mx=e.clientX-r.left-CX; const my=e.clientY-r.top-CY; if(Math.sqrt(mx*mx+my*my)>R||Math.sqrt(mx*mx+my*my)<IR) return; let ang=Math.atan2(my,mx); arcs.forEach(a=>{ let s=a.s, ee=a.e; if(ee<s) ee+=6.28318; let aa=ang; if(aa<s) aa+=6.28318; if(aa>=s&&aa<=ee) hl(a.id); }); });
+  document.getElementById('row-rep').onclick=()=>hl('row-rep'); document.getElementById('row-good').onclick=()=>hl('row-good');
+  draw();
+})();
+</script>
 </div>
 </div>
 <div id="contacts" class="page hidden"><div class="card"><div class="section-title">Contacts</div><div class="section-sub">This section provides contact details for IT support including phone, email and physical location plus a quick message form to reach support team directly for urgent matters.</div><div class="grid"><div><p>📞 <a href="tel:+27796678769" style="color:#2457e8;font-weight:800">+27 79 667 8769</a></p><p>📧 NovaIT@gmail.com</p><p>📧 NovaTech@gmail.co.za</p><p>📍 Mbombela, Mpumalanga, South Africa</p><p style="margin-top:10px"><b>Support Hours:</b> Mon-Fri 08:00-17:00 SAST<br><b>Emergency:</b> 24/7 On-Call for P1 Critical incidents only</p></div><div class="card" style="margin:0;background:#f8fafc"><h3>Send a Message</h3><div class="section-sub">Use this form to send quick message to IT support. It opens your email client with pre-filled details for faster response.</div><form id="quickForm"><input id="qName" placeholder="Your Name" required><br><br><input id="qEmail" type="email" placeholder="Your Email" required><br><br><textarea id="qMsg" rows="3" placeholder="Your message..." required></textarea><br><br><button type="submit" class="btn-primary">Send Message</button> <span id="qStatus" style="color:var(--green);margin-left:8px"></span></form></div></div></div></div>
