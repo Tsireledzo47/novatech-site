@@ -194,7 +194,44 @@ header{padding:10px 12px}
 <tr><td>AST-020</td><td>CCTV Hikvision Kit</td><td>Operations</td><td>2016</td><td>2019-04-15</td><td>Needs Replacement</td><td>Security</td><td class="age"></td><td class="replace"></td><td class="calc" data-qty="1" data-unit="4900"></td></tr>
 </tbody><tfoot><tr style="background:#eef2ff;font-weight:900"><td colspan="9">TOTAL ASSET BALANCE — 20 Assets Completed — R97,900</td><td id="assetTotal">R0</td></tr></tfoot></table></div></div><div class="card"><h3>Live Ticket Feed</h3><div class="section-sub">This feed shows recent ticket activity as users log new issues, helping IT staff see what is happening in real time and respond quickly.</div><div id="liveFeed"></div></div></div></div>
 </tfoot></table></div>
-
+<!-- ===== 90% ASSET MOTIVATION CARD - COPY EXACTLY ===== -->
+<div id="assetMotivationCard" style="width:90%;max-width:1100px;margin:22px auto;padding:0;background:linear-gradient(135deg,#f8fafc,#eef2ff);border:2px solid #c7d2fe;border-radius:16px;box-shadow:0 8px 24px rgba(36,87,232,.12);overflow:hidden;font-family:'Segoe UI',Arial,sans-serif;">
+<div style="background:linear-gradient(135deg,#0f1f4a,#2457e8);color:white;padding:16px 20px;">
+<h2 style="font-size:19px;margin:0;">📊 Asset Register — Motivation & Lifecycle Analysis</h2>
+<p style="font-size:13px;color:#cbd5e1;margin:4px 0 0;">Dashboard Only — This analysis lives under Asset Register in Dashboard, explaining 11 GOOD vs 9 REPLACE with ITIL reasons</p>
+</div>
+<div style="padding:18px 20px;">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-bottom:14px;">
+<div style="background:white;border:1px solid #e5e7eb;border-left:5px solid #10b981;border-radius:10px;padding:12px;text-align:center;">
+<b style="font-size:26px;color:#10b981;display:block;">11</b><small style="font-weight:800;color:#1f2937;">Assets in GOOD Condition</small><br><small style="color:#6b7280;font-size:11px;">Age ≤5 years, warranty valid, performing well</small>
+</div>
+<div style="background:white;border:1px solid #e5e7eb;border-left:5px solid #ef4444;border-radius:10px;padding:12px;text-align:center;">
+<b style="font-size:26px;color:#ef4444;display:block;">9</b><small style="font-weight:800;color:#1f2937;">Assets Need Replacement</small><br><small style="color:#6b7280;font-size:11px;">Age >5 years, expired warranty, security risk</small>
+</div>
+<div style="background:white;border:1px solid #e5e7eb;border-left:5px solid #2457e8;border-radius:10px;padding:12px;text-align:center;">
+<b style="font-size:20px;color:#0f1f4a;display:block;">ITIL Lifecycle Rule</b><small style="font-weight:700;color:#1f2937;">Replacement = Age >5</small><br><small style="color:#6b7280;font-size:11px;">Total Value: R97,900 (Asset Register Only)</small>
+</div>
+</div>
+<h3 style="color:#0f1f4a;font-size:15px;margin:10px 0 8px;">✅ 11 Assets GOOD — Why they are kept:</h3>
+<p style="font-size:13px;line-height:1.7;color:#374151;">These 11 assets are still within lifecycle (Purchased 2020-2023), warranty valid or recently expired, low failure risk, supporting daily operations. Keeping them avoids unnecessary cost. They are: AST-001 Dell Latitude 5540 (2021), AST-004 48-Port Switch (2020), AST-005 UPS 3KVA (2022), AST-006 M365 E3 (2023), AST-007 Antivirus (2023), AST-009 Dell Monitor (2020), AST-011 Cisco AP (2021), AST-012 MacBook Pro 14" (2022), AST-015 Synology NAS (2020), AST-016 Logitech Camera (2021), AST-019 iPad Pro (2022). All age 2-5 years.</p>
+<h3 style="color:#b91c1c;font-size:15px;margin:14px 0 8px;">❌ 9 Assets NEED REPLACEMENT — Detailed Motivation:</h3>
+<div style="background:white;border:1px solid #fecaca;border-radius:10px;padding:10px 14px;font-size:12.5px;line-height:1.8;color:#1f2937;">
+<b>1. AST-002 HP ProLiant DL380 Server (2019) Age 6</b> — Warranty expired 2023-12-31, server critical, performance degraded, risk of downtime, no vendor support.<br>
+<b>2. AST-003 Cisco ISR 4321 Router (2018) Age 7</b> — Warranty expired 2022-05-15, network core device, security patches ended, end-of-life, high security risk.<br>
+<b>3. AST-008 Lenovo ThinkPad X1 (2017) Age 8</b> — Warranty expired 2020-08-15, HR staff laptop, battery failure, slow, replacement needed for productivity.<br>
+<b>4. AST-010 HP LaserJet Pro Printer (2019) Age 6</b> — Warranty expired 2022-11-11, Finance dept printer, frequent paper jam, toner costly, efficiency low.<br>
+<b>5. AST-013 Fortigate Firewall 100F (2018) Age 7</b> — Warranty expired 2022-06-30, Security device, critical vulnerability risk, no firmware updates, compliance violation.<br>
+<b>6. AST-014 Projector Epson L730U (2019) Age 6</b> — Warranty expired 2023-03-12, Boardroom use, lamp hours exceeded, brightness low.<br>
+<b>7. AST-017 Dell PowerEdge R750 (2017) Age 8</b> — Status: Needs Replacement, Warranty expired 2020-05-20, main server, hardware failure imminent.<br>
+<b>8. AST-018 APC UPS 5KVA (2018) Age 7</b> — Warranty expired 2021-09-30, Server Room power backup, battery not holding, risk of power loss.<br>
+<b>9. AST-020 CCTV Hikvision Kit (2016) Age 9</b> — Status: Needs Replacement, Warranty expired 2019-04-15, oldest asset, security surveillance failure risk.
+</div>
+<div style="margin-top:12px;padding:10px 12px;background:#fffbeb;border:1px solid #fcd34d;border-radius:8px;font-size:12.5px;color:#92400e;">
+<b>💰 Financial Impact:</b> 9 assets = 45% of fleet at risk. Proactive replacement avoids unplanned downtime cost (P1 Critical 15min response) and aligns with Finance budget control. ITIL recommends refresh cycle 5 years for hardware. Total asset value R97,900 remains in Asset Register only — this card does NOT duplicate value.
+</div>
+</div>
+</div>
+<!-- ===== END CARD ===== -->
 </div>
 </div>
 <div id="contacts" class="page hidden"><div class="card"><div class="section-title">Contacts</div><div class="section-sub">This section provides contact details for IT support including phone, email and physical location plus a quick message form to reach support team directly for urgent matters.</div><div class="grid"><div><p>📞 <a href="tel:+27796678769" style="color:#2457e8;font-weight:800">+27 79 667 8769</a></p><p>📧 NovaIT@gmail.com</p><p>📧 NovaTech@gmail.co.za</p><p>📍 Mbombela, Mpumalanga, South Africa</p><p style="margin-top:10px"><b>Support Hours:</b> Mon-Fri 08:00-17:00 SAST<br><b>Emergency:</b> 24/7 On-Call for P1 Critical incidents only</p></div><div class="card" style="margin:0;background:#f8fafc"><h3>Send a Message</h3><div class="section-sub">Use this form to send quick message to IT support. It opens your email client with pre-filled details for faster response.</div><form id="quickForm"><input id="qName" placeholder="Your Name" required><br><br><input id="qEmail" type="email" placeholder="Your Email" required><br><br><textarea id="qMsg" rows="3" placeholder="Your message..." required></textarea><br><br><button type="submit" class="btn-primary">Send Message</button> <span id="qStatus" style="color:var(--green);margin-left:8px"></span></form></div></div></div></div>
