@@ -4,3 +4,47 @@ body{
 .title {
 	color: #5C6AC4;
 }
+/* MOBILE FRIENDLY FIX */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  /* Make navigation stack */
+  nav, header, .navbar {
+    flex-direction: column !important;
+    height: auto !important;
+    padding: 10px !important;
+  }
+
+  /* Make all cards and sections fit phone */
+  section, .container, .card, .form-container, .hero {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+
+  /* Make form inputs full width */
+  input, select, textarea, button {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Stack columns vertically */
+  .row, .flex, [style*="display: flex"] {
+    flex-direction: column !important;
+  }
+}
