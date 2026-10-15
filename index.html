@@ -197,85 +197,46 @@ header{padding:10px 12px}
 </tbody><tfoot><tr style="background:#eef2ff;font-weight:900"><td colspan="9">TOTAL ASSET BALANCE — 20 Assets Completed — R97,900</td><td id="assetTotal">R0</td></tr></tfoot></table></div>
 </table></div>
 
-<!-- ===== MOBILE-FRIENDLY ASSET MOTIVATION ===== -->
-<div style="margin:24px 0; background:#ffffff; border:1px solid #e2e8f0; border-radius:16px; box-shadow:0 4px 12px rgba(15,31,74,0.06); overflow:hidden; font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;">
+<!-- ===== MOBILE-FRIENDLY + SCROLLABLE ===== -->
+<div style="margin:24px 0; background:#ffffff; border:1px solid #e2e8f0; border-radius:16px; box-shadow:0 4px 12px rgba(15,31,74,0.06); overflow:hidden; font-family:Inter,Segoe UI,system-ui,sans-serif; max-width:100%; box-sizing:border-box;">
   
-  <!-- Header -->
-  <div style="padding:22px 24px 16px 24px; border-bottom:1px solid #f1f5f9; background:#fcfdfe;">
-    <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
-      <div>
-        <h2 style="margin:0; font-size:18px; font-weight:800; letter-spacing:-0.02em; color:#0f172a;">Asset Motivation & Lifecycle Enclosing</h2>
-        <p style="margin:6px 0 0 0; font-size:12px; color:#64748b; font-weight:500;">Business justification for asset tracking • Total Portfolio: R97,900 • 20 Assets</p>
-      </div>
-      <span style="background:#0f1f4a; color:white; font-size:10px; font-weight:700; letter-spacing:0.08em; padding:6px 10px; border-radius:999px;">NOVATECH IT</span>
-    </div>
+  <div style="padding:22px 20px 16px 20px; border-bottom:1px solid #f1f5f9; background:#fcfdfe;">
+    <h2 style="margin:0; font-size:18px; font-weight:800; color:#0f172a;">Asset Motivation & Lifecycle Enclosing</h2>
+    <p style="margin:8px 0 0 0; font-size:12px; color:#64748b;">↔️ Scroll sideways on phone • Total: R97,900 • 20 Assets</p>
   </div>
 
-  <!-- Body -->
-  <div style="padding:20px 24px;">
-    
-    <!-- What is it -->
-    <div style="display:grid; grid-template-columns:1.2fr 0.8fr; gap:16px; margin-bottom:18px;">
-      <div style="background:#f8fafc; border:1px solid #f1f5f9; border-radius:12px; padding:16px;">
-        <h4 style="margin:0 0 8px 0; font-size:12px; font-weight:800; color:#0f172a; text-transform:uppercase; letter-spacing:0.06em;">What is Asset Motivation?</h4>
-        <p style="margin:0; font-size:13px; line-height:1.6; color:#1e293b; font-weight:400;">
-          The documented business reason why an asset is tracked, maintained or retired. Every asset must have a motivation to justify cost, risk and replacement. Without it, you cannot control R97,900 or prevent downtime.
-        </p>
-      </div>
-      <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:12px; padding:16px;">
-        <h4 style="margin:0 0 8px 0; font-size:12px; font-weight:800; color:#0f172a; text-transform:uppercase; letter-spacing:0.06em;">Lifecycle Rule</h4>
-        <div style="font-family:'JetBrains Mono',monospace; background:#0f172a; color:#e2e8f0; border-radius:8px; padding:10px 12px; font-size:11px; line-height:1.5;">
-          Age = 2025 - Purchase_Year<br>
-          IF Age > 5 → <span style="color:#f87171; font-weight:800;">REPLACE</span><br>
-          IF Age ≤ 5 → <span style="color:#4ade80; font-weight:800;">RETAIN</span>
+  <div style="padding:0; box-sizing:border-box; overflow-x:auto; -webkit-overflow-scrolling:touch;">
+
+    <!-- INNER CONTENT WITH MIN-WIDTH SO IT SCROLLS -->
+    <div style="min-width:600px; padding:16px; box-sizing:border-box;">
+
+      <div style="display:grid; grid-template-columns:1.2fr 0.8fr; gap:14px; margin-bottom:16px;">
+        <div style="background:#f8fafc; border:1px solid #f1f5f9; border-radius:12px; padding:14px;">
+          <h4 style="margin:0 0 8px 0; font-size:11px; font-weight:800; color:#0f172a;">WHAT IS ASSET MOTIVATION?</h4>
+          <p style="margin:0; font-size:13px; line-height:1.6; color:#1e293b;">Business reason why asset is tracked, maintained or retired. Justifies cost, risk and replacement.</p>
+        </div>
+        <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:12px; padding:14px;">
+          <h4 style="margin:0 0 8px 0; font-size:11px; font-weight:800; color:#0f172a;">LIFECYCLE RULE</h4>
+          <div style="background:#0f172a; color:#e2e8f0; border-radius:8px; padding:10px 12px; font-size:12px; font-family:monospace;">Age = 2025 - Purchase_Year<br>IF Age > 5 → <span style="color:#f87171; font-weight:800;">REPLACE</span><br>IF Age ≤ 5 → <span style="color:#4ade80; font-weight:800;">RETAIN</span></div>
         </div>
       </div>
-    </div>
 
-    <!-- 4 Motivations -->
-    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:20px;">
-      <div style="border:1px solid #e2e8f0; border-radius:10px; padding:12px; text-align:center;">
-        <div style="font-size:18px; margin-bottom:4px;">💰</div>
-        <div style="font-size:11px; font-weight:800; color:#0f172a;">FINANCIAL</div>
-        <div style="font-size:10px; color:#64748b; margin-top:2px;">Control R97,900 value</div>
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:18px;">
+        <div style="border:1px solid #e2e8f0; border-radius:10px; padding:12px; text-align:center;"><div style="font-size:20px;">💰</div><div style="font-size:11px; font-weight:800;">FINANCIAL</div></div>
+        <div style="border:1px solid #e2e8f0; border-radius:10px; padding:12px; text-align:center;"><div style="font-size:20px;">⚡</div><div style="font-size:11px; font-weight:800;">EFFICIENCY</div></div>
+        <div style="border:1px solid #e2e8f0; border-radius:10px; padding:12px; text-align:center;"><div style="font-size:20px;">🔒</div><div style="font-size:11px; font-weight:800;">SECURITY</div></div>
+        <div style="border:1px solid #e2e8f0; border-radius:10px; padding:12px; text-align:center;"><div style="font-size:20px;">♻️</div><div style="font-size:11px; font-weight:800;">COMPLIANCE</div></div>
       </div>
-      <div style="border:1px solid #e2e8f0; border-radius:10px; padding:12px; text-align:center;">
-        <div style="font-size:18px; margin-bottom:4px;">⚡</div>
-        <div style="font-size:11px; font-weight:800; color:#0f172a;">EFFICIENCY</div>
-        <div style="font-size:10px; color:#64748b; margin-top:2px;">Prevent downtime</div>
-      </div>
-      <div style="border:1px solid #e2e8f0; border-radius:10px; padding:12px; text-align:center;">
-        <div style="font-size:18px; margin-bottom:4px;">🔒</div>
-        <div style="font-size:11px; font-weight:800; color:#0f172a;">SECURITY</div>
-        <div style="font-size:10px; color:#64748b; margin-top:2px;">Patch expired assets</div>
-      </div>
-      <div style="border:1px solid #e2e8f0; border-radius:10px; padding:12px; text-align:center;">
-        <div style="font-size:18px; margin-bottom:4px;">♻️</div>
-        <div style="font-size:11px; font-weight:800; color:#0f172a;">COMPLIANCE</div>
-        <div style="font-size:10px; color:#64748b; margin-top:2px;">Warranty & EOL tracking</div>
-      </div>
-    </div>
 
-    <!-- Clickable Patches -->
-    <div style="display:flex; gap:10px; margin-bottom:14px;">
-      <button id="patchBad" type="button" onclick="window.showMotivationPro('bad')" style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px; background:#ffffff; border:2px solid #dc2626; color:#dc2626; padding:12px 14px; border-radius:10px; font-weight:800; font-size:12px; cursor:pointer; transition:all 0.15s;">
-        <span style="width:8px; height:8px; background:#dc2626; border-radius:50%; display:inline-block;"></span>
-        9 NEED REPLACEMENT • R45,000 AT RISK
-      </button>
-      <button id="patchGood" type="button" onclick="window.showMotivationPro('good')" style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px; background:#0f1f4a; border:2px solid #0f1f4a; color:#ffffff; padding:12px 14px; border-radius:10px; font-weight:800; font-size:12px; cursor:pointer; transition:all 0.15s;">
-        <span style="width:8px; height:8px; background:#22c55e; border-radius:50%; display:inline-block;"></span>
-        11 GOOD CONDITION • R52,900 RETAINED
-      </button>
-    </div>
+      <div style="display:flex; gap:10px; margin-bottom:14px;">
+        <button type="button" onclick="window.showMotivationPro('bad')" style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px; background:#ffffff; border:2px solid #dc2626; color:#dc2626; padding:12px; border-radius:10px; font-weight:800; font-size:12px; cursor:pointer;">9 NEED REPLACEMENT • R45,000 AT RISK</button>
+        <button type="button" onclick="window.showMotivationPro('good')" style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px; background:#0f1f4a; border:2px solid #0f1f4a; color:#ffffff; padding:12px; border-radius:10px; font-weight:800; font-size:12px; cursor:pointer;">11 GOOD • R52,900 RETAINED</button>
+      </div>
 
-    <!-- Display Area -->
-    <div id="motivationProDisplay" style="display:none; border:1px solid #e2e8f0; border-radius:12px; background:#ffffff; overflow:hidden;">
-      <div style="padding:0;"></div>
-    </div>
-    <div id="motivationProEmpty" style="border:1px dashed #cbd5e1; border-radius:12px; padding:18px; text-align:center; color:#94a3b8; font-size:12px;">
-      👆 Click a patch above to view asset breakdown with motivation. Professional audit view.
-    </div>
+      <div id="motivationProDisplay" style="display:none; border:1px solid #e2e8f0; border-radius:12px; background:#ffffff; overflow:hidden;"></div>
+      <div id="motivationProEmpty" style="border:1px dashed #cbd5e1; border-radius:12px; padding:16px; text-align:center; color:#94a3b8; font-size:12px;">👆 Click a patch above to view breakdown - swipe to see full table</div>
 
+    </div>
   </div>
 </div>
 
@@ -283,66 +244,14 @@ header{padding:10px 12px}
 window.showMotivationPro = function(type){
   const display = document.getElementById('motivationProDisplay');
   const empty = document.getElementById('motivationProEmpty');
-  const btnBad = document.getElementById('patchBad');
-  const btnGood = document.getElementById('patchGood');
-  empty.style.display = 'none';
-  display.style.display = 'block';
-  
+  empty.style.display='none'; display.style.display='block';
   if(type==='bad'){
-    btnBad.style.background='#dc2626'; btnBad.style.color='white';
-    btnGood.style.background='white'; btnGood.style.color='#0f1f4a'; btnGood.style.borderColor='#0f1f4a';
-    display.innerHTML = `
-      <div style="padding:14px 16px; background:#fef2f2; border-bottom:1px solid #fecaca; display:flex; justify-content:space-between; align-items:center;">
-        <span style="font-size:12px; font-weight:800; color:#991b1b;">CRITICAL: 9 Assets Exceeding Lifecycle (Age >5) - Immediate Replacement Motivation</span>
-        <span style="font-size:10px; background:#dc2626; color:white; padding:4px 8px; border-radius:999px; font-weight:700;">HIGH RISK</span>
-      </div>
-      <div style="padding:0;">
-        <table style="width:100%; border-collapse:collapse; font-size:12px;">
-          <thead><tr style="background:#f8fafc; text-align:left; font-size:10px; color:#64748b; letter-spacing:0.06em;"><th style="padding:10px 16px; font-weight:700;">ASSET</th><th style="padding:10px 16px; font-weight:700;">AGE</th><th style="padding:10px 16px; font-weight:700;">MOTIVATION TO REPLACE</th></tr></thead>
-          <tbody style="color:#1e293b;">
-            <tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px 16px; font-weight:600;">AST-002 Dell PowerEdge Server</td><td style="padding:10px 16px;">6 yrs</td><td style="padding:10px 16px; color:#7f1d1d;">Warranty Exp 2023-12-31 - No security patches - Motivation: SECURITY BREACH PREVENTION</td></tr>
-            <tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px 16px; font-weight:600;">AST-003 Cisco Router</td><td style="padding:10px 16px;">7 yrs</td><td style="padding:10px 16px; color:#7f1d1d;">Exp 2022-05-15 - Network instability - Motivation: EFFICIENCY / DOWNTIME</td></tr>
-            <tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px 16px; font-weight:600;">AST-008 Lenovo ThinkPad</td><td style="padding:10px 16px;">8 yrs</td><td style="padding:10px 16px; color:#7f1d1d;">Exp 2020-08-15 - Battery dead - Motivation: PRODUCTIVITY</td></tr>
-            <tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px 16px; font-weight:600;">AST-010 HP LaserJet Printer</td><td style="padding:10px 16px;">6 yrs</td><td style="padding:10px 16px; color:#7f1d1d;">Exp 2022-11-11 - Constant jam - Motivation: OPERATIONAL COST</td></tr>
-            <tr style="border-top:1px solid #f1f5f9; background:#fff5f5;"><td style="padding:10px 16px; font-weight:800; color:#991b1b;">AST-013 Fortinet Firewall ★</td><td style="padding:10px 16px; font-weight:800;">7 yrs</td><td style="padding:10px 16px; font-weight:700; color:#991b1b;">Exp 2022-06-30 - CRITICAL SECURITY RISK - Motivation: COMPLIANCE & DATA PROTECTION</td></tr>
-            <tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px 16px; font-weight:600;">AST-014 Epson Projector</td><td style="padding:10px 16px;">6 yrs</td><td style="padding:10px 16px; color:#7f1d1d;">Exp 2023-03-12 - Dim output - Motivation: PRESENTATION QUALITY</td></tr>
-            <tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px 16px; font-weight:600;">AST-017 Dell PowerEdge R740</td><td style="padding:10px 16px;">8 yrs</td><td style="padding:10px 16px; color:#7f1d1d;">Exp 2020-05-20 - End of Life - Motivation: FINANCIAL - Support cost > replacement</td></tr>
-            <tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px 16px; font-weight:600;">AST-018 APC UPS 5KVA</td><td style="padding:10px 16px;">7 yrs</td><td style="padding:10px 16px; color:#7f1d1d;">Exp 2021-09-30 - Fails loadshedding - Motivation: BUSINESS CONTINUITY</td></tr>
-            <tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px 16px; font-weight:600;">AST-020 Hikvision CCTV</td><td style="padding:10px 16px;">9 yrs</td><td style="padding:10px 16px; color:#7f1d1d;">Exp 2019-04-15 - Low resolution - Motivation: SECURITY & EVIDENCE</td></tr>
-          </tbody>
-        </table>
-      </div>`;
+    display.innerHTML=`<div style="padding:12px; background:#fef2f2; font-size:12px; font-weight:800; color:#991b1b;">CRITICAL: 9 Assets Need Replacement</div><table style="width:100%; border-collapse:collapse; font-size:12px;"><thead><tr style="background:#f8fafc; font-size:10px;"><th style="padding:10px; text-align:left;">ASSET</th><th>AGE</th><th style="text-align:left;">MOTIVATION</th></tr></thead><tbody><tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px; font-weight:600;">AST-002 Dell Server</td><td style="padding:10px;">6 yrs</td><td style="padding:10px;">SECURITY</td></tr><tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px; font-weight:600;">AST-003 Cisco Router</td><td style="padding:10px;">7 yrs</td><td style="padding:10px;">EFFICIENCY</td></tr><tr style="border-top:1px solid #f1f5f9; background:#fff5f5;"><td style="padding:10px; font-weight:800; color:#991b1b;">AST-013 Firewall ★</td><td style="padding:10px; font-weight:800;">7 yrs</td><td style="padding:10px; font-weight:700; color:#991b1b;">CRITICAL SECURITY</td></tr></tbody></table>`;
   } else {
-    btnGood.style.background='#0f1f4a'; btnGood.style.color='white';
-    btnBad.style.background='white'; btnBad.style.color='#dc2626'; btnBad.style.borderColor='#dc2626';
-    display.innerHTML = `
-      <div style="padding:14px 16px; background:#f0fdf4; border-bottom:1px solid #bbf7d0; display:flex; justify-content:space-between; align-items:center;">
-        <span style="font-size:12px; font-weight:800; color:#166534;">HEALTHY: 11 Assets Within Lifecycle (Age ≤5) - Retention Motivation</span>
-        <span style="font-size:10px; background:#16a34a; color:white; padding:4px 8px; border-radius:999px; font-weight:700;">OPTIMAL</span>
-      </div>
-      <div style="padding:0;">
-        <table style="width:100%; border-collapse:collapse; font-size:12px;">
-          <thead><tr style="background:#f8fafc; text-align:left; font-size:10px; color:#64748b; letter-spacing:0.06em;"><th style="padding:10px 16px; font-weight:700;">ASSET</th><th style="padding:10px 16px; font-weight:700;">AGE</th><th style="padding:10px 16px; font-weight:700;">MOTIVATION TO RETAIN</th></tr></thead>
-          <tbody style="color:#1e293b;">
-            <tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px 16px; font-weight:600;">AST-001 Dell Latitude 5540</td><td style="padding:10px 16px;">4 yrs</td><td style="padding:10px 16px; color:#14532d;">Warranty Active - Motivation: FINANCIAL - Retains R8,500 value</td></tr>
-            <tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px 16px; font-weight:600;">AST-004 Cisco Catalyst Switch</td><td style="padding:10px 16px;">5 yrs</td><td style="padding:10px 16px; color:#14532d;">Stable - Motivation: NETWORK RELIABILITY</td></tr>
-            <tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px 16px; font-weight:600;">AST-005 APC UPS 3KVA</td><td style="padding:10px 16px;">3 yrs</td><td style="padding:10px 16px; color:#14532d;">Holds load - Motivation: CONTINUITY</td></tr>
-            <tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px 16px; font-weight:600;">AST-006 Microsoft 365 E3</td><td style="padding:10px 16px;">2 yrs</td><td style="padding:10px 16px; color:#14532d;">Updated - Motivation: LICENSE COMPLIANCE</td></tr>
-            <tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px 16px; font-weight:600;">AST-007 Bitdefender AV</td><td style="padding:10px 16px;">2 yrs</td><td style="padding:10px 16px; color:#14532d;">Active - Motivation: SECURITY POSTURE</td></tr>
-            <tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px 16px; font-weight:600;">AST-009 Dell Monitor P2422H</td><td style="padding:10px 16px;">5 yrs</td><td style="padding:10px 16px; color:#14532d;">Clear - Motivation: USER PRODUCTIVITY</td></tr>
-            <tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px 16px; font-weight:600;">AST-011 Ubiquiti AP</td><td style="padding:10px 16px;">4 yrs</td><td style="padding:10px 16px; color:#14532d;">Strong WiFi - Motivation: CONNECTIVITY</td></tr>
-            <tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px 16px; font-weight:600;">AST-012 MacBook Pro M2</td><td style="padding:10px 16px;">3 yrs</td><td style="padding:10px 16px; color:#14532d;">High perf - Motivation: DEVELOPER EFFICIENCY</td></tr>
-            <tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px 16px; font-weight:600;">AST-015 Synology NAS</td><td style="padding:10px 16px;">5 yrs</td><td style="padding:10px 16px; color:#14532d;">Reliable - Motivation: DATA RETENTION</td></tr>
-            <tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px 16px; font-weight:600;">AST-016 Logitech Rally Camera</td><td style="padding:10px 16px;">4 yrs</td><td style="padding:10px 16px; color:#14532d;">Clear meetings - Motivation: COLLABORATION</td></tr>
-            <tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px 16px; font-weight:600;">AST-019 iPad Air M1</td><td style="padding:10px 16px;">3 yrs</td><td style="padding:10px 16px; color:#14532d;">Mobile work - Motivation: FLEXIBILITY</td></tr>
-          </tbody>
-        </table>
-      </div>`;
+    display.innerHTML=`<div style="padding:12px; background:#f0fdf4; font-size:12px; font-weight:800; color:#166534;">HEALTHY: 11 Assets Retained - R52,900</div><table style="width:100%; border-collapse:collapse; font-size:12px;"><thead><tr style="background:#f8fafc; font-size:10px;"><th style="padding:10px; text-align:left;">ASSET</th><th>AGE</th><th style="text-align:left;">MOTIVATION</th></tr></thead><tbody><tr><td style="padding:10px;">AST-001 Dell Latitude</td><td style="padding:10px;">4 yrs</td><td style="padding:10px;">FINANCIAL</td></tr></tbody></table>`;
   }
 }
 </script>
-<!-- ===== END PROFESSIONAL ENCLOSING ===== -->
-
 <div class="card"><h3>Live Ticket Feed</h3>
 </div><div class="card"><h3>Live Ticket Feed</h3><div class="section-sub">This feed shows recent ticket activity as users log new issues, helping IT staff see what is happening in real time and respond quickly.</div><div id="liveFeed"></div></div></div></div>
 </tfoot></table></div>
