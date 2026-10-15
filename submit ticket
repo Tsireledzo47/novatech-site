@@ -419,8 +419,9 @@ function refreshDashboard(){
  document.getElementById('assetTotal').innerText='R '+total.toLocaleString();
  var logged=tickets.length;
  var open=tickets.filter(function(t){return t.status==='Open';}).length;
- var pending=tickets.filter(function(t){return t.status==='In Progress';}).length;
+ var pending=tickets.filter(function(t){return t.status==='Pending';}).length;
  var resolved=tickets.filter(function(t){return t.status==='Resolved';}).length;
+ var in Progress=tickets.filter(function(t){return t.status==='In Progress';}).length;
  document.getElementById('statLogged').innerText=logged;
  document.getElementById('statOpen').innerText=open;
  document.getElementById('statPending').innerText=pending;
