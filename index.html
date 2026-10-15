@@ -207,48 +207,129 @@ header{padding:10px 12px}
 
   <div style="padding:0; box-sizing:border-box; overflow-x:auto; -webkit-overflow-scrolling:touch;">
 
-    <!-- INNER CONTENT WITH MIN-WIDTH SO IT SCROLLS -->
-    <div style="min-width:600px; padding:16px; box-sizing:border-box;">
+  <!-- ===== FINAL MOBILE SCROLLABLE + FULL DETAILS ===== -->
+<div style="margin:24px 0; background:#ffffff; border:1px solid #e2e8f0; border-radius:16px; box-shadow:0 4px 12px rgba(15,31,74,0.06); overflow:hidden; font-family:Inter,Segoe UI,system-ui,sans-serif; max-width:100%; box-sizing:border-box;">
+  
+  <div style="padding:22px 20px 12px 20px; border-bottom:1px solid #f1f5f9; background:#fcfdfe;">
+    <h2 style="margin:0; font-size:18px; font-weight:800; color:#0f172a;">Asset Motivation & Lifecycle Enclosing</h2>
+    <p style="margin:8px 0 0 0; font-size:11px; color:#64748b;">↔️ Swipe left/right on phone • Scrollable like R97,900 table • 20 Assets Total</p>
+  </div>
 
+  <div style="overflow-x:auto; -webkit-overflow-scrolling:touch;">
+    <div style="min-width:750px; padding:16px; box-sizing:border-box;">
+
+      <!-- WHAT IS ASSET MOTIVATION - FULL EXPLANATION -->
       <div style="display:grid; grid-template-columns:1.2fr 0.8fr; gap:14px; margin-bottom:16px;">
-        <div style="background:#f8fafc; border:1px solid #f1f5f9; border-radius:12px; padding:14px;">
-          <h4 style="margin:0 0 8px 0; font-size:11px; font-weight:800; color:#0f172a;">WHAT IS ASSET MOTIVATION?</h4>
-          <p style="margin:0; font-size:13px; line-height:1.6; color:#1e293b;">Business reason why asset is tracked, maintained or retired. Justifies cost, risk and replacement.</p>
+        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:14px;">
+          <h4 style="margin:0 0 8px 0; font-size:11px; font-weight:800; color:#0f1f4a; letter-spacing:0.06em;">WHAT IS ASSET MOTIVATION?</h4>
+          <p style="margin:0 0 8px 0; font-size:13px; line-height:1.7; color:#1e293b;">
+            <strong>Asset Motivation is the documented business justification</strong> for why an organization acquires, tracks, maintains, or disposes of an IT asset. It answers: <em>Why do we have this asset? What business value does it provide? What happens if it fails?</em>
+          </p>
+          <p style="margin:0; font-size:12px; line-height:1.6; color:#475569;">
+            Without clear motivation, you cannot justify the <strong>R97,900 portfolio cost</strong>, prioritize maintenance, or make replacement decisions. Every asset must be linked to a business driver: Cost Control, Productivity, Security, Compliance, or Operational Continuity.
+          </p>
         </div>
         <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:12px; padding:14px;">
-          <h4 style="margin:0 0 8px 0; font-size:11px; font-weight:800; color:#0f172a;">LIFECYCLE RULE</h4>
-          <div style="background:#0f172a; color:#e2e8f0; border-radius:8px; padding:10px 12px; font-size:12px; font-family:monospace;">Age = 2025 - Purchase_Year<br>IF Age > 5 → <span style="color:#f87171; font-weight:800;">REPLACE</span><br>IF Age ≤ 5 → <span style="color:#4ade80; font-weight:800;">RETAIN</span></div>
+          <h4 style="margin:0 0 8px 0; font-size:11px; font-weight:800; color:#0f172a;">LIFECYCLE RULE (EXAM FORMULA)</h4>
+          <div style="background:#0f172a; color:#e2e8f0; border-radius:8px; padding:10px 12px; font-size:12px; line-height:1.6; font-family:monospace;">
+            Asset Age = 2025 - Purchase Year<br><br>
+            IF Age > 5 Years → <span style="color:#f87171; font-weight:800;">REPLACE (End-of-Life)</span><br>
+            IF Age ≤ 5 Years → <span style="color:#4ade80; font-weight:800;">RETAIN (In Warranty / Efficient)</span><br><br>
+            <span style="color:#94a3b8; font-size:11px;">Applied to 20 Assets: 9 Replace, 11 Retain</span>
+          </div>
         </div>
       </div>
 
+      <!-- 4 MOTIVATIONS -->
       <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:18px;">
-        <div style="border:1px solid #e2e8f0; border-radius:10px; padding:12px; text-align:center;"><div style="font-size:20px;">💰</div><div style="font-size:11px; font-weight:800;">FINANCIAL</div></div>
-        <div style="border:1px solid #e2e8f0; border-radius:10px; padding:12px; text-align:center;"><div style="font-size:20px;">⚡</div><div style="font-size:11px; font-weight:800;">EFFICIENCY</div></div>
-        <div style="border:1px solid #e2e8f0; border-radius:10px; padding:12px; text-align:center;"><div style="font-size:20px;">🔒</div><div style="font-size:11px; font-weight:800;">SECURITY</div></div>
-        <div style="border:1px solid #e2e8f0; border-radius:10px; padding:12px; text-align:center;"><div style="font-size:20px;">♻️</div><div style="font-size:11px; font-weight:800;">COMPLIANCE</div></div>
+        <div style="border:1px solid #e2e8f0; border-radius:10px; padding:12px; text-align:center;"><div style="font-size:20px;">💰</div><div style="font-size:11px; font-weight:800; margin-top:4px;">FINANCIAL</div><div style="font-size:10px; color:#64748b;">Control R97,900</div></div>
+        <div style="border:1px solid #e2e8f0; border-radius:10px; padding:12px; text-align:center;"><div style="font-size:20px;">⚡</div><div style="font-size:11px; font-weight:800; margin-top:4px;">EFFICIENCY</div><div style="font-size:10px; color:#64748b;">Prevent downtime</div></div>
+        <div style="border:1px solid #e2e8f0; border-radius:10px; padding:12px; text-align:center;"><div style="font-size:20px;">🔒</div><div style="font-size:11px; font-weight:800; margin-top:4px;">SECURITY</div><div style="font-size:10px; color:#64748b;">Patch expired</div></div>
+        <div style="border:1px solid #e2e8f0; border-radius:10px; padding:12px; text-align:center;"><div style="font-size:20px;">♻️</div><div style="font-size:11px; font-weight:800; margin-top:4px;">COMPLIANCE</div><div style="font-size:10px; color:#64748b;">Warranty/EOL</div></div>
       </div>
 
       <div style="display:flex; gap:10px; margin-bottom:14px;">
-        <button type="button" onclick="window.showMotivationPro('bad')" style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px; background:#ffffff; border:2px solid #dc2626; color:#dc2626; padding:12px; border-radius:10px; font-weight:800; font-size:12px; cursor:pointer;">9 NEED REPLACEMENT • R45,000 AT RISK</button>
-        <button type="button" onclick="window.showMotivationPro('good')" style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px; background:#0f1f4a; border:2px solid #0f1f4a; color:#ffffff; padding:12px; border-radius:10px; font-weight:800; font-size:12px; cursor:pointer;">11 GOOD • R52,900 RETAINED</button>
+        <button id="btnBad" type="button" onclick="toggleMotivation('bad')" style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px; background:#ffffff; border:2px solid #dc2626; color:#dc2626; padding:12px; border-radius:10px; font-weight:800; font-size:12px; cursor:pointer;">
+          <span style="width:8px; height:8px; background:#dc2626; border-radius:50%; display:inline-block;"></span> 9 NEED REPLACEMENT • R45,000 AT RISK (Click to open/close)
+        </button>
+        <button id="btnGood" type="button" onclick="toggleMotivation('good')" style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px; background:#0f1f4a; border:2px solid #0f1f4a; color:#ffffff; padding:12px; border-radius:10px; font-weight:800; font-size:12px; cursor:pointer;">
+          <span style="width:8px; height:8px; background:#22c55e; border-radius:50%; display:inline-block;"></span> 11 GOOD • R52,900 RETAINED (Click to open/close)
+        </button>
       </div>
 
       <div id="motivationProDisplay" style="display:none; border:1px solid #e2e8f0; border-radius:12px; background:#ffffff; overflow:hidden;"></div>
-      <div id="motivationProEmpty" style="border:1px dashed #cbd5e1; border-radius:12px; padding:16px; text-align:center; color:#94a3b8; font-size:12px;">👆 Click a patch above to view breakdown - swipe to see full table</div>
+      <div id="motivationProEmpty" style="border:1px dashed #cbd5e1; border-radius:12px; padding:16px; text-align:center; color:#94a3b8; font-size:12px;">👆 Click a patch above - it will open, click again it will close</div>
 
     </div>
   </div>
 </div>
 
 <script>
-window.showMotivationPro = function(type){
+let currentOpen = null;
+window.toggleMotivation = function(type){
   const display = document.getElementById('motivationProDisplay');
   const empty = document.getElementById('motivationProEmpty');
-  empty.style.display='none'; display.style.display='block';
+  const btnBad = document.getElementById('btnBad');
+  const btnGood = document.getElementById('btnGood');
+
+  if(currentOpen === type){
+    display.style.display='none';
+    empty.style.display='block';
+    currentOpen = null;
+    btnBad.style.opacity='1'; btnGood.style.opacity='1';
+    return;
+  }
+
+  currentOpen = type;
+  empty.style.display='none'; 
+  display.style.display='block';
+
   if(type==='bad'){
-    display.innerHTML=`<div style="padding:12px; background:#fef2f2; font-size:12px; font-weight:800; color:#991b1b;">CRITICAL: 9 Assets Need Replacement</div><table style="width:100%; border-collapse:collapse; font-size:12px;"><thead><tr style="background:#f8fafc; font-size:10px;"><th style="padding:10px; text-align:left;">ASSET</th><th>AGE</th><th style="text-align:left;">MOTIVATION</th></tr></thead><tbody><tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px; font-weight:600;">AST-002 Dell Server</td><td style="padding:10px;">6 yrs</td><td style="padding:10px;">SECURITY</td></tr><tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px; font-weight:600;">AST-003 Cisco Router</td><td style="padding:10px;">7 yrs</td><td style="padding:10px;">EFFICIENCY</td></tr><tr style="border-top:1px solid #f1f5f9; background:#fff5f5;"><td style="padding:10px; font-weight:800; color:#991b1b;">AST-013 Firewall ★</td><td style="padding:10px; font-weight:800;">7 yrs</td><td style="padding:10px; font-weight:700; color:#991b1b;">CRITICAL SECURITY</td></tr></tbody></table>`;
+    btnBad.style.opacity='1'; btnGood.style.opacity='0.6';
+    display.innerHTML=`
+    <div style="padding:12px 14px; background:#fef2f2; border-bottom:1px solid #fecaca; display:flex; justify-content:space-between; align-items:center;">
+      <span style="font-size:12px; font-weight:800; color:#991b1b;">CRITICAL: 9 Assets Age > 5 Years - Require Replacement</span>
+      <span style="font-size:10px; background:#dc2626; color:white; padding:4px 8px; border-radius:999px;">R45,000 RISK</span>
+    </div>
+    <table style="width:100%; border-collapse:collapse; font-size:12px;">
+      <thead><tr style="background:#f8fafc; font-size:10px; color:#64748b; text-transform:uppercase; letter-spacing:0.05em;">
+        <th style="padding:10px 12px; text-align:left;">Asset Code & Name (Exact as Register)</th><th style="padding:10px;">Age</th><th style="padding:10px; text-align:left; width:45%;">Detailed Motivation & Business Justification</th></tr></thead>
+      <tbody style="color:#1e293b;">
+        <tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px 12px; font-weight:600;">AST-002 - Dell PowerEdge Server</td><td style="padding:10px; text-align:center;">6 yrs</td><td style="padding:10px;">Security Motivation: Out of warranty, no firmware patches. High risk of data breach and downtime. Must replace to maintain server uptime.</td></tr>
+        <tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px 12px; font-weight:600;">AST-003 - Cisco Router 2900</td><td style="padding:10px; text-align:center;">7 yrs</td><td style="padding:10px;">Efficiency Motivation: End-of-life, causes network instability and slow internet. Replacement needed to prevent productivity loss.</td></tr>
+        <tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px 12px; font-weight:600;">AST-008 - Lenovo ThinkCentre Desktop</td><td style="padding:10px; text-align:center;">8 yrs</td><td style="padding:10px;">Productivity Motivation: Battery dead, slow boot, cannot run Windows 11. User cannot work efficiently. Replacement justified.</td></tr>
+        <tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px 12px; font-weight:600;">AST-010 - HP LaserJet Printer</td><td style="padding:10px; text-align:center;">6 yrs</td><td style="padding:10px;">Cost Motivation: Constant paper jams, high toner usage, maintenance cost higher than new printer. Replace to reduce operational cost.</td></tr>
+        <tr style="border-top:1px solid #f1f5f9; background:#fff1f2;"><td style="padding:10px 12px; font-weight:800; color:#991b1b;">AST-013 - Fortinet Firewall</td><td style="padding:10px; text-align:center; font-weight:800;">7 yrs</td><td style="padding:10px; font-weight:700; color:#991b1b;">CRITICAL Security Motivation: Firewall expired, no security updates. Company network exposed to cyber attacks. Immediate replacement required for compliance.</td></tr>
+        <tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px 12px; font-weight:600;">AST-014 - Epson Projector</td><td style="padding:10px; text-align:center;">6 yrs</td><td style="padding:10px;">Quality Motivation: Dim projection, bulb failing, affects meeting quality. Replace to maintain professional presentation standards.</td></tr>
+        <tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px 12px; font-weight:600;">AST-017 - Dell PowerEdge R740</td><td style="padding:10px; text-align:center;">8 yrs</td><td style="padding:10px;">Financial Motivation: Support cost exceeds replacement cost. Keeping it is more expensive than buying new. Replace for cost saving.</td></tr>
+        <tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px 12px; font-weight:600;">AST-018 - APC UPS 1500VA</td><td style="padding:10px; text-align:center;">7 yrs</td><td style="padding:10px;">Continuity Motivation: Battery fails during loadshedding, cannot keep servers online. Business continuity at risk. Must replace.</td></tr>
+        <tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px 12px; font-weight:600;">AST-020 - Hikvision CCTV System</td><td style="padding:10px; text-align:center;">9 yrs</td><td style="padding:10px;">Security Motivation: Low resolution, cannot identify faces, storage failing. Security of premises compromised. Upgrade required.</td></tr>
+      </tbody>
+    </table>`;
   } else {
-    display.innerHTML=`<div style="padding:12px; background:#f0fdf4; font-size:12px; font-weight:800; color:#166534;">HEALTHY: 11 Assets Retained - R52,900</div><table style="width:100%; border-collapse:collapse; font-size:12px;"><thead><tr style="background:#f8fafc; font-size:10px;"><th style="padding:10px; text-align:left;">ASSET</th><th>AGE</th><th style="text-align:left;">MOTIVATION</th></tr></thead><tbody><tr><td style="padding:10px;">AST-001 Dell Latitude</td><td style="padding:10px;">4 yrs</td><td style="padding:10px;">FINANCIAL</td></tr></tbody></table>`;
+    btnGood.style.opacity='1'; btnBad.style.opacity='0.6';
+    display.innerHTML=`
+    <div style="padding:12px 14px; background:#f0fdf4; border-bottom:1px solid #bbf7d0; display:flex; justify-content:space-between; align-items:center;">
+      <span style="font-size:12px; font-weight:800; color:#166534;">HEALTHY: 11 Assets Age ≤ 5 Years - Retain</span>
+      <span style="font-size:10px; background:#16a34a; color:white; padding:4px 8px; border-radius:999px;">R52,900 RETAINED</span>
+    </div>
+    <table style="width:100%; border-collapse:collapse; font-size:12px;">
+      <thead><tr style="background:#f8fafc; font-size:10px; color:#64748b; text-transform:uppercase; letter-spacing:0.05em;">
+        <th style="padding:10px 12px; text-align:left;">Asset Code & Name (Exact as Register)</th><th style="padding:10px;">Age</th><th style="padding:10px; text-align:left; width:45%;">Detailed Motivation & Business Justification</th></tr></thead>
+      <tbody style="color:#1e293b;">
+        <tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px 12px;">AST-001 - Dell Latitude 5420 Laptop</td><td style="padding:10px; text-align:center;">4 yrs</td><td style="padding:10px;">Financial Motivation: Still within efficient lifecycle, retains R8,500 capital value. No need to replace, saves budget.</td></tr>
+        <tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px 12px;">AST-004 - Cisco Switch 2960</td><td style="padding:10px; text-align:center;">5 yrs</td><td style="padding:10px;">Reliability Motivation: Stable performance, still under support, provides reliable network connectivity. Retain until EOL.</td></tr>
+        <tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px 12px;">AST-005 - APC UPS 3000VA</td><td style="padding:10px; text-align:center;">3 yrs</td><td style="padding:10px;">Continuity Motivation: Provides power backup during loadshedding, battery healthy, ensures business continuity. Retain.</td></tr>
+        <tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px 12px;">AST-006 - Microsoft 365 E3 License</td><td style="padding:10px; text-align:center;">2 yrs</td><td style="padding:10px;">Compliance Motivation: Required for email, Teams, Office compliance. Active subscription, business critical. Retain.</td></tr>
+        <tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px 12px;">AST-007 - Bitdefender Antivirus</td><td style="padding:10px; text-align:center;">2 yrs</td><td style="padding:10px;">Security Motivation: Provides endpoint protection, up-to-date definitions, protects against malware. Retain for security compliance.</td></tr>
+        <tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px 12px;">AST-009 - Dell 24" Monitor</td><td style="padding:10px; text-align:center;">5 yrs</td><td style="padding:10px;">Productivity Motivation: Good display quality, improves user productivity, no defects. Cost-effective to retain.</td></tr>
+        <tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px 12px;">AST-011 - Ubiquiti Access Point</td><td style="padding:10px; text-align:center;">4 yrs</td><td style="padding:10px;">Connectivity Motivation: Provides stable WiFi coverage, supports current users, efficient. Retain for operational needs.</td></tr>
+        <tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px 12px;">AST-012 - MacBook Pro M2</td><td style="padding:10px; text-align:center;">3 yrs</td><td style="padding:10px;">Efficiency Motivation: High performance for developers, improves development speed, modern OS support. Retain.</td></tr>
+        <tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px 12px;">AST-015 - Synology NAS 4-Bay</td><td style="padding:10px; text-align:center;">5 yrs</td><td style="padding:10px;">Data Retention Motivation: Stores backups and files, within warranty, critical for data retention policy. Retain.</td></tr>
+        <tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px 12px;">AST-016 - Logitech Rally Camera</td><td style="padding:10px; text-align:center;">4 yrs</td><td style="padding:10px;">Collaboration Motivation: Enables video conferencing, supports hybrid meetings, enhances collaboration. Retain.</td></tr>
+        <tr style="border-top:1px solid #f1f5f9;"><td style="padding:10px 12px;">AST-019 - iPad Pro M1</td><td style="padding:10px; text-align:center;">3 yrs</td><td style="padding:10px;">Flexibility Motivation: Provides mobile productivity, for presentations and field work, modern device. Retain for flexibility.</td></tr>
+      </tbody>
+    </table>`;
   }
 }
 </script>
