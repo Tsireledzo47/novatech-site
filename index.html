@@ -196,50 +196,7 @@ header{padding:10px 12px}
 <tr><td>AST-020</td><td>CCTV Hikvision Kit</td><td>Operations</td><td>2016</td><td>2019-04-15</td><td>Needs Replacement</td><td>Security</td><td class="age"></td><td class="replace"></td><td class="calc" data-qty="1" data-unit="4900"></td></tr>
 </tbody><tfoot><tr style="background:#eef2ff;font-weight:900"><td colspan="9">TOTAL ASSET BALANCE — 20 Assets Completed — R97,900</td><td id="assetTotal">R0</td></tr></tfoot></table></div></div><div class="card"><h3>Live Ticket Feed</h3><div class="section-sub">This feed shows recent ticket activity as users log new issues, helping IT staff see what is happening in real time and respond quickly.</div><div id="liveFeed"></div></div></div></div>
 </tfoot></table></div>
-<!-- FULL ASSET ENCLOSING - YOUR REAL ASSETS - START -->
-<div style="margin-top:25px; background:#fff; border:2px solid #e2e8f0; border-radius:14px; padding:18px;">
-<h2 style="margin:0 0 10px 0; color:#1e3a8a; font-size:18px;">📦 Asset Register — Full Enclosing</h2>
-<p style="font-size:13px; background:#f8fafc; padding:10px; border-radius:8px;">Age = 2025 - Purchase Year. Replacement = Yes if Age > 5. Total R97,900. Motivation: Financial Control, Efficiency, Security, Lifecycle.</p>
-<div style="display:flex; gap:12px; margin:12px 0; flex-wrap:wrap;">
-<button onclick="showFullAssets('bad')" style="flex:1; min-width:140px; background:#dc2626; color:white; border:none; padding:14px; border-radius:30px; font-weight:bold; cursor:pointer;">🔴 9 Need Replacement</button>
-<button onclick="showFullAssets('good')" style="flex:1; min-width:140px; background:#16a34a; color:white; border:none; padding:14px; border-radius:30px; font-weight:bold; cursor:pointer;">🟢 11 Good Condition</button>
-</div>
-<div id="fullAssetDisplay" style="display:none; background:#f8fafc; border-radius:12px; padding:15px; border:1px solid #cbd5e1;"></div>
-</div>
-<script>
-function showFullAssets(type){
-const d=document.getElementById('fullAssetDisplay'); d.style.display='block';
-if(type==='bad'){
-d.innerHTML=`<h4 style="color:#dc2626;">🔴 9 Assets Need Replacement - YOUR Register (Age >5)</h4><div style="font-size:12px; line-height:1.8;">
-<b>AST-002 HP ProLiant DL380 Server (2019)</b> - Age 6 - Exp 2023-12-31<br>
-<b>AST-003 Cisco ISR 4321 Router (2018)</b> - Age 7 - Exp 2022-05-15<br>
-<b>AST-008 Lenovo ThinkPad X1 (2017)</b> - Age 8 - Exp 2020-08-15<br>
-<b>AST-010 HP LaserJet Pro Printer (2019)</b> - Age 6 - Exp 2022-11-11<br>
-<b>AST-013 Fortigate Firewall 100F (2018)</b> - Age 7 - Exp 2022-06-30 - Security Risk<br>
-<b>AST-014 Projector Epson L730U (2019)</b> - Age 6 - Exp 2023-03-12<br>
-<b>AST-017 Dell PowerEdge R750 (2017)</b> - Age 8 - Needs Replacement<br>
-<b>AST-018 APC UPS 5KVA (2018)</b> - Age 7 - Exp 2021-09-30<br>
-<b>AST-020 CCTV Hikvision Kit (2016)</b> - Age 9 - Needs Replacement<br>
-<p style="background:#fef2f2; padding:8px; border-radius:6px;"><b>Enclosing:</b> 9/20 = 45% marked RED by system. Need R45k budget.</p></div>`;
-}else{
-d.innerHTML=`<h4 style="color:#16a34a;">🟢 11 Assets Good - YOUR Register (Age ≤5)</h4><div style="font-size:12px; line-height:1.8;">
-AST-001 Dell Latitude 5540 (2021) - Age 4<br>
-AST-004 48-Port Switch (2020) - Age 5<br>
-AST-005 UPS 3KVA (2022) - Age 3<br>
-AST-006 M365 E3 License (2023) - Age 2<br>
-AST-007 Antivirus License (2023) - Age 2<br>
-AST-009 Dell Monitor 27" (2020) - Age 5<br>
-AST-011 Cisco Access Point (2021) - Age 4<br>
-AST-012 MacBook Pro 14" (2022) - Age 3<br>
-AST-015 Synology NAS 8-bay (2020) - Age 5<br>
-AST-016 Logitech Meetup Camera (2021) - Age 4<br>
-AST-019 iPad Pro 12.9" (2022) - Age 3<br>
-<p style="background:#f0fdf4; padding:8px; border-radius:6px;"><b>Keep:</b> 11/20 = 55% good, warranty valid. Value R52,900.</p></div>`;
-}
-d.scrollIntoView({behavior:'smooth'});
-}
-</script>
-<!-- FULL ASSET ENCLOSING - END -->
+
 </div>
 </div>
 <div id="contacts" class="page hidden"><div class="card"><div class="section-title">Contacts</div><div class="section-sub">This section provides contact details for IT support including phone, email and physical location plus a quick message form to reach support team directly for urgent matters.</div><div class="grid"><div><p>📞 <a href="tel:+27796678769" style="color:#2457e8;font-weight:800">+27 79 667 8769</a></p><p>📧 NovaIT@gmail.com</p><p>📧 NovaTech@gmail.co.za</p><p>📍 Mbombela, Mpumalanga, South Africa</p><p style="margin-top:10px"><b>Support Hours:</b> Mon-Fri 08:00-17:00 SAST<br><b>Emergency:</b> 24/7 On-Call for P1 Critical incidents only</p></div><div class="card" style="margin:0;background:#f8fafc"><h3>Send a Message</h3><div class="section-sub">Use this form to send quick message to IT support. It opens your email client with pre-filled details for faster response.</div><form id="quickForm"><input id="qName" placeholder="Your Name" required><br><br><input id="qEmail" type="email" placeholder="Your Email" required><br><br><textarea id="qMsg" rows="3" placeholder="Your message..." required></textarea><br><br><button type="submit" class="btn-primary">Send Message</button> <span id="qStatus" style="color:var(--green);margin-left:8px"></span></form></div></div></div></div>
