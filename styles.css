@@ -5,29 +5,57 @@ body{
 	color: #5C6AC4;
 }
 body{
-  padding: 0;
   margin: 0;
+  padding: 0;
   width: 100%;
   overflow-x: hidden;
-  box-sizing: border-box;
 }
 
-.title {
+.title{
   color: #5C66C4;
 }
 
-* {
+/* ===== FIX MOBILE SCROLL ===== */
+*{
   box-sizing: border-box;
 }
 
-img, div, section {
+html, body{
   max-width: 100%;
-  overflow-wrap: break-word;
+  overflow-x: hidden !important;
 }
 
-@media (max-width: 768px) {
-  body {
-    padding: 10px !important;
+/* Make all images and cards fit */
+img, div, section, article{
+  max-width: 100%;
+}
+
+/* Fix the Asset Motivation text cutting */
+div{
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal !important;
+}
+
+/* On phone - make everything stack */
+@media (max-width: 768px){
+  /* Kill horizontal scroll */
+  body{
+    overflow-x: hidden !important;
+    padding: 12px !important;
+  }
+  
+  /* Force Financial and Efficiency cards to stack one under the other */
+  div[style*="display: flex"]{
+    flex-direction: column !important;
+    flex-wrap: wrap !important;
+    width: 100% !important;
+  }
+  
+  div[style*="display: flex"] > div{
+    width: 100% !important;
+    min-width: 100% !important;
+    margin-bottom: 12px;
   }
 }
   
