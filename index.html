@@ -615,37 +615,23 @@ function downloadChangeForm(){
 }
 document.getElementById('downloadBtn').addEventListener('click', downloadChangeForm);
 window.addEventListener('load',function(){refreshDashboard();renderFeed();var hash=window.location.hash;if(hash){var id=hash.replace('#','');if(document.getElementById(id)){go(id,null);}}document.getElementById('chatOutput').innerHTML=getInitialChatHTML();document.getElementById('chatInput').addEventListener('keypress',function(e){if(e.key==='Enter'){askAI();}});});
-// === FINAL FULL: Y-axis 0,1,2 + LIVE + % on By Type ===
+// === PEACEFUL FINAL - only adds labels, never fights ===
 function fixChartsFinal(){
   try{
-    var tickets = JSON.parse(localStorage.getItem('novatech_tickets') || '[]');
-    function getS(t){ return ((t.status||t.Status||'')+'').toLowerCase(); }
-    function getU(t){ return ((t.urgency||t.priority||t.Urgency||'')+'').toLowerCase(); }
-
-    var open = tickets.filter(function(t){ return getS(t).indexOf('open')>-1; }).length;
-    var pending = tickets.filter(function(t){ return getS(t).indexOf('pend')>-1; }).length;
-    var resolved = tickets.filter(function(t){ return getS(t).indexOf('resolv')>-1 || getS(t).indexOf('clos')>-1; }).length;
-    var low = tickets.filter(function(t){ return getU(t).indexOf('low')>-1; }).length;
-    var med = tickets.filter(function(t){ return getU(t).indexOf('med')>-1; }).length;
-    var high = tickets.filter(function(t){ return getU(t).indexOf('high')>-1; }).length;
-
     if(window.chart1){
-      window.chart1.data.datasets[0].data = [open, pending, resolved];
       window.chart1.options.scales.y.title = { display:true, text:'Number of Tickets (Y-axis)' };
       window.chart1.options.scales.y.ticks = { stepSize:1, precision:0 };
       window.chart1.options.scales.y.beginAtZero = true;
       window.chart1.options.scales.x.title = { display:true, text:'Ticket Status (X-axis)' };
-      window.chart1.update();
+      window.chart1.update('none');
     }
     if(window.chart3){
-      window.chart3.data.datasets[0].data = [low, med, high];
       window.chart3.options.scales.y.title = { display:true, text:'Number of Tickets (Y-axis)' };
       window.chart3.options.scales.y.ticks = { stepSize:1, precision:0 };
       window.chart3.options.scales.y.beginAtZero = true;
       window.chart3.options.scales.x.title = { display:true, text:'Urgency Level (X-axis)' };
-      window.chart3.update();
+      window.chart3.update('none');
     }
-    // FIX BY TYPE - add % on hover/click
     if(window.chart2){
       window.chart2.options.plugins = window.chart2.options.plugins || {};
       window.chart2.options.plugins.tooltip = {
@@ -658,19 +644,18 @@ function fixChartsFinal(){
           }
         }
       };
-      window.chart2.update();
+      window.chart2.update('none');
     }
   }catch(e){}
 }
 
+// Only run when dashboard loads or you go to dashboard
 var oldGo = window.go;
-window.go = function(id,el){ oldGo(id,el); if(id==='dashboard') setTimeout(fixChartsFinal,500); }
-
-var origSetItem = localStorage.setItem;
-localStorage.setItem = function(k,v){ origSetItem.apply(this, arguments); if(k==='novatech_tickets') setTimeout(fixChartsFinal,300); }
-
-setInterval(fixChartsFinal, 1000);
-window.addEventListener('load', function(){ setTimeout(fixChartsFinal,1000); });
+window.go = function(id,el){ 
+  oldGo(id,el); 
+  if(id==='dashboard') { setTimeout(fixChartsFinal, 600); setTimeout(fixChartsFinal, 1500); }
+}
+window.addEventListener('load', function(){ setTimeout(fixChartsFinal, 1000); setTimeout(fixChartsFinal, 2500); });
 </script>
 </body>
 </html>
