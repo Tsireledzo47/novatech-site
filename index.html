@@ -615,57 +615,44 @@ function downloadChangeForm(){
 }
 document.getElementById('downloadBtn').addEventListener('click', downloadChangeForm);
 window.addEventListener('load',function(){refreshDashboard();renderFeed();var hash=window.location.hash;if(hash){var id=hash.replace('#','');if(document.getElementById(id)){go(id,null);}}document.getElementById('chatOutput').innerHTML=getInitialChatHTML();document.getElementById('chatInput').addEventListener('keypress',function(e){if(e.key==='Enter'){askAI();}});});
-// === PEACEFUL FINAL - only adds labels, never fights ===
+// === SAFE - NO MENU TOUCH - only labels ===
 function fixChartsFinal(){
   try{
-       if(window.chart2){
-      window.chart2.options.plugins.tooltip = {
-        enabled: true,
-        callbacks: {
-          label: function(ctx){
-            var data = ctx.dataset.data;
-            var total = 0;
-            for(var i=0;i<data.length;i++){ total += data[i]; }
-            var val = ctx.parsed || ctx.raw;
-            var pct = total? ((val/total)*100).toFixed(1) : 0;
-            return ' ' + ctx.label + ': ' + val + ' tickets (' + pct + '%)';
-          }
-        }
-      };
-      window.chart2.update();
-    } 
+    if(window.chart1){
+      window.chart1.options.scales.y.title = { display:true, text:'Number of Tickets (Y-axis)' };
+      window.chart1.options.scales.y.ticks = { stepSize:1, precision:0 };
+      window.chart1.options.scales.y.beginAtZero = true;
+      window.chart1.options.scales.x.title = { display:true, text:'Ticket Status (X-axis)' };
+      window.chart1.update();
     }
     if(window.chart3){
       window.chart3.options.scales.y.title = { display:true, text:'Number of Tickets (Y-axis)' };
       window.chart3.options.scales.y.ticks = { stepSize:1, precision:0 };
       window.chart3.options.scales.y.beginAtZero = true;
       window.chart3.options.scales.x.title = { display:true, text:'Urgency Level (X-axis)' };
-      window.chart3.update('none');
+      window.chart3.update();
     }
     if(window.chart2){
-      window.chart2.options.plugins = window.chart2.options.plugins || {};
       window.chart2.options.plugins.tooltip = {
         callbacks: {
           label: function(ctx){
-            var total = ctx.dataset.data.reduce(function(a,b){return a+b;},0);
-            var val = ctx.raw;
-            var pct = total? ((val/total)*100).toFixed(1) : 0;
-            return ' ' + ctx.label + ': ' + val + ' (' + pct + '%)';
+            var total = ctx.dataset.data.reduce((a,b)=>a+b,0);
+            var pct = total? ((ctx.raw/total)*100).toFixed(1) : 0;
+            return ' ' + ctx.label + ': ' + ctx.raw + ' (' + pct + '%)';
           }
         }
       };
-      window.chart2.update('none');
+      window.chart2.update();
     }
   }catch(e){}
 }
 
-// Only run when dashboard loads or you go to dashboard
-var oldGo = window.go;
-window.go = function(id,el){ 
-  oldGo(id,el); 
-  if(id==='dashboard') { setTimeout(fixChartsFinal, 600); setTimeout(fixChartsFinal, 1500); }
-}
-window.addEventListener('load', function(){ setTimeout(fixChartsFinal, 1000); setTimeout(fixChartsFinal, 2500); });
+// Run when you click Dashboard menu - without breaking go()
+document.addEventListener('click', function(e){
+  var t = e.target.closest('[onclick*="dashboard"]');
+  if(t) setTimeout(fixChartsFinal, 800);
+});
+window.addEventListener('load', function(){ setTimeout(fixChartsFinal, 1500); });
 </script>
 </body>
 </html>
