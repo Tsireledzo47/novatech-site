@@ -618,12 +618,22 @@ window.addEventListener('load',function(){refreshDashboard();renderFeed();var ha
 // === PEACEFUL FINAL - only adds labels, never fights ===
 function fixChartsFinal(){
   try{
-    if(window.chart1){
-      window.chart1.options.scales.y.title = { display:true, text:'Number of Tickets (Y-axis)' };
-      window.chart1.options.scales.y.ticks = { stepSize:1, precision:0 };
-      window.chart1.options.scales.y.beginAtZero = true;
-      window.chart1.options.scales.x.title = { display:true, text:'Ticket Status (X-axis)' };
-      window.chart1.update('none');
+       if(window.chart2){
+      window.chart2.options.plugins.tooltip = {
+        enabled: true,
+        callbacks: {
+          label: function(ctx){
+            var data = ctx.dataset.data;
+            var total = 0;
+            for(var i=0;i<data.length;i++){ total += data[i]; }
+            var val = ctx.parsed || ctx.raw;
+            var pct = total? ((val/total)*100).toFixed(1) : 0;
+            return ' ' + ctx.label + ': ' + val + ' tickets (' + pct + '%)';
+          }
+        }
+      };
+      window.chart2.update();
+    } 
     }
     if(window.chart3){
       window.chart3.options.scales.y.title = { display:true, text:'Number of Tickets (Y-axis)' };
