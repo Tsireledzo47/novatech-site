@@ -157,51 +157,58 @@ header{padding:10px 12px}
 <form id="changeForm"><div style="border:1px solid #dbe1ea;border-radius:12px;padding:18px;background:white"><div style="display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--blue);padding-bottom:10px;margin-bottom:12px"><div style="display:flex;gap:10px;align-items:center"><div class="logo-mark" style="width:42px;height:42px;font-size:20px">N</div><div><b>NovaTech Solutions (Pty) Ltd</b><br><small>Change Request Form — Official</small></div></div><div style="font-size:11px;color:var(--muted)">Form ID: NTC-CR-2026 | ITIL Compliant</div></div>
 <div class="grid"><div><label>Change Title *</label><input id="cTitle" required></div><div><label>Requester Name *</label><input id="cName" required></div><div><label>Phone Number *</label><input id="cPhone" type="tel" placeholder="" required></div><div><label>Department</label><select id="cDept"><option>IT</option><option>Finance</option><option>HR</option><option>Operations</option><option>Sales</option></select></div><div><label>Change Type</label><select id="cType"><option>Software</option><option>Hardware</option><option>Network</option><option>Access</option><option>Security</option><option>Infrastructure</option></select></div><div><label>Priority</label><select id="cPrio"><option>Low</option><option>Medium</option><option>High</option><option>Emergency</option><option>Critical</option></select></div><div><label>Date</label><input id="cDate" type="date"></div></div><br><label>Description & Justification *</label><textarea id="cDesc" rows="4" required></textarea><br><br><label>Impact / Risk Assessment</label><textarea id="cRisk" rows="3"></textarea><br><br><label>Rollback Plan</label><input id="cRoll"><br><br>
 <div style="margin-top:18px;border-top:1px solid #e5e7eb;padding-top:12px"><p><b>Approval & Signatures</b></p><div class="section-sub">Type your full name to sign electronically and add the date. This replaces handwritten signatures for audit purposes and ITIL compliance tracking.</div><div style="display:flex;flex-wrap:wrap;gap:20px;margin-top:10px"><div><small>Requester Signature</small><input id="sig1" placeholder=""><small>Date: </small><input type="date" id="sig1d" style="width:140px"></div><div><small>Team Lead Signature</small><input id="sig2" placeholder=""><small>Date: </small><input type="date" id="sig2d" style="width:140px"></div><div><small>IT Manager Signature</small><input id="sig3" placeholder=""><small>Date: </small><input type="date" id="sig3d" style="width:140px"></div></div></div></div><br><button type="submit" id="changeSubmitBtn" class="btn-primary" style="font-size:16px;padding:14px 22px">✅ Submit Change Request</button><span id="cMsg" style="color:var(--green);margin-left:10px;font-weight:800;font-size:14px"></span></form>
-<div style="margin-top:14px;padding:14px;background:#f0f4ff;border:1px solid #c7d2fe;border-radius:10px"><button type="button" id="downloadBtn" class="btn-primary" style="background:var(--blue);font-size:16px;padding:14px 22px">📥 Download Form</button><span id="cDownMsg" style="color:var(--green);margin-left:10px;font-weight:700"></span><div class="section-sub" style="margin-top:8px"></div></div></div></div>
-<!-- PROFESSIONAL KNOWLEDGE BASE COMPONENT - COMMUNICATION TEMPLATES -->
+<div style="margin-top:14px;padding:14px;background:#f0f4ff;border:1px solid #c7d2fe;border-radius:10px"><button type="button" id="downloadBtn" class="btn-primary" style="background:var(--blue);font-size:16px;padding:14px 22px">📥 Download Form</button><span id="cDownMsg" style="color:var(--green);margin-left:10px;font-weight:700"></span><div class="section-sub" style="margin-top:8px"></div></div>
+
+</div>
+<!-- FULL WIDTH KNOWLEDGE BASE TEMPLATES -->
 <style>
   .kb-templates-wrapper {
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    max-width: 900px;
-    margin: 20px auto;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 30px;
+    box-sizing: border-box;
+    background: #ffffff;
     color: #1f2937;
     line-height: 1.6;
   }
   .kb-header {
-    border-left: 4px solid #e53935;
-    padding-left: 16px;
-    margin-bottom: 24px;
+    border-left: 5px solid #e53935;
+    padding-left: 18px;
+    margin-bottom: 28px;
   }
   .kb-header h2 {
-    margin: 0; font-size: 22px; font-weight: 700; color: #111827;
+    margin: 0; font-size: 24px; font-weight: 800; color: #111827;
   }
-  .kb-header p { margin: 6px 0 0 0; font-size: 14px; color: #6b7280; }
+  .kb-header p { margin: 8px 0 0 0; font-size: 15px; color: #6b7280; }
   .template-card {
     background: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px;
-    margin-bottom: 20px; overflow: hidden;
+    margin-bottom: 22px; overflow: hidden;
     box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    width: 100%;
   }
   .template-card-header {
-    background: #f9fafb; padding: 14px 20px;
+    background: #f9fafb; padding: 16px 24px;
     display: flex; justify-content: space-between; align-items: center;
     border-bottom: 1px solid #e5e7eb;
   }
-  .template-title { font-size: 15px; font-weight: 700; margin: 0; color: #111827; }
-  .template-body { padding: 20px; font-size: 14px; background: #fff; }
+  .template-title { font-size: 16px; font-weight: 700; margin: 0; }
+  .template-body { padding: 24px; font-size: 15px; }
   .email-subject {
     background: #fef2f2; border: 1px dashed #fecaca;
-    padding: 8px 12px; border-radius: 6px;
-    font-family: monospace; font-size: 13px; margin-top: 4px;
+    padding: 10px 14px; border-radius: 6px;
+    font-family: monospace; font-size: 14px; margin-top: 6px;
   }
   .email-content {
-    border: 1px solid #f3f4f6; padding: 16px;
+    border: 1px solid #f3f4f6; padding: 18px;
     border-radius: 8px; white-space: pre-line; color: #374151;
+    background: #fcfcfc;
   }
   .copy-btn {
     background: #111827; color: white; border: none;
-    padding: 6px 14px; border-radius: 6px; font-size: 12px; cursor: pointer;
+    padding: 8px 16px; border-radius: 6px; font-size: 13px; cursor: pointer;
   }
-  .copy-btn.copied { background: #16a34a; }
 </style>
 
 <div class="kb-templates-wrapper">
@@ -274,13 +281,14 @@ IT Support Team</div>
 <script>
 function copyTemplate(id, btn) {
   const el = document.getElementById(id);
-  const text = el.innerText;
-  navigator.clipboard.writeText(text).then(() => {
-    btn.innerText = 'Copied!'; btn.classList.add('copied');
-    setTimeout(() => { btn.innerText = 'Copy'; btn.classList.remove('copied'); }, 2000);
+  navigator.clipboard.writeText(el.innerText).then(() => {
+    btn.innerText = 'Copied!'; 
+    setTimeout(() => btn.innerText = 'Copy', 2000);
   });
 }
 </script>
+</div>
+
 <div id="team" class="page hidden"><div class="card"><div class="section-title">Our Team</div><div class="section-sub">This section introduces the dedicated professionals behind NovaTech Solutions. Each member contributes unique skills to ensure the portal is well planned, developed, documented and analyzed for efficient IT support delivery. Below are detailed roles and contributions to this website.</div><div class="grid">
 <div class="card" style="margin:0;border-left:5px solid var(--blue2)"><h3>👨‍💻 Madzena Tsireledzo</h3><p><b>Website Developer</b></p><div class="section-sub" style="margin-top:8px">A Website Developer is responsible for designing, coding, testing and maintaining websites to ensure they are functional, responsive, secure and user-friendly for all devices including mobile and desktop.</div><p style="font-size:13px;line-height:1.7"></p></div>
 <div class="card" style="margin:0;border-left:5px solid #10b981"><h3>📅 Ntakadzeni Sibuda</h3><p><b>Project Planner</b></p><div class="section-sub" style="margin-top:8px">A Project Planner is responsible for strategic planning, scheduling, resource allocation, risk management and ensuring projects are delivered on time, within scope and budget while meeting quality standards.</div><p style="font-size:13px;line-height:1.7"></p></div>
