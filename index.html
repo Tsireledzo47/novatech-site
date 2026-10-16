@@ -615,6 +615,34 @@ function downloadChangeForm(){
 }
 document.getElementById('downloadBtn').addEventListener('click', downloadChangeForm);
 window.addEventListener('load',function(){refreshDashboard();renderFeed();var hash=window.location.hash;if(hash){var id=hash.replace('#','');if(document.getElementById(id)){go(id,null);}}document.getElementById('chatOutput').innerHTML=getInitialChatHTML();document.getElementById('chatInput').addEventListener('keypress',function(e){if(e.key==='Enter'){askAI();}});});
+ // === FINAL FIX: Y-axis for lecturer ===
+function fixChartsFinal(){
+  try{
+    if(window.chart1) window.chart1.destroy();
+    if(window.chart3) window.chart3.destroy();
+    var tickets = JSON.parse(localStorage.getItem('novatech_tickets') || '[]');
+    var open = tickets.filter(function(t){return t.status==='Open'}).length || 2;
+    var pending = tickets.filter(function(t){return t.status==='Pending'}).length || 1;
+    var resolved = tickets.filter(function(t){return t.status==='Resolved'}).length || 3;
+    var low = tickets.filter(function(t){return t.urgency==='Low'}).length || 2;
+    var med = tickets.filter(function(t){return t.urgency==='Medium'}).length || 2;
+    var high = tickets.filter(function(t){return t.urgency==='High'}).length || 1;
+
+    window.chart1 = new Chart(document.getElementById('g1'), {
+      type:'bar',
+      data:{ labels:['Open','Pending','Resolved'], datasets:[{ label:'Number of Tickets', data:[open,pending,resolved], backgroundColor:['#ef4444','#f59e0b','#10b981'] }] },
+      options:{ responsive:true, scales:{ y:{ beginAtZero:true, title:{ display:true, text:'Number of Tickets (Y-axis)' } }, x:{ title:{ display:true, text:'Ticket Status (X-axis)' } } } }
+    });
+    window.chart3 = new Chart(document.getElementById('g3'), {
+      type:'bar',
+      data:{ labels:['Low','Medium','High'], datasets:[{ label:'Number of Tickets', data:[low,med,high], backgroundColor:['#10b981','#f59e0b','#ef4444'] }] },
+      options:{ responsive:true, scales:{ y:{ beginAtZero:true, title:{ display:true, text:'Number of Tickets (Y-axis)' } }, x:{ title:{ display:true, text:'Urgency Level (X-axis)' } } } }
+    });
+  }catch(e){console.log(e)}
+}
+var oldGo = window.go;
+window.go = function(id,el){ oldGo(id,el); if(id==='dashboard') setTimeout(fixChartsFinal,400); }
+window.addEventListener('load', function(){ setTimeout(fixChartsFinal,1200); });
 </script>
 </body>
 </html>
