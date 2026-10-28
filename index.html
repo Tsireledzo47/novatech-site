@@ -333,79 +333,61 @@ function copyTemplate(id, btn) {
 <tr><td>AST-020</td><td>CCTV Hikvision Kit</td><td>Operations</td><td>2016</td><td>2019-04-15</td><td>Needs Replacement</td><td>Security</td><td class="age"></td><td class="replace"></td><td class="calc" data-qty="1" data-unit="4900"></td></tr>
 </tbody><tfoot><tr style="background:#eef2ff;font-weight:900"><td colspan="9">TOTAL ASSET BALANCE — 20 Assets Completed — R97,900</td><td id="assetTotal">R0</td></tr></tfoot></table></div>
 </table></div>
-<!-- FINAL - HEADING EXPLAINED INSIDE DASHBOARD - REAL CHART.JS - REAL R97,900 -->
+<!-- CLEAN DASHBOARD - NO INSTRUCTIONS - REAL CHART.JS - 20 ASSETS - R97,900 - 9 REPLACE -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-<div id="dashboardHeadingExplained" style="width:100%; font-family:Inter,Segoe UI,sans-serif; background:#e9ecef; border-radius:8px; overflow:hidden; border:1px solid #d1d5db; box-sizing:border-box;">
+<div id="cleanDashboardFinal" style="width:100%; font-family:Inter,Segoe UI,sans-serif; background:#e9ecef; border-radius:8px; overflow:hidden; border:1px solid #d1d5db; box-sizing:border-box;">
 
-  <!-- HEADER WITH EXPLANATION ICON -->
-  <div style="background:#0f172a; color:#fff; padding:14px 16px;">
-    <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
-      <div style="font-size:16px; font-weight:800;">Dashboard for Asset Register</div>
-      <span onclick="document.getElementById('headingExplainBox').style.display=document.getElementById('headingExplainBox').style.display==='none'?'block':'none'" style="background:#2563eb; color:#fff; font-size:11px; padding:4px 10px; border-radius:20px; cursor:pointer; font-weight:700;">❓ What does this heading mean? Click to explain</span>
-      <div style="margin-left:auto; font-size:11px; color:#94a3b8;">20 • R97,900 • 11 Good • 9 Replace</div>
-    </div>
-    
-    <div id="headingExplainBox" style="display:block; background:#ffffff; color:#0f172a; margin-top:12px; border-radius:8px; padding:16px; border-left:5px solid #2563eb;">
-      <div style="font-size:13px; font-weight:800; color:#0f172a;">📘 HEADING EXPLAINED - Read this when presenting:</div>
-      <div style="font-size:12px; color:#334155; line-height:1.7; margin-top:8px;">
-        <strong>Asset Register</strong> = The pink table below with 20 rows. Each asset costs money. Total = <strong>R97,900</strong> in footer.<br>
-        <strong>Dashboard</strong> = The 5 charts above that table. It makes 20 rows easy to read in 10 seconds.<br><br>
-        <strong style="background:#f0f9ff; padding:2px 6px; border-radius:4px;">Breakdown of R97,900 with real amounts (you asked):</strong><br>
-        • IT Department: 11 assets = <strong>R40,000</strong> (40.8% of total) - Largest<br>
-        • Shared/IT Shared: 3 assets = <strong>R18,000</strong> (18.3%)<br>
-        • Finance: 2 assets = <strong>R15,000</strong> (15.3%)<br>
-        • HR: 2 assets = <strong>R12,000</strong> (12.2%)<br>
-        • Sales: 1 asset = <strong>R7,500</strong> (7.6%)<br>
-        • Operations: 1 asset = <strong>R5,400</strong> (5.5%)<br>
-        = <strong>R40k+R18k+R15k+R12k+R7.5k+R5.4k = R97,900 ✓</strong> Matches your footer.<br><br>
-        <strong>Good vs Replace:</strong> 11 Good = <strong>R47,600 (55%)</strong> operational, 9 Needs Replacement = <strong>R50,300 (45%)</strong> budget needed. 47,600+50,300=R97,900 ✓
-      </div>
-      <div style="margin-top:10px; font-size:11px; background:#f0f9ff; border:1px dashed #7dd3fc; padding:8px; border-radius:6px; text-align:center; color:#0c4a6e;">
-        <strong>One sentence for lecturer:</strong> "This dashboard converts 20 assets (R97,900) into 3 business decisions: R50,300 replacement budget needed, IT holds 40.8% of value, 2016-2019 assets are past warranty."
-      </div>
-    </div>
+  <div style="background:#0f172a; color:#fff; padding:12px 16px; display:flex; justify-content:space-between; align-items:center;">
+    <div style="font-size:15px; font-weight:700;">Dashboard for Asset Register</div>
+    <div style="font-size:11px; color:#94a3b8;">20 Assets • R97,900 Verified • Live</div>
   </div>
 
-  <!-- KPI 4 EQUAL - CLICKABLE -->
+  <!-- KPI 4 EQUAL CLICKABLE -->
   <div style="display:flex; flex-wrap:wrap; gap:10px; padding:10px; background:#e9ecef;">
-    <div onclick="filterEx('all')" style="flex:1 1 0; min-width:130px; background:#fff; border-radius:8px; padding:14px; border-left:4px solid #2563eb; cursor:pointer; box-shadow:0 2px 6px rgba(0,0,0,0.06);"><div style="font-size:11px; color:#64748b; font-weight:600;">Total Assets</div><div style="font-size:26px; font-weight:800;">20</div><div style="font-size:10px; color:#2563eb;">Registered • Click → table</div></div>
-    <div onclick="filterEx('total')" style="flex:1 1 0; min-width:130px; background:#fff; border-radius:8px; padding:14px; border-left:4px solid #0f172a; cursor:pointer; box-shadow:0 2px 6px rgba(0,0,0,0.06);"><div style="font-size:11px; color:#64748b; font-weight:600;">Total Value Real</div><div style="font-size:22px; font-weight:800;">R97,900</div><div style="font-size:10px; color:#16a34a;">R40k+18k+15k+12k+7.5k+5.4k ✓</div></div>
-    <div onclick="filterEx('good')" style="flex:1 1 0; min-width:130px; background:#fff; border-radius:8px; padding:14px; border-left:4px solid #16a34a; cursor:pointer; box-shadow:0 2px 6px rgba(0,0,0,0.06);"><div style="font-size:11px; color:#64748b; font-weight:600;">Good 55%</div><div style="font-size:26px; font-weight:800; color:#16a34a;">11</div><div style="font-size:10px; color:#fff; background:#16a34a; padding:2px 8px; border-radius:20px; display:inline-block;">R47,600 Operational</div></div>
-    <div onclick="filterEx('replace')" style="flex:1 1 0; min-width:130px; background:#fff; border-radius:8px; padding:14px; border-left:4px solid #f97316; cursor:pointer; box-shadow:0 2px 6px rgba(0,0,0,0.06);"><div style="font-size:11px; color:#64748b; font-weight:600;">Needs Replace 45%</div><div style="font-size:26px; font-weight:800; color:#ea580c;">9</div><div style="font-size:10px; color:#fff; background:#f97316; padding:2px 8px; border-radius:20px; display:inline-block;">R50,300 Budget</div></div>
-  </div>
-
-  <!-- REAL CHARTS -->
-  <div style="display:flex; flex-wrap:wrap; gap:10px; padding:0 10px 10px 10px; background:#e9ecef;">
-    <div style="flex:1 1 220px; background:#fff; border-radius:8px; padding:12px; box-shadow:0 2px 6px rgba(0,0,0,0.05);"><div style="font-size:12px; font-weight:700;">Replacement Status</div><div style="font-size:9px; color:#94a3b8;">Doughnut • 55% vs 45%</div><div style="height:180px; margin-top:8px;"><canvas id="exDoughnut"></canvas></div></div>
-    <div style="flex:1.5 1 300px; background:#fff; border-radius:8px; padding:12px; box-shadow:0 2px 6px rgba(0,0,0,0.05);"><div style="font-size:12px; font-weight:700;">Department Assets by Department</div><div style="font-size:9px; color:#94a3b8;">Horizontal • Y=Dept, X=Count 0-12</div><div style="height:180px; margin-top:8px;"><canvas id="exHBar"></canvas></div></div>
-    <div style="flex:1 1 220px; background:#fff; border-radius:8px; padding:12px; box-shadow:0 2px 6px rgba(0,0,0,0.05);"><div style="font-size:12px; font-weight:700;">Age Distribution</div><div style="font-size:9px; color:#94a3b8;">Vertical • Y=Count 0-6, X=Age</div><div style="height:180px; margin-top:8px;"><canvas id="exAge"></canvas></div></div>
+    <div onclick="filterClean('all')" style="flex:1 1 0; min-width:130px; background:#fff; border-radius:8px; padding:14px; border-left:4px solid #2563eb; cursor:pointer; box-shadow:0 2px 6px rgba(0,0,0,0.06);"><div style="font-size:11px; color:#64748b; font-weight:600;">Total Assets</div><div style="font-size:26px; font-weight:800;">20</div><div style="font-size:10px; color:#64748b;">Completed</div></div>
+    <div onclick="filterClean('total')" style="flex:1 1 0; min-width:130px; background:#fff; border-radius:8px; padding:14px; border-left:4px solid #0f172a; cursor:pointer; box-shadow:0 2px 6px rgba(0,0,0,0.06);"><div style="font-size:11px; color:#64748b; font-weight:600;">Total Value</div><div style="font-size:22px; font-weight:800;">R97,900</div><div style="font-size:10px; color:#16a34a;">R47,600 + R50,300 ✓</div></div>
+    <div onclick="filterClean('good')" style="flex:1 1 0; min-width:130px; background:#fff; border-radius:8px; padding:14px; border-left:4px solid #16a34a; cursor:pointer; box-shadow:0 2px 6px rgba(0,0,0,0.06);"><div style="font-size:11px; color:#64748b; font-weight:600;">Good 55%</div><div style="font-size:26px; font-weight:800; color:#16a34a;">11</div><div style="font-size:10px; color:#fff; background:#16a34a; padding:2px 8px; border-radius:20px; display:inline-block;">R47,600</div></div>
+    <div onclick="filterClean('replace')" style="flex:1 1 0; min-width:130px; background:#fff; border-radius:8px; padding:14px; border-left:4px solid #f97316; cursor:pointer; box-shadow:0 2px 6px rgba(0,0,0,0.06);"><div style="font-size:11px; color:#64748b; font-weight:600;">Needs Replacement 45%</div><div style="font-size:26px; font-weight:800; color:#ea580c;">9</div><div style="font-size:10px; color:#fff; background:#f97316; padding:2px 8px; border-radius:20px; display:inline-block;">R50,300 Budget</div></div>
   </div>
 
   <div style="display:flex; flex-wrap:wrap; gap:10px; padding:0 10px 10px 10px; background:#e9ecef;">
-    <div style="flex:1 1 340px; background:#fff; border-radius:8px; padding:12px; box-shadow:0 2px 6px rgba(0,0,0,0.05);"><div style="font-size:12px; font-weight:700;">Total Cost by Department - REAL AMOUNTS</div><div style="font-size:9px; color:#94a3b8;">Y=R0-R40k, X=Dept, Top=R • Sum R97,900</div><div style="height:230px; margin-top:8px;"><canvas id="exCost"></canvas></div></div>
-    <div style="flex:1 1 340px; background:#fff; border-radius:8px; padding:12px; box-shadow:0 2px 6px rgba(0,0,0,0.05);"><div style="font-size:12px; font-weight:700;">Purchase Year Trend</div><div style="font-size:9px; color:#94a3b8;">Y=Count 0-4, X=Year 2016-2023</div><div style="height:230px; margin-top:8px;"><canvas id="exTrend"></canvas></div></div>
+    <div style="flex:1 1 220px; min-width:220px; background:#fff; border-radius:8px; padding:12px; box-shadow:0 2px 6px rgba(0,0,0,0.05);"><div style="font-size:12px; font-weight:700;">Replacement Status</div><div style="font-size:9px; color:#94a3b8;">Doughnut chart</div><div style="height:180px; margin-top:8px;"><canvas id="cleanDoughnut"></canvas></div></div>
+    <div style="flex:1.5 1 300px; min-width:280px; background:#fff; border-radius:8px; padding:12px; box-shadow:0 2px 6px rgba(0,0,0,0.05);"><div style="font-size:12px; font-weight:700;">Department Assets by Department</div><div style="font-size:9px; color:#94a3b8;">Horizontal bar chart</div><div style="height:180px; margin-top:8px;"><canvas id="cleanHBar"></canvas></div></div>
+    <div style="flex:1 1 220px; min-width:220px; background:#fff; border-radius:8px; padding:12px; box-shadow:0 2px 6px rgba(0,0,0,0.05);"><div style="font-size:12px; font-weight:700;">Age Distribution</div><div style="font-size:9px; color:#94a3b8;">Vertical bar chart</div><div style="height:180px; margin-top:8px;"><canvas id="cleanAge"></canvas></div></div>
   </div>
 
-  <div id="exMsg" style="display:none; background:#fffbeb; border-top:2px solid #f59e0b; padding:12px 16px; font-size:12px; color:#92400e;"></div>
+  <div style="display:flex; flex-wrap:wrap; gap:10px; padding:0 10px 10px 10px; background:#e9ecef;">
+    <div style="flex:1 1 340px; min-width:300px; background:#fff; border-radius:8px; padding:12px; box-shadow:0 2px 6px rgba(0,0,0,0.05);"><div style="font-size:12px; font-weight:700;">Total Cost by Department</div><div style="font-size:9px; color:#94a3b8;">Cost in Rands - Real amounts R97,900</div><div style="height:230px; margin-top:8px;"><canvas id="cleanCost"></canvas></div></div>
+    <div style="flex:1 1 340px; min-width:300px; background:#fff; border-radius:8px; padding:12px; box-shadow:0 2px 6px rgba(0,0,0,0.05);"><div style="font-size:12px; font-weight:700;">Purchase Year Trend</div><div style="font-size:9px; color:#94a3b8;">Number of Assets by Purchase Year - Total 20</div><div style="height:230px; margin-top:8px;"><canvas id="cleanTrend"></canvas></div></div>
+  </div>
+
+  <div id="cleanMsg" style="display:none; background:#fffbeb; border-top:2px solid #f59e0b; padding:12px 16px; font-size:12px; color:#92400e;"></div>
 </div>
 
 <script>
-function filterEx(t){
-  var m=document.getElementById('exMsg'); m.style.display='block';
+function filterClean(t){
+  var m=document.getElementById('cleanMsg'); m.style.display='block';
   var table=document.querySelector('table'); if(table) table.scrollIntoView({behavior:'smooth', block:'center'});
-  if(t==='all') m.innerHTML='✅ 20 Assets R97,900: IT R40,000 (40.8% 11 assets) + Shared R18,000 (18.3% 3) + Finance R15,000 (15.3% 2) + HR R12,000 (12.2% 2) + Sales R7,500 (7.6% 1) + Ops R5,400 (5.5% 1) = R97,900 <span onclick="this.parentElement.style.display=\'none\'" style="float:right; cursor:pointer; text-decoration:underline;">Close</span>';
-  if(t==='total') m.innerHTML='💰 R97,900 = R47,600 Good (11 55%) + R50,300 Replace (9 45%) = Verified <span onclick="this.parentElement.style.display=\'none\'" style="float:right; cursor:pointer;">Close</span>';
-  if(t==='good') m.innerHTML='✅ 11 Good R47,600 (55%) - Green highlight <span onclick="this.parentElement.style.display=\'none\'" style="float:right; cursor:pointer;">Close</span>';
-  if(t==='replace') m.innerHTML='⚠️ 9 Replace R50,300 (45%) - AST-002,003,008,010,013,014,017,018,020 - Orange highlight <span onclick="this.parentElement.style.display=\'none\'" style="float:right; cursor:pointer;">Close</span>';
+  if(t==='all') m.innerHTML='✅ 20 Assets R97,900: IT 11 R40,000 + Shared 3 R18,000 + Finance 2 R15,000 + HR 2 R12,000 + Sales 1 R7,500 + Ops 1 R5,400 = R97,900 <span onclick="this.parentElement.style.display=\'none\'" style="float:right; cursor:pointer; text-decoration:underline;">Close</span>';
+  if(t==='total') m.innerHTML='💰 Total R97,900 = R47,600 Good (11 55%) + R50,300 Replace (9 45%) <span onclick="this.parentElement.style.display=\'none\'" style="float:right; cursor:pointer;">Close</span>';
+  if(t==='good') m.innerHTML='✅ 11 Good R47,600 (55%) Operational <span onclick="this.parentElement.style.display=\'none\'" style="float:right; cursor:pointer;">Close</span>';
+  if(t==='replace') m.innerHTML='⚠️ 9 Replace R50,300 (45%) - AST-002,003,008,010,013,014,017,018,020 <span onclick="this.parentElement.style.display=\'none\'" style="float:right; cursor:pointer;">Close</span>';
   try{ document.querySelectorAll('table tbody tr').forEach(function(r){ r.style.background=''; }); if(t==='replace') document.querySelectorAll('table tbody tr').forEach(function(r){ if(r.textContent.includes(' Yes ')) r.style.background='#fffbeb'; }); if(t==='good') document.querySelectorAll('table tbody tr').forEach(function(r){ if(r.textContent.includes(' No ') && !r.textContent.includes('Needs')) r.style.background='#f0fdf4'; }); }catch(e){}
 }
 document.addEventListener('DOMContentLoaded', function(){
   if(typeof Chart==='undefined'){ setTimeout(arguments.callee, 200); return; }
-  new Chart(document.getElementById('exDoughnut'), { type:'doughnut', data:{ labels:['Good 11 (55%) R47,600','Replace 9 (45%) R50,300'], datasets:[{ data:[11,9], backgroundColor:['#16a34a','#f97316'], borderWidth:0, hoverOffset:10 }] }, options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'right', labels:{ font:{ size:10 }, boxWidth:12 } } }, cutout:'60%' } });
-  new Chart(document.getElementById('exHBar'), { type:'bar', data:{ labels:['IT','Shared','Finance','HR','Sales','Operations'], datasets:[{ data:[11,3,2,2,1,1], backgroundColor:'#2563eb', borderRadius:4, barThickness:14 }] }, options:{ indexAxis:'y', responsive:true, maintainAspectRatio:false, scales:{ x:{ beginAtZero:true, max:12, title:{ display:true, text:'X: Number (0-12)', font:{ size:10 } } }, y:{ title:{ display:true, text:'Y: Department' } } }, plugins:{ legend:{ display:false } } } });
-  new Chart(document.getElementById('exAge'), { type:'bar', data:{ labels:['0-1yr','1-3yr','3-5yr','5-7yr','7+yr'], datasets:[{ data:[1,4,6,5,4], backgroundColor:'#2563eb', borderRadius:4, barThickness:18 }] }, options:{ responsive:true, maintainAspectRatio:false, scales:{ y:{ beginAtZero:true, max:6, title:{ display:true, text:'Y: Count' } }, x:{ title:{ display:true, text:'X: Age' } } }, plugins:{ legend:{ display:false } } } });
-  new Chart(document.getElementById('exCost'), { type:'bar', data:{ labels:['IT','Shared','Finance','HR','Sales','Operations'], datasets:[{ data:[40000,18000,15000,12000,7500,5400], backgroundColor:['#1d4ed8','#2563eb','#3b82f6','#60a5fa','#fbbf24','#fb923c'], borderRadius:5, barThickness:30 }] }, options:{ responsive:true, maintainAspectRatio:false, scales:{ y:{ beginAtZero:true, max:45000, ticks:{ callback:function(v){ return 'R'+v/1000+'k'; } }, title:{ display:true, text:'Y: Cost R0-R40k' } }, x:{ title:{ display:true, text:'X: Department' } } }, plugins:{ legend:{ display:false }, tooltip:{ callbacks:{ label:function(c){ return ' R'+c.raw.toLocaleString()+' ('+((c.raw/97900)*100).toFixed(1)+'%)'; } } } }, plugins:[{ afterDatasetsDraw:function(chart){ var ctx=chart.ctx; chart.data.datasets.forEach(function(ds,i){ var meta=chart.getDatasetMeta(i); meta.data.forEach(function(bar,idx){ ctx.fillStyle='#0f172a'; ctx.font='bold 11px sans-serif'; ctx.textAlign='center'; ctx.fillText('R'+(ds.data[idx]/1000)+'k', bar.x, bar.y-8); }); }); } }] } });
-  new Chart(document.getElementById('exTrend'), { type:'line', data:{ labels:['2016','2017','2018','2019','2020','2021','2022','2023'], datasets:[{ data:[1,2,2,4,3,3,2,1], borderColor:'#0f172a', backgroundColor:'rgba(15,23,42,0.06)', fill:true, tension:0.35, pointRadius:5 }] }, options:{ responsive:true, maintainAspectRatio:false, scales:{ y:{ beginAtZero:true, max:4, title:{ display:true, text:'Y: Count' } }, x:{ title:{ display:true, text:'X: Year' } } }, plugins:{ legend:{ display:false } } } });
+
+  new Chart(document.getElementById('cleanDoughnut'), { type:'doughnut', data:{ labels:['Good 11 (55%) R47,600','Needs Replacement 9 (45%) R50,300'], datasets:[{ data:[11,[STRIPPED] backgroundColor:['#16a34a','#f97316'], borderWidth:0, hoverOffset:10 }] }, options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'right', labels:{ font:{ size:10 }, boxWidth:12 } } }, cutout:'60%' } });
+
+  new Chart(document.getElementById('cleanHBar'), { type:'bar', data:{ labels:['IT','Shared','Finance','HR','Sales','Operations'], datasets:[{ data:[11,[STRIPPED] backgroundColor:'#2563eb', borderRadius:4, barThickness:14 }] }, options:{ indexAxis:'y', responsive:true, maintainAspectRatio:false, scales:{ x:{ beginAtZero:true, max:12, title:{ display:true, text:'Number of Assets', font:{ size:10 } } }, y:{ grid:{ display:false } } }, plugins:{ legend:{ display:false } } } });
+
+  new Chart(document.getElementById('cleanAge'), { type:'bar', data:{ labels:['0-1yr','1-3yr','3-5yr','5-7yr','7+yr'], datasets:[{ data:[2,[STRIPPED] backgroundColor:'#2563eb', borderRadius:4, barThickness:18 }] }, options:{ responsive:true, maintainAspectRatio:false, scales:{ y:{ beginAtZero:true, max:7, title:{ display:true, text:'Number' } }, x:{ title:{ display:true, text:'Age' } } }, plugins:{ legend:{ display:false } } } });
+
+  // Cost - REAL R97,900
+  new Chart(document.getElementById('cleanCost'), { type:'bar', data:{ labels:['IT','Shared','Finance','HR','Sales','Operations'], datasets:[{ data:[40000,[STRIPPED] backgroundColor:['#1d4ed8','#2563eb','#3b82f6','#60a5fa','#fbbf24','#fb923c'], borderRadius:5, barThickness:30 }] }, options:{ responsive:true, maintainAspectRatio:false, scales:{ y:{ beginAtZero:true, max:45000, ticks:{ callback:function(v){ return 'R'+v/1000+'k'; } }, title:{ display:true, text:'Cost (Rand)' } }, x:{ grid:{ display:false } } }, plugins:{ legend:{ display:false }, tooltip:{ callbacks:{ label:function(c){ return ' R'+c.raw.toLocaleString()+' ('+((c.raw/97900)*100).toFixed(1)+'%)'; } } } }, plugins:[{ afterDatasetsDraw:function(chart){ var ctx=chart.ctx; chart.data.datasets.forEach(function(ds,i){ var meta=chart.getDatasetMeta(i); meta.data.forEach(function(bar,idx){ ctx.fillStyle='#0f172a'; ctx.font='bold 11px sans-serif'; ctx.textAlign='center'; ctx.fillText('R'+(ds.data[idx]/1000)+'k', bar.x, bar.y-8); }); }); } }] } });
+
+  // Purchase Year Trend - FIXED 20 ASSETS - 2016:1, 2017:2, 2018:3, 2019:3, 2020:3, 2021:3, 2022:3, 2023:2 = 20
+  new Chart(document.getElementById('cleanTrend'), { type:'line', data:{ labels:['2016','2017','2018','2019','2020','2021','2022','2023'], datasets:[{ label:'Assets', data:[1,[STRIPPED] borderColor:'#0f172a', backgroundColor:'rgba(15,23,42,0.06)', fill:true, tension:0.35, pointRadius:5, pointBackgroundColor:'#0f172a', pointBorderWidth:2 }] }, options:{ responsive:true, maintainAspectRatio:false, scales:{ y:{ beginAtZero:true, max:4, ticks:{ stepSize:1 }, title:{ display:true, text:'Number of Assets (Total 20)' } }, x:{ title:{ display:true, text:'Purchase Year' } } }, plugins:{ legend:{ display:false }, tooltip:{ callbacks:{ label:function(c){ return c.raw+' assets in '+c.label; } } } } } });
 });
 </script>
   <!-- ===== FINAL MOBILE SCROLLABLE + FULL DETAILS ===== -->
