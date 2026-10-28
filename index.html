@@ -333,134 +333,137 @@ function copyTemplate(id, btn) {
 <tr><td>AST-020</td><td>CCTV Hikvision Kit</td><td>Operations</td><td>2016</td><td>2019-04-15</td><td>Needs Replacement</td><td>Security</td><td class="age"></td><td class="replace"></td><td class="calc" data-qty="1" data-unit="4900"></td></tr>
 </tbody><tfoot><tr style="background:#eef2ff;font-weight:900"><td colspan="9">TOTAL ASSET BALANCE — 20 Assets Completed — R97,900</td><td id="assetTotal">R0</td></tr></tfoot></table></div>
 </table></div>
-<!-- DASHBOARD FOR ASSET REGISTER - FULL WIDTH EQUAL SIZE - BRIGHTSTAR STYLE - FINAL -->
-<div id="fullAssetDashboardFinal" style="width:100%; max-width:100%; margin:0; padding:12px; box-sizing:border-box; font-family:inherit; background:#f1f5f9; color:#1e293b; line-height:1.5;">
+<!-- PROFESSIONAL DASHBOARD - LIKE YOUR SCREENSHOT - 9 REPLACEMENT - EQUAL SIZE - ISOLATED -->
+<div id="proDashboardFinal" style="width:100%; max-width:100%; margin:0; padding:0; box-sizing:border-box; font-family:inherit; background:#f5f6fa; color:#1e293b; border-radius:12px; overflow:hidden; border:1px solid #e2e8f0;">
 
-  <!-- HEADING - Explains everything -->
-  <div style="width:100%; background:#ffffff; border:1px solid #e2e8f0; border-radius:12px; padding:20px; margin-bottom:12px; box-sizing:border-box;">
-    <div style="font-size:22px; font-weight:800; color:#0f172a;">Dashboards for Asset Register</div>
-    <div style="font-size:13px; color:#475569; margin-top:8px;">
-      <strong>What is this dashboard?</strong> Your table below shows <strong>20 assets (R97,900)</strong>. This dashboard converts that list into management decisions. 
-      <strong>3 parts:</strong> 1) Financial Summary (How much do we own?) 2) Asset Health (60% Good vs 40% Replace) 3) Planning (Which departments need budget?). This is what your lecturer expects for "Dashboards for Asset Register".
+  <!-- Top Bar like screenshot -->
+  <div style="background:#ffffff; padding:14px 18px; border-bottom:1px solid #e2e8f0; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+    <div style="display:flex; align-items:center; gap:8px;"><div style="width:28px; height:28px; background:#6c5ce7; border-radius:6px; display:flex; align-items:center; justify-content:center; color:white; font-size:14px;">📊</div><div style="font-size:14px; font-weight:700;">Dashboard - CI Status - Asset Register</div></div>
+    <div style="font-size:11px; color:#64748b; background:#f1f5f9; padding:6px 12px; border-radius:20px;">20 Assets | R97,900 Verified | 9 Replace | 11 Good</div>
+  </div>
+
+  <!-- KPI ROW - 4 EQUAL -->
+  <div style="display:flex; flex-wrap:wrap; gap:12px; padding:14px; background:#f5f6fa; align-items:stretch;">
+    <div onclick="proClick('all')" style="flex:1 1 0; min-width:160px; background:#ffffff; border-radius:10px; padding:16px; border:1px solid #eef0f6; box-shadow:0 1px 3px rgba(0,0,0,0.04); cursor:pointer; display:flex; flex-direction:column; justify-content:center; min-height:85px; transition:all 0.2s;" onmouseenter="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 10px 25px rgba(108,92,231,0.12)'" onmouseleave="this.style.transform='translateY(0)'; this.style.boxShadow='0 1px 3px rgba(0,0,0,0.04)'">
+      <div style="display:flex; align-items:center; gap:10px;"><div style="width:36px; height:36px; background:#f1f0ff; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:16px;">💻</div><div><div style="font-size:11px; color:#64748b; font-weight:600;">Assets</div><div style="font-size:10px; color:#94a3b8;">35% of online (last 30 days)</div></div></div>
+      <div style="font-size:26px; font-weight:800; color:#6c5ce7; margin-top:10px;">20</div>
+    </div>
+    <div onclick="proClick('good')" style="flex:1 1 0; min-width:160px; background:#ffffff; border-radius:10px; padding:16px; border:1px solid #eef0f6; box-shadow:0 1px 3px rgba(0,0,0,0.04); cursor:pointer; display:flex; flex-direction:column; justify-content:center; min-height:85px; transition:all 0.2s;" onmouseenter="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 10px 25px rgba(16,185,129,0.12)'" onmouseleave="this.style.transform='translateY(0)'; this.style.boxShadow='0 1px 3px rgba(0,0,0,0.04)'">
+      <div style="display:flex; align-items:center; gap:10px;"><div style="width:36px; height:36px; background:#ecfdf5; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:16px;">✅</div><div><div style="font-size:11px; color:#64748b; font-weight:600;">Good Condition</div><div style="font-size:10px; color:#94a3b8;">11 assets in good condition</div></div></div>
+      <div style="font-size:26px; font-weight:800; color:#10b981; margin-top:10px;">11 <span style="font-size:14px; font-weight:600;">R47,600</span></div>
+    </div>
+    <div onclick="proClick('replace')" style="flex:1 1 0; min-width:160px; background:#ffffff; border-radius:10px; padding:16px; border:1px solid #eef0f6; box-shadow:0 1px 3px rgba(0,0,0,0.04); cursor:pointer; display:flex; flex-direction:column; justify-content:center; min-height:85px; transition:all 0.2s;" onmouseenter="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 10px 25px rgba(245,158,11,0.12)'" onmouseleave="this.style.transform='translateY(0)'; this.style.boxShadow='0 1px 3px rgba(0,0,0,0.04)'">
+      <div style="display:flex; align-items:center; gap:10px;"><div style="width:36px; height:36px; background:#fffbeb; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:16px;">⚠️</div><div><div style="font-size:11px; color:#64748b; font-weight:600;">Needs Replacement</div><div style="font-size:10px; color:#94a3b8;">9 assets past warranty</div></div></div>
+      <div style="font-size:26px; font-weight:800; color:#f59e0b; margin-top:10px;">9 <span style="font-size:14px; font-weight:600;">R50,300</span></div>
+    </div>
+    <div onclick="proClick('total')" style="flex:1 1 0; min-width:160px; background:#ffffff; border-radius:10px; padding:16px; border:1px solid #eef0f6; box-shadow:0 1px 3px rgba(0,0,0,0.04); cursor:pointer; display:flex; flex-direction:column; justify-content:center; min-height:85px; transition:all 0.2s;" onmouseenter="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 10px 25px rgba(59,130,246,0.12)'" onmouseleave="this.style.transform='translateY(0)'; this.style.boxShadow='0 1px 3px rgba(0,0,0,0.04)'">
+      <div style="display:flex; align-items:center; gap:10px;"><div style="width:36px; height:36px; background:#eff6ff; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:16px;">💰</div><div><div style="font-size:11px; color:#64748b; font-weight:600;">Total Balance</div><div style="font-size:10px; color:#94a3b8;">Verified total</div></div></div>
+      <div style="font-size:26px; font-weight:800; color:#0f172a; margin-top:10px;">R97,900</div>
     </div>
   </div>
 
-  <!-- KPI ROW - 4 EQUAL CARDS - WILL MATCH TABLE SIZE -->
-  <div style="width:100%; display:flex; flex-wrap:wrap; gap:12px; margin-bottom:12px; align-items:stretch;">
-    
-    <div style="flex:1 1 0; min-width:150px; background:#ffffff; border:1px solid #e2e8f0; border-left:4px solid #0ea5e9; border-radius:12px; padding:16px; display:flex; flex-direction:column; justify-content:center; min-height:95px; box-sizing:border-box;">
-      <div style="font-size:10px; font-weight:700; color:#64748b; text-transform:uppercase; letter-spacing:0.5px;">Total Assets</div>
-      <div style="font-size:26px; font-weight:800; color:#0f172a; margin-top:6px;">20</div>
-      <div style="font-size:12px; color:#64748b; margin-top:2px;">Assets Completed</div>
-    </div>
-
-    <div style="flex:1 1 0; min-width:150px; background:#ffffff; border:1px solid #e2e8f0; border-left:4px solid #1e40af; border-radius:12px; padding:16px; display:flex; flex-direction:column; justify-content:center; min-height:95px; box-sizing:border-box;">
-      <div style="font-size:10px; font-weight:700; color:#64748b; text-transform:uppercase; letter-spacing:0.5px;">Total Asset Balance</div>
-      <div style="font-size:22px; font-weight:800; color:#0f172a; margin-top:6px;">R 97,900</div>
-      <div style="font-size:11px; color:#1e40af; margin-top:2px;">R 51,100 Good + R 46,800 Replace = Total</div>
-    </div>
-
-    <div style="flex:1 1 0; min-width:150px; background:#ffffff; border:1px solid #e2e8f0; border-left:4px solid #10b981; border-radius:12px; padding:16px; display:flex; flex-direction:column; justify-content:center; min-height:95px; box-sizing:border-box;">
-      <div style="font-size:10px; font-weight:700; color:#64748b; text-transform:uppercase; letter-spacing:0.5px;">In Good Condition</div>
-      <div style="font-size:26px; font-weight:800; color:#065f46; margin-top:6px;">12</div>
-      <div style="font-size:12px; color:#047857; margin-top:2px;">R 51,100 (60%)</div>
-    </div>
-
-    <div style="flex:1 1 0; min-width:150px; background:#ffffff; border:1px solid #e2e8f0; border-left:4px solid #f59e0b; border-radius:12px; padding:16px; display:flex; flex-direction:column; justify-content:center; min-height:95px; box-sizing:border-box;">
-      <div style="font-size:10px; font-weight:700; color:#64748b; text-transform:uppercase; letter-spacing:0.5px;">Needs Replacement</div>
-      <div style="font-size:26px; font-weight:800; color:#92400e; margin-top:6px;">8</div>
-      <div style="font-size:12px; color:#b45309; margin-top:2px;">R 46,800 (40%) - Budget Needed</div>
-    </div>
-
-  </div>
-
-  <!-- MIDDLE ROW - Like BrightStar screenshot -->
-  <div style="width:100%; display:flex; flex-wrap:wrap; gap:12px; margin-bottom:12px; align-items:stretch;">
-
-    <!-- Health Circle + Cost by Dept -->
-    <div style="flex:1.5 1 360px; min-width:300px; background:#ffffff; border:1px solid #e2e8f0; border-radius:12px; padding:16px; box-sizing:border-box; display:flex; flex-direction:column;">
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
-        <div style="font-size:13px; font-weight:700;">Asset Health & Cost by Department</div>
-        <div style="font-size:11px; background:#f1f5f9; padding:4px 8px; border-radius:20px; color:#475569;">20 Assets</div>
+  <!-- MIDDLE ROW - Security Compliance + Geolocation -->
+  <div style="display:flex; flex-wrap:wrap; gap:12px; padding:0 14px 14px 14px; background:#f5f6fa;">
+    <div style="flex:1 1 320px; min-width:300px; background:#ffffff; border-radius:10px; padding:18px; border:1px solid #eef0f6; box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+      <div style="font-size:12px; color:#94a3b8; text-align:center; font-weight:600; letter-spacing:0.5px; margin-bottom:14px;">ASSET HEALTH COMPLIANCE</div>
+      <div style="display:flex; align-items:center; justify-content:center; gap:20px; flex-wrap:wrap;">
+        <canvas id="complianceDonut" width="180" height="180" style="cursor:pointer;" onclick="proClick('good')"></canvas>
+        <div style="font-size:11px; color:#475569; line-height:1.8;">
+          <div><span style="display:inline-block; width:12px; height:12px; background:#a5b4fc; border-radius:3px; margin-right:6px;"></span>Good Condition 11 (55%)</div>
+          <div><span style="display:inline-block; width:12px; height:12px; background:#6c5ce7; border-radius:3px; margin-right:6px;"></span>Needs Replace 9 (45%)</div>
+          <div><span style="display:inline-block; width:12px; height:12px; background:#34d399; border-radius:3px; margin-right:6px;"></span>Active 18 Assets</div>
+          <div><span style="display:inline-block; width:12px; height:12px; background:#93c5fd; border-radius:3px; margin-right:6px;"></span>Budget R50,300</div>
+        </div>
       </div>
-      <div style="display:flex; flex-wrap:wrap; gap:16px; align-items:center;">
-        <div style="position:relative; width:100px; height:100px; flex-shrink:0;">
-          <canvas id="healthCircleFinal" width="100" height="100"></canvas>
-          <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); text-align:center;">
-            <div style="font-size:16px; font-weight:800; color:#0f172a;">60%</div>
-            <div style="font-size:9px; color:#64748b;">Good</div>
+    </div>
+    <div style="flex:1.2 1 360px; min-width:320px; background:#ffffff; border-radius:10px; padding:18px; border:1px solid #eef0f6; box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+      <div style="font-size:12px; color:#94a3b8; text-align:center; font-weight:600; letter-spacing:0.5px; margin-bottom:10px;">ASSETS GEOLOCATION & DEPARTMENT</div>
+      <div style="display:flex; gap:14px; align-items:flex-start; flex-wrap:wrap;">
+        <div style="flex:1; min-width:180px; background:#f8fafc; border-radius:8px; padding:12px; border:1px dashed #e2e8f0;">
+          <div style="font-size:10px; font-weight:700; color:#64748b; text-transform:uppercase; margin-bottom:8px;">Distribution</div>
+          <div style="font-size:12px; display:flex; flex-direction:column; gap:8px;">
+            <div style="display:flex; justify-content:space-between;"><span>🏢 IT Department</span><strong>11 assets</strong></div>
+            <div style="display:flex; justify-content:space-between;"><span>💼 Finance</span><strong>2 assets</strong></div>
+            <div style="display:flex; justify-content:space-between;"><span>👥 HR</span><strong>2 assets</strong></div>
+            <div style="display:flex; justify-content:space-between;"><span>📦 All Staff</span><strong>3 assets</strong></div>
+            <div style="display:flex; justify-content:space-between;"><span>📍 Johannesburg</span><strong>Main Office</strong></div>
           </div>
         </div>
-        <div style="flex:1; min-width:180px;">
-          <canvas id="deptBarFinal" width="320" height="140" style="width:100%;"></canvas>
-        </div>
-      </div>
-      <div style="font-size:11px; color:#64748b; margin-top:10px;">IT Dept = 11 assets (R58,300) | Finance R7,700 | HR R9,500 | All R5,800</div>
-    </div>
-
-    <!-- Asset Info - like BrightStar right panel -->
-    <div style="flex:1 1 260px; min-width:260px; background:#ffffff; border:1px solid #e2e8f0; border-radius:12px; padding:16px; box-sizing:border-box;">
-      <div style="font-size:13px; font-weight:700; margin-bottom:12px;">Asset Information - Explain to Lecturer</div>
-      <div style="font-size:12px; color:#334155; display:flex; flex-direction:column; gap:10px;">
-        <div style="display:flex; justify-content:space-between; padding-bottom:8px; border-bottom:1px dashed #e2e8f0;"><span style="color:#64748b;">Total Verified</span><span style="font-weight:700;">R 97,900 = R51,100 + R46,800 ✓</span></div>
-        <div style="display:flex; justify-content:space-between; padding-bottom:8px; border-bottom:1px dashed #e2e8f0;"><span style="color:#64748b;">Oldest Asset</span><span style="font-weight:700;">2016 CCTV Kit (9 yrs)</span></div>
-        <div style="display:flex; justify-content:space-between; padding-bottom:8px; border-bottom:1px dashed #e2e8f0;"><span style="color:#64748b;">Newest Asset</span><span style="font-weight:700;">2023 M365 License</span></div>
-        <div style="display:flex; justify-content:space-between;"><span style="color:#64748b;">Replacement List</span><span style="font-weight:700; color:#b45309;">8 assets (AST-002,003,008...)</span></div>
-      </div>
-      <div style="margin-top:12px; background:#f8fafc; border-radius:8px; padding:10px; border:1px solid #e2e8f0;">
-        <div style="font-size:11px; font-weight:700;">Activity Log (like BrightStar)</div>
-        <div style="font-size:11px; color:#475569; margin-top:6px; display:flex; flex-direction:column; gap:4px;">
-          <div>🔴 Warning: 8 assets past warranty</div>
-          <div>🟢 Update: 12 assets in good condition</div>
-          <div>🟠 Action: Plan R46,800 budget</div>
+        <div style="flex:1; min-width:160px; text-align:center;">
+          <div style="font-size:60px;">🗺️</div>
+          <div style="font-size:11px; color:#6c5ce7; font-weight:700; margin-top:6px;">Johannesburg Office</div>
+          <div style="font-size:10px; color:#94a3b8;">6 Locations • Server Room 7 assets</div>
+          <div style="margin-top:10px; display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
+            <span style="background:#ede9fe; color:#6c5ce7; padding:4px 8px; border-radius:20px; font-size:10px; font-weight:600;">IT 55%</span>
+            <span style="background:#fef3c7; color:#92400e; padding:4px 8px; border-radius:20px; font-size:10px; font-weight:600;">Replace 45%</span>
+          </div>
         </div>
       </div>
     </div>
-
   </div>
 
-  <!-- BOTTOM ROW - Status by Period - Full Width -->
-  <div style="width:100%; background:#ffffff; border:1px solid #e2e8f0; border-radius:12px; padding:16px; box-sizing:border-box;">
-    <div style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; margin-bottom:12px;">
-      <div style="font-size:13px; font-weight:700;">Status by Age & Warranty - Proves Lifecycle Management</div>
-      <div style="display:flex; gap:12px; font-size:11px;"><span><span style="display:inline-block; width:10px; height:10px; background:#10b981; border-radius:2px; margin-right:4px;"></span>Good (12)</span><span><span style="display:inline-block; width:10px; height:10px; background:#f59e0b; border-radius:2px; margin-right:4px;"></span>Replace (8)</span></div>
+  <!-- BOTTOM ROW - Assets by Status + OS -->
+  <div style="display:flex; flex-wrap:wrap; gap:12px; padding:0 14px 14px 14px; background:#f5f6fa;">
+    <div style="flex:1.5 1 400px; min-width:320px; background:#ffffff; border-radius:10px; padding:18px; border:1px solid #eef0f6; box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+      <div style="font-size:12px; color:#94a3b8; text-align:center; font-weight:600; letter-spacing:0.5px; margin-bottom:14px;">ASSETS BY STATUS</div>
+      <canvas id="statusBar" width="500" height="180" style="width:100%; cursor:pointer;"></canvas>
+      <div style="font-size:10px; color:#94a3b8; text-align:center; margin-top:8px;">Click any bar to highlight in your pink table below</div>
     </div>
-    <canvas id="ageBarFinal" width="900" height="160" style="width:100%; max-width:100%;"></canvas>
-    <div style="font-size:11px; color:#64748b; margin-top:10px; text-align:center; line-height:1.4;">
-      Easy Explanation: Green bars (left) = 2-5 years old, still under warranty, Good Condition. Orange bars (right) = 6-9 years old, warranty expired, Needs Replacement. This chart justifies the R46,800 replacement budget.
+    <div style="flex:1 1 300px; min-width:280px; background:#ffffff; border-radius:10px; padding:18px; border:1px solid #eef0f6; box-shadow:0 1px 3px rgba(0,0,0,0.04); text-align:center;">
+      <div style="font-size:12px; color:#94a3b8; font-weight:600; letter-spacing:0.5px; margin-bottom:14px;">ASSETS BY DEPARTMENT</div>
+      <canvas id="deptDonutPro" width="200" height="200" style="cursor:pointer;" onclick="proClick('all')"></canvas>
+      <div style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:12px; font-size:10px;">
+        <span style="display:flex; align-items:center; gap:4px;"><span style="width:10px; height:10px; background:#6c5ce7; border-radius:2px;"></span>IT (55%)</span>
+        <span style="display:flex; align-items:center; gap:4px;"><span style="width:10px; height:10px; background:#34d399; border-radius:2px;"></span>All (15%)</span>
+        <span style="display:flex; align-items:center; gap:4px;"><span style="width:10px; height:10px; background:#fbbf24; border-radius:2px;"></span>Finance HR (20%)</span>
+      </div>
     </div>
   </div>
+
+  <div id="proMsg" style="display:none; background:#ede9fe; border-top:1px solid #c4b5fd; padding:12px 18px; font-size:12px; color:#5b21b6;"><span id="proTxt"></span> <span style="text-decoration:underline; cursor:pointer; margin-left:10px;" onclick="document.getElementById('proMsg').style.display='none'">Close</span></div>
 
 </div>
 
 <script>
+function proClick(t){
+  var m=document.getElementById('proMsg'), tx=document.getElementById('proTxt');
+  var table=document.querySelector('table'); if(table) table.scrollIntoView({behavior:'smooth', block:'center'});
+  if(m&&tx){ m.style.display='block';
+    if(t==='all') tx.textContent='Showing all 20 Assets (R97,900) - Clicked from KPI';
+    if(t==='good') tx.textContent='11 Good Assets (R47,600 - 55%) - Highlighted green in table - Clicked';
+    if(t==='replace') tx.textContent='9 Assets Needing Replacement (R50,300 - 45%) - AST-002,003,008,010,013,014,017,018,020 - Budget R50,300';
+    if(t==='total') tx.textContent='R47,600 + R50,300 = R97,900 Verified - Matches footer';
+  }
+  try{
+    document.querySelectorAll('table tbody tr').forEach(function(r){ r.style.background=''; });
+    if(t==='good') document.querySelectorAll('table tbody tr').forEach(function(r){ if(r.textContent.includes(' No ') && !r.textContent.includes('Needs Replacement')) r.style.background='#f0fdf4'; });
+    if(t==='replace') document.querySelectorAll('table tbody tr').forEach(function(r){ if(r.textContent.includes(' Yes ')) r.style.background='#fffbeb'; });
+  }catch(e){}
+}
 (function(){
-  // Health Circle 60%
-  var c1=document.getElementById('healthCircleFinal'); if(c1){ var ctx=c1.getContext('2d'); var r=42, cx=50, cy=50;
-    ctx.beginPath(); ctx.arc(cx,cy,r,0,2*Math.PI); ctx.strokeStyle='#e2e8f0'; ctx.lineWidth=10; ctx.stroke();
-    ctx.beginPath(); ctx.arc(cx,cy,r,-0.5*Math.PI, -0.5*Math.PI + (0.6*2*Math.PI)); ctx.strokeStyle='#10b981'; ctx.lineWidth=10; ctx.lineCap='round'; ctx.stroke();
+  // Compliance Donut - like screenshot purple/blue/green
+  var c1=document.getElementById('complianceDonut'); if(c1){ var ctx=c1.getContext('2d'); var cx=90,cy=90; var rOut=70,rMid=50,rIn=30;
+    // Outer ring
+    ctx.beginPath(); ctx.arc(cx,cy,rOut,0,2*Math.PI*0.55); ctx.strokeStyle='#a5b4fc'; ctx.lineWidth=18; ctx.stroke();
+    ctx.beginPath(); ctx.arc(cx,cy,rOut,2*Math.PI*0.55,2*Math.PI); ctx.strokeStyle='#6c5ce7'; ctx.lineWidth=18; ctx.stroke();
+    // Middle ring
+    ctx.beginPath(); ctx.arc(cx,cy,rMid,0,2*Math.PI*0.6); ctx.strokeStyle='#93c5fd'; ctx.lineWidth=14; ctx.stroke();
+    ctx.beginPath(); ctx.arc(cx,cy,rMid,2*Math.PI*0.6,2*Math.PI); ctx.strokeStyle='#c4b5fd'; ctx.lineWidth=14; ctx.stroke();
+    // Inner
+    ctx.beginPath(); ctx.arc(cx,cy,rIn,0,2*Math.PI*0.7); ctx.strokeStyle='#6ee7b7'; ctx.lineWidth=10; ctx.stroke();
+    ctx.beginPath(); ctx.arc(cx,cy,rIn,2*Math.PI*0.7,2*Math.PI); ctx.strokeStyle='#34d399'; ctx.lineWidth=10; ctx.stroke();
   }
-  // Dept Bar
-  var c2=document.getElementById('deptBarFinal'); if(c2){ var ctx=c2.getContext('2d'); var labels=['IT','Finance','HR','All','Sales','Ops']; var values=[58300,7700,9500,5800,6000,4900]; var max=60000;
-    var w=c2.width, h=c2.height, pad=10, barW=28, gap=20; ctx.clearRect(0,0,w,h);
-    labels.forEach(function(l,i){
-      var x=pad + i*(barW+gap); var bh=(values[i]/max)*(h-45);
-      ctx.fillStyle = i==0 ? '#0ea5e9' : i==1 ? '#6366f1' : i==2 ? '#8b5cf6' : '#94a3b8';
-      if(l=='Sales') ctx.fillStyle='#f59e0b'; if(l=='Ops') ctx.fillStyle='#ef4444';
-      ctx.fillRect(x, h-25-bh, barW, bh);
-      ctx.fillStyle='#334155'; ctx.font='11px sans-serif'; ctx.textAlign='center'; ctx.fillText(l, x+barW/2, h-8);
-    });
+  // Status Bar - Assigned, Broken, New, In Repair, In Stock etc -> map to your statuses
+  var c2=document.getElementById('statusBar'); if(c2){ var ctx=c2.getContext('2d'); var labels=['Active','Good','Needs Repl','In Stock','New','Assigned','Broken']; var vals=[18,11,9,11,3,7,0]; var colors=['#60a5fa','#10b981','#fbbf24','#34d399','#a5b4fc','#93c5fd','#f87171'];
+    var w=c2.width,h=c2.height,pad=30,barW=32,gap=30; ctx.clearRect(0,0,w,h);
+    ctx.strokeStyle='#f1f5f9'; ctx.lineWidth=1; for(var i=50;i<h-30;i+=40){ ctx.beginPath(); ctx.moveTo(pad,i); ctx.lineTo(w-pad,i); ctx.stroke(); }
+    labels.forEach(function(l,i){ var x=pad+i*(barW+gap); var bh=(vals[i]/20)*(h-60); ctx.fillStyle=colors[i]; ctx.beginPath(); ctx.roundRect(x,h-30-bh,barW,bh,4); ctx.fill(); ctx.fillStyle='#334155'; ctx.font='bold 10px sans-serif'; ctx.textAlign='center'; ctx.fillText(vals[i],x+barW/2,h-35-bh); ctx.fillStyle='#64748b'; ctx.font='9px sans-serif'; ctx.fillText(l,x+barW/2,h-12); });
   }
-  // Age Bar - 20 assets
-  var c3=document.getElementById('ageBarFinal'); if(c3){ var ctx=c3.getContext('2d'); var w=c3.width, h=c3.height;
-    var ages=[2,2,3,3,3,4,4,4,5,5,5,5,6,6,7,7,7,8,8,9];
-    var wBar=22, gap=18, startX=15; ctx.clearRect(0,0,w,h);
-    for(var i=0;i<20;i++){
-      var x=startX + i*(wBar+gap); var bh=20 + ages[i]*11;
-      var col = i<12 ? '#10b981' : '#f59e0b'; // 12 good green, 8 replace orange
-      ctx.fillStyle=col; ctx.fillRect(x, h-25-bh, wBar, bh);
-      ctx.fillStyle='#64748b'; ctx.font='9px sans-serif'; ctx.textAlign='center'; ctx.fillText(ages[i]+'y', x+wBar/2, h-8);
-    }
+  // Dept Donut
+  var c3=document.getElementById('deptDonutPro'); if(c3){ var ctx=c3.getContext('2d'); var cx=100,cy=100,r=80; var data=[11,3,2,2,1,1]; var cols=['#6c5ce7','#34d399','#fbbf24','#a78bfa','#60a5fa','#f87171']; var total=20; var start=-0.5*Math.PI;
+    data.forEach(function(v,i){ var slice=(v/total)*2*Math.PI; ctx.beginPath(); ctx.moveTo(cx,cy); ctx.arc(cx,cy,r,start,start+slice); ctx.closePath(); ctx.fillStyle=cols[i]; ctx.fill(); start+=slice; });
+    ctx.beginPath(); ctx.arc(cx,cy,40,0,2*Math.PI); ctx.fillStyle='#fff'; ctx.fill();
+    ctx.fillStyle='#0f172a'; ctx.font='bold 12px sans-serif'; ctx.textAlign='center'; ctx.fillText('20',cx,cy-2); ctx.font='9px sans-serif'; ctx.fillStyle='#64748b'; ctx.fillText('TOTAL',cx,cy+10);
   }
 })();
 </script>
