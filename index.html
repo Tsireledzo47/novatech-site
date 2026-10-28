@@ -333,67 +333,7 @@ function copyTemplate(id, btn) {
 <tr><td>AST-020</td><td>CCTV Hikvision Kit</td><td>Operations</td><td>2016</td><td>2019-04-15</td><td>Needs Replacement</td><td>Security</td><td class="age"></td><td class="replace"></td><td class="calc" data-qty="1" data-unit="4900"></td></tr>
 </tbody><tfoot><tr style="background:#eef2ff;font-weight:900"><td colspan="9">TOTAL ASSET BALANCE — 20 Assets Completed — R97,900</td><td id="assetTotal">R0</td></tr></tfoot></table></div>
 </table></div>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Dashboard for Asset Register - TASK 2 WIL</title>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<style>
-  :root{--navy:#0a1931;--blue:#1a56db;--green:#16a34a;--orange:#ea580c;--bg:#e8ecf1}
-  body{font-family:'Segoe UI',Arial;margin:0;background:var(--bg);color:#1e293b}
-  .header{background:var(--navy);color:white;padding:20px 32px;font-size:26px;font-weight:700}
-  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:16px}
-  .card{background:white;border-radius:12px;padding:18px;box-shadow:0 2px 8px rgba(0,0,0,0.08)}
-  .card small{color:#64748b;font-weight:600;text-transform:uppercase;font-size:12px}
-  .card b{font-size:42px;display:block;margin:6px 0}
-  .charts-top{display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:16px;padding:0 16px}
-  .charts-bottom{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:16px}
-  .box{background:white;border-radius:12px;padding:18px;box-shadow:0 2px 8px rgba(0,0,0,0.08)}
-  .box h3{margin:0;font-size:18px} .box p{margin:2px 0 12px;color:#64748b;font-size:13px}
-  canvas{max-height:280px}
-</style>
-</head>
-<body>
-<div class="header">Dashboard for Asset Register</div>
 
-<div class="kpis">
-  <div class="card"><small>Total Assets</small><b>20</b>Registered assets</div>
-  <div class="card"><small>Total Value</small><b>R97,900</b>Combined asset value</div>
-  <div class="card" style="color:var(--green)"><small>Good</small><b>11</b>(55%) • Operational</div>
-  <div class="card" style="color:var(--orange)"><small>Needs Replacement</small><b>9</b>(45%) • Action required</div>
-</div>
-
-<div class="charts-top">
-  <div class="box"><h3>Replacement Status</h3><p>Doughnut chart</p><canvas id="c1"></canvas></div>
-  <div class="box"><h3>Department Assets by Department</h3><p>Horizontal bar chart</p><canvas id="c2"></canvas></div>
-  <div class="box"><h3>Age Distribution</h3><p>Vertical bar chart</p><canvas id="c3"></canvas></div>
-</div>
-
-<div class="charts-bottom">
-  <div class="box"><h3>Total Cost by Department</h3><p>Cost in Rands</p><canvas id="c4"></canvas></div>
-  <div class="box"><h3>Purchase Year Trend</h3><p>Number of Assets by Purchase Year</p><canvas id="c5"></canvas></div>
-</div>
-
-<script>
-// Data from your uploaded table - 20 Assets = R97,900
-// Department: IT 11, All(Shared) 3, Finance 2, HR 2, Sales 1, Operations 1
-// Age: 0-1yr 0, 1-3yr 5, 3-5yr 6, 5-7yr 6, 7+yr 3
-// Cost: IT=60,700 Shared=5,800 Finance=7,700 HR=9,500 Sales=6,000 Operations=4,900 (calculated from table)
-// Purchase Year: 2016:1, 2017:2, 2018:3, 2019:3, 2020:3, 2021:3, 2022:3, 2023:2
-
-new Chart(document.getElementById('c1'),{type:'doughnut',data:{labels:['Good 11 (55%)','Needs Replacement 9 (45%)'],datasets:[{data:[11,9],backgroundColor:['#16a34a','#ea580c']}]},options:{plugins:{legend:{position:'right'}}}});
-
-new Chart(document.getElementById('c2'),{type:'bar',data:{labels:['IT','Shared','Finance','HR','Sales','Operations'],datasets:[{label:'Number of Assets',data:[11,3,2,2,1,1],backgroundColor:'#1a56db'}]},options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{title:{display:true,text:'Number of Assets'}},y:{title:{display:true,text:'Department'}}}}});
-
-new Chart(document.getElementById('c3'),{type:'bar',data:{labels:['0-1yr','1-3yr','3-5yr','5-7yr','7+yr'],datasets:[{label:'Number of Assets',data:[0,5,6,6,3],backgroundColor:'#1a56db'}]},options:{plugins:{legend:{display:false}},scales:{y:{title:{display:true,text:'Number of Assets'},beginAtZero:true},x:{title:{display:true,text:'Age (Years)'}}}}});
-
-new Chart(document.getElementById('c4'),{type:'bar',data:{labels:['IT','Shared','Finance','HR','Sales','Operations'],datasets:[{label:'Cost (Rand)',data:[60700,5800,7700,9500,6000,4900],backgroundColor:'#1a56db'}]},options:{plugins:{legend:{display:false}},scales:{y:{title:{display:true,text:'Cost (Rand)'}},x:{title:{display:true,text:'Department'}}}}});
-
-new Chart(document.getElementById('c5'),{type:'line',data:{labels:['2016','2017','2018','2019','2020','2021','2022','2023'],datasets:[{label:'Number of Assets',data:[1,2,3,3,3,3,3,2],borderColor:'#0a1931',backgroundColor:'#0a1931',tension:0.2,fill:false}]},options:{scales:{y:{title:{display:true,text:'Number of Assets'},beginAtZero:true},x:{title:{display:true,text:'Purchase Year'}}}}});
-</script>
-</body>
-</html>
   <!-- ===== FINAL MOBILE SCROLLABLE + FULL DETAILS ===== -->
 <div style="margin:24px 0; background:#ffffff; border:1px solid #e2e8f0; border-radius:16px; box-shadow:0 4px 12px rgba(15,31,74,0.06); overflow:hidden; font-family:Inter,Segoe UI,system-ui,sans-serif; max-width:100%; box-sizing:border-box;">
   
