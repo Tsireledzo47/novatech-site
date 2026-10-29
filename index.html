@@ -333,123 +333,78 @@ function copyTemplate(id, btn) {
 <tr><td>AST-020</td><td>CCTV Hikvision Kit</td><td>Operations</td><td>2016</td><td>2019-04-15</td><td>Needs Replacement</td><td>Security</td><td class="age"></td><td class="replace"></td><td class="calc" data-qty="1" data-unit="4900"></td></tr>
 </tbody><tfoot><tr style="background:#eef2ff;font-weight:900"><td colspan="9">TOTAL ASSET BALANCE — 20 Assets Completed — R97,900</td><td id="assetTotal">R0</td></tr></tfoot></table></div>
 </table></div>
-<!-- DASHBOARD FOR ASSET REGISTER - FINAL FIXED -->
-<div style="background:#e5e7eb; padding:15px; border-radius:12px;">
-  <h3 style="text-align:center; margin-bottom:5px;">DASHBOARD FOR ASSET REGISTER</h3>
-  <p style="text-align:center; font-size:12px; color:#555; margin-bottom:15px;">Visual summary of 20 assets - Total R97,900 - Shows what is Good (55%) vs Needs Replacement (45%)</p>
-  
-  <!-- TOP KPI -->
-  <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:10px; margin-bottom:15px;">
-    <div style="background:white; padding:10px; border-radius:8px; border-left:4px solid #3b82f6;"><small>Total Assets</small><h2 style="margin:0;">20</h2><small>Registered assets</small></div>
-    <div style="background:white; padding:10px; border-radius:8px; border-left:4px solid #10b981;"><small>Total Value</small><h2 style="margin:0;">R97,900</h2><small>Combined asset value</small></div>
-    <div style="background:white; padding:10px; border-radius:8px; border-left:4px solid #22c55e;"><small>Good</small><h2 style="margin:0;">11</h2><small>(55%) - Operational</small></div>
-    <div style="background:white; padding:10px; border-radius:8px; border-left:4px solid #ef4444;"><small>Needs Replacement</small><h2 style="margin:0;">9</h2><small>(45%) - Action required</small></div>
-  </div>
+<!-- DASHBOARD FOR ASSET REGISTER - WITH EARTH VIDEO ONLY HERE -->
+<div class="dashboard-video-wrapper">
+  <video autoplay muted loop playsinline class="dashboard-bg-video">
+    <source src="earth.mp4" type="video/mp4">
+  </video>
+  <div class="dashboard-content">
+    <div style="background:rgba(229,231,235,0.88); padding:15px; border-radius:12px;">
+      <h3 style="text-align:center; margin-bottom:5px;">DASHBOARD FOR ASSET REGISTER</h3>
+      <p style="text-align:center; font-size:12px; color:#333; margin-bottom:15px;">Visual summary of 20 assets - Total R97,900 - Shows what is Good (55%) vs Needs Replacement (45%)</p>
+      
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:10px; margin-bottom:15px;">
+        <div style="background:rgba(255,255,255,0.90); padding:10px; border-radius:8px; border-left:4px solid #3b82f6;"><small>Total Assets</small><h2 style="margin:0;">20</h2><small>Registered assets</small></div>
+        <div style="background:rgba(255,255,255,0.90); padding:10px; border-radius:8px; border-left:4px solid #10b981;"><small>Total Value</small><h2 style="margin:0;">R97,900</h2><small>Combined asset value</small></div>
+        <div style="background:rgba(255,255,255,0.90); padding:10px; border-radius:8px; border-left:4px solid #22c55e;"><small>Good</small><h2 style="margin:0;">11</h2><small>(55%) - Operational</small></div>
+        <div style="background:rgba(255,255,255,0.90); padding:10px; border-radius:8px; border-left:4px solid #ef4444;"><small>Needs Replacement</small><h2 style="margin:0;">9</h2><small>(45%) - Action required</small></div>
+      </div>
 
-  <!-- CHARTS ROW 1 -->
-  <div style="display:grid; grid-template-columns:1fr 2fr 1fr; gap:10px; margin-bottom:15px;">
-    <!-- Replacement Status -->
-    <div style="background:white; padding:10px; border-radius:8px;">
-      <strong>Replacement Status</strong><br><small>Doughnut chart</small>
-      <canvas id="chartDoughnut"></canvas>
-    </div>
-    <!-- Department Assets -->
-    <div style="background:white; padding:10px; border-radius:8px;">
-      <strong>Asset Count by Department</strong><br><small>Horizontal bar chart</small>
-      <canvas id="chartDept"></canvas>
-    </div>
-    <!-- Age Distribution -->
-    <div style="background:white; padding:10px; border-radius:8px;">
-      <strong>Age Distribution</strong><br><small>Vertical bar chart</small>
-      <canvas id="chartAge"></canvas>
-    </div>
-  </div>
+      <div style="display:grid; grid-template-columns:1fr 2fr 1fr; gap:10px; margin-bottom:15px;">
+        <div style="background:rgba(255,255,255,0.90); padding:10px; border-radius:8px;">
+          <strong>Replacement Status</strong><br><small>Doughnut chart</small>
+          <canvas id="chartDoughnut"></canvas>
+        </div>
+        <div style="background:rgba(255,255,255,0.90); padding:10px; border-radius:8px;">
+          <strong>Asset Count by Department</strong><br><small>Horizontal bar chart</small>
+          <canvas id="chartDept"></canvas>
+        </div>
+        <div style="background:rgba(255,255,255,0.90); padding:10px; border-radius:8px;">
+          <strong>Age Distribution</strong><br><small>Vertical bar chart</small>
+          <canvas id="chartAge"></canvas>
+        </div>
+      </div>
 
-  <!-- CHARTS ROW 2 -->
-  <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
-    <div style="background:white; padding:10px; border-radius:8px;">
-      <strong>Total Cost by Department</strong><br><small>Cost in Rands</small>
-      <canvas id="chartCost"></canvas>
-    </div>
-    <div style="background:white; padding:10px; border-radius:8px;">
-      <strong>Purchase Year Trend</strong><br><small>Number of Assets by Purchase Year</small>
-      <canvas id="chartYear"></canvas>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+        <div style="background:rgba(255,255,255,0.90); padding:10px; border-radius:8px;">
+          <strong>Total Cost by Department</strong><br><small>Cost in Rands</small>
+          <canvas id="chartCost"></canvas>
+        </div>
+        <div style="background:rgba(255,255,255,0.90); padding:10px; border-radius:8px;">
+          <strong>Purchase Year Trend</strong><br><small>Number of Assets by Purchase Year</small>
+          <canvas id="chartYear"></canvas>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-// 1. DOUGHNUT - 55% / 45%
 new Chart(document.getElementById('chartDoughnut'), {
   type: 'doughnut',
-  data: {
-    labels: ['Good - 11 (55%)', 'Needs Replacement - 9 (45%)'],
-    datasets: [{ data: [11, 9], backgroundColor: ['#22c55e', '#ef4444'] }]
-  },
+  data: { labels: ['Good - 11 (55%)', 'Needs Replacement - 9 (45%)'], datasets: [{ data: [11, 9], backgroundColor: ['#22c55e', '#ef4444'] }] },
   options: { plugins: { legend: { position: 'right' } } }
 });
-
-// 2. DEPARTMENT ASSETS - Y left = Department, X bottom = Number of Assets, Zero in corner
 new Chart(document.getElementById('chartDept'), {
   type: 'bar',
-  data: {
-    labels: ['IT', 'Shared service', 'Finance', 'HR', 'Sales', 'Operations'],
-    datasets: [{ label: 'Number of Assets', data: [11, 3, 2, 2, 1, 1], backgroundColor: '#2563eb' }]
-  },
-  options: {
-    indexAxis: 'y',
-    scales: {
-      x: { beginAtZero: true, min: 0, max: 12, title: { display: true, text: 'Number of Assets' }, position: 'bottom' },
-      y: { title: { display: true, text: 'Department' }, position: 'left' }
-    }
-  }
+  data: { labels: ['IT', 'Shared service', 'Finance', 'HR', 'Sales', 'Operations'], datasets: [{ label: 'Number of Assets', data: [11, 3, 2, 2, 1, 1], backgroundColor: '#2563eb' }] },
+  options: { indexAxis: 'y', scales: { x: { beginAtZero: true, min: 0, max: 12, title: { display: true, text: 'Number of Assets' } }, y: { title: { display: true, text: 'Department' } } } }
 });
-
-// 3. AGE DISTRIBUTION - Y left = Number of Assets, X bottom = Age, Zero in corner
 new Chart(document.getElementById('chartAge'), {
   type: 'bar',
-  data: {
-    labels: ['0-1yr', '1-3yr', '3-5yr', '5-7yr', '7+yr'],
-    datasets: [{ label: 'Assets', data: [1, 2, 6, 5, 6], backgroundColor: '#2563eb' }]
-  },
-  options: {
-    scales: {
-      x: { title: { display: true, text: 'Age (Years)' }, position: 'bottom' },
-      y: { beginAtZero: true, min: 0, max: 6, title: { display: true, text: 'Number of Assets' }, position: 'left' }
-    }
-  }
+  data: { labels: ['0-1yr', '1-3yr', '3-5yr', '5-7yr', '7+yr'], datasets: [{ label: 'Assets', data: [1, 2, 6, 5, 6], backgroundColor: '#2563eb' }] },
+  options: { scales: { x: { title: { display: true, text: 'Age (Years)' } }, y: { beginAtZero: true, min: 0, max: 6, title: { display: true, text: 'Number of Assets' } } } }
 });
-
-// 4. TOTAL COST - Y left = Cost, X bottom = Department, Zero in corner - FIXED LABELS
 new Chart(document.getElementById('chartCost'), {
   type: 'bar',
-  data: {
-    labels: ['IT', 'Shared service', 'Finance', 'HR', 'Sales', 'Operations'],
-    datasets: [{ label: 'Cost (Rand)', data: [64000, 5800, 7700, 9500, 6000, 4900], backgroundColor: '#2563eb' }]
-  },
-  options: {
-    scales: {
-      x: { title: { display: true, text: 'Department' }, position: 'bottom' },
-      y: { beginAtZero: true, min: 0, title: { display: true, text: 'Cost (Rand)' }, position: 'left' }
-    },
-    plugins: { tooltip: { callbacks: { label: (c) => 'R' + c.raw.toLocaleString() } } }
-  }
+  data: { labels: ['IT', 'Shared service', 'Finance', 'HR', 'Sales', 'Operations'], datasets: [{ label: 'Cost (Rand)', data: [64000, 5800, 7700, 9500, 6000, 4900], backgroundColor: '#2563eb' }] },
+  options: { scales: { x: { title: { display: true, text: 'Department' } }, y: { beginAtZero: true, min: 0, title: { display: true, text: 'Cost (Rand)' } } }, plugins: { tooltip: { callbacks: { label: (c) => 'R' + c.raw.toLocaleString() } } } }
 });
-
-// 5. PURCHASE YEAR TREND - Y left = Number, X bottom = Year, Zero in corner, dot ON year
 new Chart(document.getElementById('chartYear'), {
   type: 'line',
-  data: {
-    labels: ['2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023'],
-    datasets: [{ label: 'Number of Assets', data: [1, 2, 3, 4, 3, 3, 3, 1], borderColor: '#111827', backgroundColor: '#111827', tension: 0, pointRadius: 5 }]
-  },
-  options: {
-    scales: {
-      x: { title: { display: true, text: 'Purchase Year' }, position: 'bottom' },
-      y: { beginAtZero: true, min: 0, max: 5, title: { display: true, text: 'Number of Assets' }, position: 'left', ticks: { stepSize: 1 } }
-    }
-  }
+  data: { labels: ['2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023'], datasets: [{ label: 'Number of Assets', data: [1, 2, 3, 4, 3, 3, 3, 1], borderColor: '#111827', backgroundColor: '#111827', tension: 0, pointRadius: 5 }] },
+  options: { scales: { x: { title: { display: true, text: 'Purchase Year' } }, y: { beginAtZero: true, min: 0, max: 5, title: { display: true, text: 'Number of Assets' }, ticks: { stepSize: 1 } } } }
 });
 </script>
   <!-- ===== FINAL MOBILE SCROLLABLE + FULL DETAILS ===== -->
