@@ -4,3 +4,9 @@ body{
 .title {
 	color: #5C6AC4;
 }
+/* ONLY for Asset Dashboard - keeps globe */
+.dashboard h3, .dashboard .chart-title, .asset-card h3 {
+  font-weight: 900 !important;
+  color: black !important;
+  text-shadow: 1px 1px 0 white !important;
+}
