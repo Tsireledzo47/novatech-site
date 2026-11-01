@@ -19,3 +19,11 @@ p, span, small, label, li, div {
 .chart-card, .dashboard-card {
   background: rgba(255, 255, 255, 0.90) !important;
 }
+/* BOTTOM 3 SECTIONS = WHITE BACKGROUND */
+#about, #mission, #escalation,
+.about-us, .our-mission, .escalation-flow {
+  background-color: white !important;
+  background: white !important;
+  padding: 25px;
+  border-radius: 10px;
+}
